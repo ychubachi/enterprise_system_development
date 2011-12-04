@@ -13,6 +13,7 @@ Contents:
 
 こんにちは
 ありがとう
+さようなら
 
 Indices and tables
 ==================
