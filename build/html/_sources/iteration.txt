@@ -9,10 +9,19 @@
 Create a scaffold project
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 * GitHubにプロジェクトを作成する
-* RailsでScaffoldを生成する
+* RailsでScaffoldを生成する::
 
-::
-  git init && git add . && git commit -a -m 'Initial commit'
+  $ rails new myapp
+  $ cd myapp
+  $ rails generate scaffold
+
+* gitでlocalレポジトリを作成する::
+
+  $ git init && git add . && git commit -a -m 'Initial commit'
+
+* GitHubにレポジトリをpushする::
+
+  $ git ...
 
 Deploy products
 ~~~~~~~~~~~~~~~
