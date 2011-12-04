@@ -3,13 +3,16 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Enterprise System Development's documentation!
-=========================================================
+基幹システム開発特論
+====================
 
 Contents:
 
 .. toctree::
+   :numbered:
    :maxdepth: 2
+
+   overview
 
 こんにちは
 ありがとう
