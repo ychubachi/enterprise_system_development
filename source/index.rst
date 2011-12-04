@@ -15,7 +15,3 @@ Contents:
    overview
    rails
    iteration
-
-こんにちは
-ありがとう
-さようなら
