@@ -104,6 +104,15 @@ SSH接続で使う公開鍵/非公開鍵のペアを作成します．演習で�
   $ ssh-keygen
   $ ls ~/.ssh
 
+- 公開鍵をauthorized_keysに登録します
+
+  $ cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+  $ chmod 600 ~/.ssh/authorized_keys
+
+- 公開鍵でログインできるか確かめます
+
+  $ ssh localhost
+
 Ruby on Rails
 -------------
 
