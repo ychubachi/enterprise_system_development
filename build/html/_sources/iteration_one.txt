@@ -18,15 +18,22 @@ Create a scaffold project
   $ cd myapp
   $ rails generate scaffold
 
-デプロイ用の設定を行う
+テストサーバで実行する
 ~~~~~~~~~~~~~~~~~~~~~~
-  $ capify .
-  $ emacs config/deploy.rb &
-
 * テストサーバで動作を確認する::
 
   $ cd myapp
   $ rails server
+
+* Ctrl-Cでサーバを停止する
+
+デプロイ用の設定を行う
+~~~~~~~~~~~~~~~~~~~~~~
+* capifyコマンドでデプロイのための設定を生成し，修正を行う::
+
+  $ capify .
+  $ emacs config/deploy.rb &
+
 
 ローカルレポジトリを作成する
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -46,9 +53,6 @@ Create a scaffold project
 
 Deploy products
 ---------------
-
-Capt..の設定を行う
-~~~~~~~~~~~~~~~~~~
 
 * ローカルApacheサーバにデプロイする::
 

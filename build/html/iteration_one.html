@@ -71,20 +71,29 @@ $ rails generate scaffold</pre>
 </ul>
 </div>
 <div class="section" id="id3">
-<h3>5.2.2. デプロイ用の設定を行う<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<blockquote>
-<div>$ capify .
-$ emacs config/deploy.rb &amp;</div></blockquote>
+<h3>5.2.2. テストサーバで実行する<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul>
 <li><p class="first">テストサーバで動作を確認する:</p>
 <div class="highlight-python"><pre>$ cd myapp
 $ rails server</pre>
 </div>
 </li>
+<li><p class="first">Ctrl-Cでサーバを停止する</p>
+</li>
 </ul>
 </div>
 <div class="section" id="id4">
-<h3>5.2.3. ローカルレポジトリを作成する<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>5.2.3. デプロイ用の設定を行う<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ul>
+<li><p class="first">capifyコマンドでデプロイのための設定を生成し，修正を行う:</p>
+<div class="highlight-python"><pre>$ capify .
+$ emacs config/deploy.rb &amp;</pre>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="id5">
+<h3>5.2.4. ローカルレポジトリを作成する<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul>
 <li><p class="first">gitでローカルレポジトリを作成し，Scaffoldをコミットする:</p>
 <div class="highlight-python"><pre>$ git init
@@ -94,8 +103,8 @@ $ git commit -a -m 'Initial commit'</pre>
 </li>
 </ul>
 </div>
-<div class="section" id="id5">
-<h3>5.2.4. リモートレポジトリを作成する<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="id6">
+<h3>5.2.5. リモートレポジトリを作成する<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul>
 <li><p class="first">GitHubにリモートレポジトリを作成する</p>
 </li>
@@ -108,8 +117,6 @@ $ git commit -a -m 'Initial commit'</pre>
 </div>
 <div class="section" id="deploy-products">
 <h2>5.3. Deploy products<a class="headerlink" href="#deploy-products" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<div class="section" id="capt">
-<h3>5.3.1. Capt..の設定を行う<a class="headerlink" href="#capt" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul>
 <li><p class="first">ローカルApacheサーバにデプロイする:</p>
 <div class="highlight-python"><pre>$ cap deploy</pre>
@@ -119,18 +126,17 @@ $ git commit -a -m 'Initial commit'</pre>
 </li>
 </ul>
 </div>
-</div>
 <div class="section" id="write-test-codes">
 <h2>5.4. Write/Test codes<a class="headerlink" href="#write-test-codes" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<div class="section" id="id6">
-<h3>5.4.1. テストコードを作成する<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="id7">
+<h3>5.4.1. テストコードを作成する<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul class="simple">
 <li>テストコードを作成する</li>
 <li>テストを実行する</li>
 </ul>
 </div>
-<div class="section" id="id7">
-<h3>5.4.2. コードを作成する<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="id8">
+<h3>5.4.2. コードを作成する<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul class="simple">
 <li>コードを作成する</li>
 <li>テストを実行する</li>
@@ -151,18 +157,16 @@ $ git commit -a -m 'Initial commit'</pre>
 <li><a class="reference internal" href="#id2">5.1. イテレーションサイクルの全体像</a></li>
 <li><a class="reference internal" href="#create-a-scaffold-project">5.2. Create a scaffold project</a><ul>
 <li><a class="reference internal" href="#scaffold">5.2.1. ローカルレポジトリにScaffoldを作成する</a></li>
-<li><a class="reference internal" href="#id3">5.2.2. デプロイ用の設定を行う</a></li>
-<li><a class="reference internal" href="#id4">5.2.3. ローカルレポジトリを作成する</a></li>
-<li><a class="reference internal" href="#id5">5.2.4. リモートレポジトリを作成する</a></li>
+<li><a class="reference internal" href="#id3">5.2.2. テストサーバで実行する</a></li>
+<li><a class="reference internal" href="#id4">5.2.3. デプロイ用の設定を行う</a></li>
+<li><a class="reference internal" href="#id5">5.2.4. ローカルレポジトリを作成する</a></li>
+<li><a class="reference internal" href="#id6">5.2.5. リモートレポジトリを作成する</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#deploy-products">5.3. Deploy products</a><ul>
-<li><a class="reference internal" href="#capt">5.3.1. Capt..の設定を行う</a></li>
-</ul>
-</li>
+<li><a class="reference internal" href="#deploy-products">5.3. Deploy products</a></li>
 <li><a class="reference internal" href="#write-test-codes">5.4. Write/Test codes</a><ul>
-<li><a class="reference internal" href="#id6">5.4.1. テストコードを作成する</a></li>
-<li><a class="reference internal" href="#id7">5.4.2. コードを作成する</a></li>
+<li><a class="reference internal" href="#id7">5.4.1. テストコードを作成する</a></li>
+<li><a class="reference internal" href="#id8">5.4.2. コードを作成する</a></li>
 </ul>
 </li>
 </ul>
