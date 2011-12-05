@@ -7,7 +7,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>7. メモ &mdash; 基幹システム開発特論</title>
+    <title>8. メモ &mdash; 基幹システム開発特論</title>
     
     <link rel="stylesheet" href="_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -26,7 +26,7 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/translations.js"></script>
     <link rel="top" title="基幹システム開発特論" href="index.html" />
-    <link rel="prev" title="6. ワークステーション/サーバ共通" href="both.html" /> 
+    <link rel="prev" title="7. チームでまわすイテレーション" href="iteration_github.html" /> 
   </head>
   <body>
     <div class="related">
@@ -36,7 +36,7 @@
           <a href="genindex.html" title="総合索引"
              accesskey="I">索引</a></li>
         <li class="right" >
-          <a href="both.html" title="6. ワークステーション/サーバ共通"
+          <a href="iteration_github.html" title="7. チームでまわすイテレーション"
              accesskey="P">前へ</a> |</li>
         <li><a href="index.html">基幹システム開発特論</a> &raquo;</li> 
       </ul>
@@ -48,7 +48,7 @@
           <div class="body">
             
   <div class="section" id="id1">
-<h1>7. メモ<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h1>8. メモ<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p>推奨する環境</p>
 <p>!!開発用OS
 * Windows/Mac
@@ -74,6 +74,20 @@
 * サーバ構築</p>
 <p>・インフラストラクチャ
 ・デベロッパー</p>
+<div class="section" id="rpmforge">
+<h2>8.1. RPMForgeの導入<a class="headerlink" href="#rpmforge" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>標準にはない追加的なパッケージを利用できるようにします</p>
+<ul>
+<li><p class="first">ユーザアカウントでログインする</p>
+</li>
+<li><p class="first"><a class="reference external" href="http://wiki.centos.org/AdditionalResources/Repositories/RPMForge#head-f0c3ecee3dbb407e4eed79a56ec0ae92d1398e01">RPMForge</a> のパッケージを取得してインストールする:</p>
+<div class="highlight-python"><pre>$ wget http://packages.sw.be/rpmforge-release/rpmforge-release-0.5.2-2.el6.rf.i686.rpm
+$ sudo rpm --import http://apt.sw.be/RPM-GPG-KEY.dag.txt
+$ sudo rpm -K rpmforge-release-0.5.2-2.el6.rf.*.rpm</pre>
+</div>
+</li>
+</ul>
+</div>
 </div>
 
 
@@ -82,9 +96,17 @@
       </div>
       <div class="sphinxsidebar">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">目次</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">8. メモ</a><ul>
+<li><a class="reference internal" href="#rpmforge">8.1. RPMForgeの導入</a></li>
+</ul>
+</li>
+</ul>
+
   <h4>前のトピックへ</h4>
-  <p class="topless"><a href="both.html"
-                        title="前の章へ">6. ワークステーション/サーバ共通</a></p>
+  <p class="topless"><a href="iteration_github.html"
+                        title="前の章へ">7. チームでまわすイテレーション</a></p>
   <h3>このページ</h3>
   <ul class="this-page-menu">
     <li><a href="_sources/memo.txt"
@@ -114,7 +136,7 @@
           <a href="genindex.html" title="総合索引"
              >索引</a></li>
         <li class="right" >
-          <a href="both.html" title="6. ワークステーション/サーバ共通"
+          <a href="iteration_github.html" title="7. チームでまわすイテレーション"
              >前へ</a> |</li>
         <li><a href="index.html">基幹システム開発特論</a> &raquo;</li> 
       </ul>

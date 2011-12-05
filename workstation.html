@@ -7,7 +7,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>4. ワークステーション &mdash; 基幹システム開発特論</title>
+    <title>4. ワークステーションを準備する &mdash; 基幹システム開発特論</title>
     
     <link rel="stylesheet" href="_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -26,8 +26,8 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/translations.js"></script>
     <link rel="top" title="基幹システム開発特論" href="index.html" />
-    <link rel="next" title="5. サーバ構築" href="server.html" />
-    <link rel="prev" title="3. Ruby on Railsを用いた開発環境" href="rails.html" /> 
+    <link rel="next" title="5. 一人でまわすイテレーション" href="iteration_one.html" />
+    <link rel="prev" title="1. 概要" href="overview.html" /> 
   </head>
   <body>
     <div class="related">
@@ -37,10 +37,10 @@
           <a href="genindex.html" title="総合索引"
              accesskey="I">索引</a></li>
         <li class="right" >
-          <a href="server.html" title="5. サーバ構築"
+          <a href="iteration_one.html" title="5. 一人でまわすイテレーション"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
-          <a href="rails.html" title="3. Ruby on Railsを用いた開発環境"
+          <a href="overview.html" title="1. 概要"
              accesskey="P">前へ</a> |</li>
         <li><a href="index.html">基幹システム開発特論</a> &raquo;</li> 
       </ul>
@@ -52,7 +52,7 @@
           <div class="body">
             
   <div class="section" id="id1">
-<h1>4. ワークステーション<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h1>4. ワークステーションを準備する<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="section" id="id2">
 <h2>4.1. ワークステーションとは<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
@@ -62,23 +62,33 @@
 <li>ローカルのテスト用サーバを使ってテストを行う</li>
 </ul>
 </div>
-<div class="section" id="operation-system">
-<h2>4.2. Operation System<a class="headerlink" href="#operation-system" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id3">
+<h2>4.2. 全体構成<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
+<li>OS<ul>
 <li>Windows（またはMacOS）</li>
+</ul>
+</li>
 <li>仮想化<ul>
 <li>Windowsの場合， <a class="reference external" href="http://www.vmware.com/products/player/">VMWare Player</a> を用いて <a class="reference external" href="http://wiki.centos.org/Manuals/ReleaseNotes/CentOS6.0">CentOS 6.0</a> をインストールする</li>
 </ul>
 </li>
 <li>IDE(統合開発環境)<ul>
 <li><a class="reference external" href="http://www.gnu.org/s/emacs/">GNU Emacs</a></li>
-<li><a class="reference external" href="http://www.eclipse.org/downloads/packages/release/indigo/r">Eclipse Indigo</a></li>
+<li><a class="reference external" href="http://www.eclipse.org/downloads/packages/release/indigo/r">Eclipse Indigo</a> (オプショナル)</li>
+</ul>
+</li>
+<li>Ruby on Rails<ul>
+<li>Ruby 1.9.3</li>
+<li>Rails 3.1</li>
+<li>Capistrano</li>
+<li>Passenger</li>
 </ul>
 </li>
 </ul>
 </div>
-<div class="section" id="id3">
-<h2>4.3. 環境構築手順<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="os">
+<h2>4.3. 仮想OSのインストール<a class="headerlink" href="#os" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="id4">
 <h3>4.3.1. VMware Playerのインストール<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul class="simple">
@@ -101,7 +111,7 @@
 </div>
 </div>
 <div class="section" id="id6">
-<h2>4.4. 準備作業<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>4.4. アカウントの作成と設定<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul>
 <li><p class="first">rootでログインする</p>
 </li>
@@ -154,10 +164,35 @@ $ ls ~/.ssh</pre>
 </div>
 </li>
 </ul>
-<div class="section" id="id7">
-<h3>4.5.1. 完了したら<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p><a class="reference external" href="./both.html">共通手順</a> へ</p>
 </div>
+<div class="section" id="ruby-on-rails">
+<h2>4.6. Ruby on Rails<a class="headerlink" href="#ruby-on-rails" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>Rubyのインストール</li>
+<li>Railsのインストール</li>
+<li>Passengerのインストール</li>
+<li>ApacheにPassengerのモジュールをインストール<ul>
+<li>/etc/httpd/conf.dにrails.confをつくる</li>
+</ul>
+</li>
+<li>Cap</li>
+</ul>
+</div>
+<div class="section" id="git">
+<h2>4.7. Git<a class="headerlink" href="#git" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>gitのインストール</li>
+</ul>
+</div>
+<div class="section" id="github">
+<h2>4.8. GitHub<a class="headerlink" href="#github" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>GitHubにアカウントを作成する<ul>
+<li>アカウント名とメールアドレスは大学のものと同じにしてください</li>
+<li>登録ができたら，管理画面でSSHの公開鍵を登録します．</li>
+</ul>
+</li>
+</ul>
 </div>
 </div>
 
@@ -169,29 +204,29 @@ $ ls ~/.ssh</pre>
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">目次</a></h3>
   <ul>
-<li><a class="reference internal" href="#">4. ワークステーション</a><ul>
+<li><a class="reference internal" href="#">4. ワークステーションを準備する</a><ul>
 <li><a class="reference internal" href="#id2">4.1. ワークステーションとは</a></li>
-<li><a class="reference internal" href="#operation-system">4.2. Operation System</a></li>
-<li><a class="reference internal" href="#id3">4.3. 環境構築手順</a><ul>
+<li><a class="reference internal" href="#id3">4.2. 全体構成</a></li>
+<li><a class="reference internal" href="#os">4.3. 仮想OSのインストール</a><ul>
 <li><a class="reference internal" href="#id4">4.3.1. VMware Playerのインストール</a></li>
 <li><a class="reference internal" href="#id5">4.3.2. CentOS 6.0のインストール</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id6">4.4. 準備作業</a></li>
-<li><a class="reference internal" href="#ssh">4.5. SSHのための公開鍵の作成</a><ul>
-<li><a class="reference internal" href="#id7">4.5.1. 完了したら</a></li>
-</ul>
-</li>
+<li><a class="reference internal" href="#id6">4.4. アカウントの作成と設定</a></li>
+<li><a class="reference internal" href="#ssh">4.5. SSHのための公開鍵の作成</a></li>
+<li><a class="reference internal" href="#ruby-on-rails">4.6. Ruby on Rails</a></li>
+<li><a class="reference internal" href="#git">4.7. Git</a></li>
+<li><a class="reference internal" href="#github">4.8. GitHub</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>前のトピックへ</h4>
-  <p class="topless"><a href="rails.html"
-                        title="前の章へ">3. Ruby on Railsを用いた開発環境</a></p>
+  <p class="topless"><a href="overview.html"
+                        title="前の章へ">1. 概要</a></p>
   <h4>次のトピックへ</h4>
-  <p class="topless"><a href="server.html"
-                        title="次の章へ">5. サーバ構築</a></p>
+  <p class="topless"><a href="iteration_one.html"
+                        title="次の章へ">5. 一人でまわすイテレーション</a></p>
   <h3>このページ</h3>
   <ul class="this-page-menu">
     <li><a href="_sources/workstation.txt"
@@ -221,10 +256,10 @@ $ ls ~/.ssh</pre>
           <a href="genindex.html" title="総合索引"
              >索引</a></li>
         <li class="right" >
-          <a href="server.html" title="5. サーバ構築"
+          <a href="iteration_one.html" title="5. 一人でまわすイテレーション"
              >次へ</a> |</li>
         <li class="right" >
-          <a href="rails.html" title="3. Ruby on Railsを用いた開発環境"
+          <a href="overview.html" title="1. 概要"
              >前へ</a> |</li>
         <li><a href="index.html">基幹システム開発特論</a> &raquo;</li> 
       </ul>
