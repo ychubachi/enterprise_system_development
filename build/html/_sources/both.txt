@@ -1,0 +1,11 @@
+ワークステーション/サーバ共通
+=============================
+
+RPMForgeの導入
+--------------
+標準にはない追加的なパッケージを利用できるようにします::
+
+  $ wget http://packages.sw.be/rpmforge-release/rpmforge-release-0.5.2-2.el5.rf.x86_64.rpm
+  $ sudo rpm --import http://apt.sw.be/RPM-GPG-KEY.dag.txt
+  $ sudo rpm -i rpmforge-release-0.5.2-2.el5.rf.*.rpm
+  $ yum search git

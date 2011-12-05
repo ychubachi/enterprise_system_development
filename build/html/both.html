@@ -7,7 +7,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>1. 概要 &mdash; 基幹システム開発特論</title>
+    <title>6. ワークステーション/サーバ共通 &mdash; 基幹システム開発特論</title>
     
     <link rel="stylesheet" href="_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -26,8 +26,8 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/translations.js"></script>
     <link rel="top" title="基幹システム開発特論" href="index.html" />
-    <link rel="next" title="2. Ruby on Railsを用いた開発環境" href="rails.html" />
-    <link rel="prev" title="基幹システム開発特論" href="index.html" /> 
+    <link rel="next" title="7. メモ" href="memo.html" />
+    <link rel="prev" title="5. サーバ構築" href="server.html" /> 
   </head>
   <body>
     <div class="related">
@@ -37,10 +37,10 @@
           <a href="genindex.html" title="総合索引"
              accesskey="I">索引</a></li>
         <li class="right" >
-          <a href="rails.html" title="2. Ruby on Railsを用いた開発環境"
+          <a href="memo.html" title="7. メモ"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
-          <a href="index.html" title="基幹システム開発特論"
+          <a href="server.html" title="5. サーバ構築"
              accesskey="P">前へ</a> |</li>
         <li><a href="index.html">基幹システム開発特論</a> &raquo;</li> 
       </ul>
@@ -52,25 +52,15 @@
           <div class="body">
             
   <div class="section" id="id1">
-<h1>1. 概要<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<div class="section" id="id2">
-<h2>1.1. 授業の目標<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li>少人数のチームで，イテレーションサイクルを回すことができるようになる．</li>
-</ul>
+<h1>6. ワークステーション/サーバ共通<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="rpmforge">
+<h2>6.1. RPMForgeの導入<a class="headerlink" href="#rpmforge" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>標準にはない追加的なパッケージを利用できるようにします:</p>
+<div class="highlight-python"><pre>$ wget http://packages.sw.be/rpmforge-release/rpmforge-release-0.5.2-2.el5.rf.x86_64.rpm
+$ sudo rpm --import http://apt.sw.be/RPM-GPG-KEY.dag.txt
+$ sudo rpm -i rpmforge-release-0.5.2-2.el5.rf.*.rpm
+$ yum search git</pre>
 </div>
-<div class="section" id="id3">
-<h2>1.2. 授業の日程<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ol class="arabic simple">
-<li>12/8</li>
-<li>12/15</li>
-<li>12/22</li>
-<li>1/12</li>
-<li>1/19</li>
-<li>1/26</li>
-<li>2/2</li>
-<li>2/9</li>
-</ol>
 </div>
 </div>
 
@@ -82,22 +72,21 @@
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">目次</a></h3>
   <ul>
-<li><a class="reference internal" href="#">1. 概要</a><ul>
-<li><a class="reference internal" href="#id2">1.1. 授業の目標</a></li>
-<li><a class="reference internal" href="#id3">1.2. 授業の日程</a></li>
+<li><a class="reference internal" href="#">6. ワークステーション/サーバ共通</a><ul>
+<li><a class="reference internal" href="#rpmforge">6.1. RPMForgeの導入</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>前のトピックへ</h4>
-  <p class="topless"><a href="index.html"
-                        title="前の章へ">基幹システム開発特論</a></p>
+  <p class="topless"><a href="server.html"
+                        title="前の章へ">5. サーバ構築</a></p>
   <h4>次のトピックへ</h4>
-  <p class="topless"><a href="rails.html"
-                        title="次の章へ">2. Ruby on Railsを用いた開発環境</a></p>
+  <p class="topless"><a href="memo.html"
+                        title="次の章へ">7. メモ</a></p>
   <h3>このページ</h3>
   <ul class="this-page-menu">
-    <li><a href="_sources/overview.txt"
+    <li><a href="_sources/both.txt"
            rel="nofollow">ソースコードを表示</a></li>
   </ul>
 <div id="searchbox" style="display: none">
@@ -124,10 +113,10 @@
           <a href="genindex.html" title="総合索引"
              >索引</a></li>
         <li class="right" >
-          <a href="rails.html" title="2. Ruby on Railsを用いた開発環境"
+          <a href="memo.html" title="7. メモ"
              >次へ</a> |</li>
         <li class="right" >
-          <a href="index.html" title="基幹システム開発特論"
+          <a href="server.html" title="5. サーバ構築"
              >前へ</a> |</li>
         <li><a href="index.html">基幹システム開発特論</a> &raquo;</li> 
       </ul>

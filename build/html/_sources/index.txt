@@ -13,6 +13,9 @@ Contents:
    :maxdepth: 2
 
    overview
-   rails
    iteration
+   rails
+   workstation
+   server
+   both
    memo
