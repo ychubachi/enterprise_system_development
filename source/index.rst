@@ -6,7 +6,7 @@
 基幹システム開発特論
 ====================
 
-Contents:
+目次
 
 .. toctree::
    :numbered:
@@ -16,5 +16,9 @@ Contents:
    workstation
    iteration_one
    server
-   iteration_github
+   iteration_team
    memo
+
+---
+
+`GitHub Page <http://ychubachi.github.com/enterprise_system_development/index.html>`_ 

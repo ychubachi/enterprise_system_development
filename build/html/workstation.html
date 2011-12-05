@@ -120,14 +120,9 @@
 </pre></div>
 </div>
 </li>
-<li><p class="first">自分のユーザアカウントを作成し，パスワードを設定する:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="c"># useradd username</span>
+<li><p class="first">自分のユーザアカウント(例：username）を作成し，パスワードを設定する:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># useradd username -G wheel</span>
 <span class="c"># passwd username</span>
-</pre></div>
-</div>
-</li>
-<li><p class="first">ユーザアカウントをwheelグループに追加する:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="c"># vigr</span>
 </pre></div>
 </div>
 </li>
@@ -163,41 +158,76 @@ $ sudo cat /etc/shadow</pre>
 $ ls ~/.ssh</pre>
 </div>
 </li>
-<li><p class="first">公開鍵をauthorized_keysに登録します</p>
-<p>$ cat ~/.ssh/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys
-$ chmod 600 ~/.ssh/authorized_keys</p>
+<li><p class="first">公開鍵をauthorized_keysに登録する:</p>
+<div class="highlight-python"><pre>$ cat ~/.ssh/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys
+$ chmod 600 ~/.ssh/authorized_keys</pre>
+</div>
 </li>
-<li><p class="first">公開鍵でログインできるか確かめます</p>
-<p>$ ssh localhost</p>
+<li><p class="first">公開鍵でログインできるか確かめる:</p>
+<div class="highlight-python"><pre>$ ssh localhost
+$ exit</pre>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="git">
+<h2>4.6. Git<a class="headerlink" href="#git" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul>
+<li><p class="first">gitのインストール:</p>
+<div class="highlight-python"><pre>$ sudo yum install git</pre>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="github">
+<h2>4.7. GitHub<a class="headerlink" href="#github" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>GitHubにアカウントを作成する<ul>
+<li>アカウント名とメールアドレスは大学のものと同じにしてください</li>
+<li>登録ができたら，管理画面でSSHの公開鍵を登録してください</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="rails">
+<h2>4.8. railsユーザアカウントを作成する<a class="headerlink" href="#rails" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Railsのアプリケーションをデプロイする場所として，railsアカウントを作成してそのhomeを利用する．このhomeは，6770の設定をし，railsグループに所属するユーザからの参照・更新を許可する．</p>
+<ul>
+<li><p class="first">railsユーザアカウントの設定:</p>
+<div class="highlight-python"><pre>$ sudo /usr/sbin/useradd rails
+$ sudo chmod 6770 /home/rails/</pre>
+</div>
+</li>
+<li><p class="first">railsグループに，自分のユーザアカウントとapacheアカウントを追加する:</p>
+<div class="highlight-python"><pre>$ sudo /usr/sbin/vigr</pre>
+</div>
 </li>
 </ul>
 </div>
 <div class="section" id="ruby-on-rails">
-<h2>4.6. Ruby on Rails<a class="headerlink" href="#ruby-on-rails" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>4.9. Ruby on Rails<a class="headerlink" href="#ruby-on-rails" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul>
+<li><p class="first">Ruby 1.8.7のインストール:</p>
+<div class="highlight-python"><pre>$ sudo yum install ruby
+$ ruby -v</pre>
+</div>
+</li>
+<li><p class="first"><a class="reference external" href="http://rubyonrails.org/download">Rails 3.1</a> のインストール:</p>
+<div class="highlight-python"><pre>$ sudo gem installl rails
+$ rails -v</pre>
+</div>
+</li>
+<li><p class="first"><a class="reference external" href="http://www.modrails.com/install.html">Phusion Passenger</a> のインストール:</p>
+<div class="highlight-python"><pre>$ sudo gem install passenger
+$ sudo passenger-install-apache2-module</pre>
+</div>
 <ul class="simple">
-<li>Rubyのインストール</li>
-<li>Railsのインストール</li>
-<li>Passengerのインストール</li>
-<li>ApacheにPassengerのモジュールをインストール<ul>
-<li>/etc/httpd/conf.dにrails.confをつくる</li>
+<li>設定のサンプルが表示されるので，/etc/httpd/conf.d/以下にrails.confを作り，そこにコピーする</li>
 </ul>
 </li>
-<li>Cap</li>
-</ul>
+<li><p class="first"><a class="reference external" href="https://github.com/capistrano/capistrano#readme">Capistrano</a> のインストール:</p>
+<div class="highlight-python"><pre>$ sudo gem install capistrano</pre>
 </div>
-<div class="section" id="git">
-<h2>4.7. Git<a class="headerlink" href="#git" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li>gitのインストール</li>
-</ul>
-</div>
-<div class="section" id="github">
-<h2>4.8. GitHub<a class="headerlink" href="#github" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li>GitHubにアカウントを作成する<ul>
-<li>アカウント名とメールアドレスは大学のものと同じにしてください</li>
-<li>登録ができたら，管理画面でSSHの公開鍵を登録します．</li>
-</ul>
 </li>
 </ul>
 </div>
@@ -221,9 +251,10 @@ $ chmod 600 ~/.ssh/authorized_keys</p>
 </li>
 <li><a class="reference internal" href="#id6">4.4. アカウントの作成と設定</a></li>
 <li><a class="reference internal" href="#ssh">4.5. SSHのための公開鍵の作成</a></li>
-<li><a class="reference internal" href="#ruby-on-rails">4.6. Ruby on Rails</a></li>
-<li><a class="reference internal" href="#git">4.7. Git</a></li>
-<li><a class="reference internal" href="#github">4.8. GitHub</a></li>
+<li><a class="reference internal" href="#git">4.6. Git</a></li>
+<li><a class="reference internal" href="#github">4.7. GitHub</a></li>
+<li><a class="reference internal" href="#rails">4.8. railsユーザアカウントを作成する</a></li>
+<li><a class="reference internal" href="#ruby-on-rails">4.9. Ruby on Rails</a></li>
 </ul>
 </li>
 </ul>
