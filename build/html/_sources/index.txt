@@ -13,9 +13,8 @@ Contents:
    :maxdepth: 2
 
    overview
-   iteration
-   rails
    workstation
+   iteration_one
    server
-   both
+   iteration_github
    memo

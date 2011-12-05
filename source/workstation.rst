@@ -1,5 +1,5 @@
-ワークステーション
-==================
+ワークステーションを準備する
+============================
 
 ワークステーションとは
 ----------------------
@@ -9,10 +9,13 @@
 - サースコードの単体テスト（Unit Test）を行う
 - ローカルのテスト用サーバを使ってテストを行う
 
-Operation System
-----------------
+全体構成
+--------
 
-- Windows（またはMacOS）
+- OS
+
+  - Windows（またはMacOS）
+
 - 仮想化
 
   - Windowsの場合， `VMWare Player`_ を用いて `CentOS 6.0`_ をインストールする
@@ -20,15 +23,22 @@ Operation System
 - IDE(統合開発環境)
 
   - `GNU Emacs`_
-  - `Eclipse Indigo`_
+  - `Eclipse Indigo`_ (オプショナル)
+
+- Ruby on Rails
+
+  - Ruby 1.9.3
+  - Rails 3.1
+  - Capistrano
+  - Passenger
 
 .. _`VMWare Player`: http://www.vmware.com/products/player/
 .. _`CentOS 6.0`: http://wiki.centos.org/Manuals/ReleaseNotes/CentOS6.0
 .. _`GNU Emacs`: http://www.gnu.org/s/emacs/
 .. _`Eclipse Indigo`: http://www.eclipse.org/downloads/packages/release/indigo/r
 
-環境構築手順
-------------
+仮想OSのインストール
+--------------------
 
 VMware Playerのインストール
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -49,8 +59,9 @@ CentOS 6.0のインストール
 
   - http://freesoft.tvbok.com/freesoft/virtual/vmware_centos1.html （内容はCentOS 5なので注意）
 
-準備作業
---------
+アカウントの作成と設定
+----------------------
+
 - rootでログインする
 - OSをアップグレードする::
 
@@ -93,9 +104,36 @@ SSH接続で使う公開鍵/非公開鍵のペアを作成します．演習で�
   $ ssh-keygen
   $ ls ~/.ssh
 
-完了したら
-~~~~~~~~~~
+- 公開鍵をauthorized_keysに登録します
 
-`共通手順`_ へ
+  $ cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+  $ chmod 600 ~/.ssh/authorized_keys
 
-.. _`共通手順`: ./both.html
+- 公開鍵でログインできるか確かめます
+
+  $ ssh localhost
+
+Ruby on Rails
+-------------
+
+- Rubyのインストール
+- Railsのインストール
+- Passengerのインストール
+- ApacheにPassengerのモジュールをインストール
+
+  - /etc/httpd/conf.dにrails.confをつくる
+
+- Cap
+
+Git
+---
+
+- gitのインストール
+
+GitHub
+------
+
+* GitHubにアカウントを作成する
+
+  - アカウント名とメールアドレスは大学のものと同じにしてください
+  - 登録ができたら，管理画面でSSHの公開鍵を登録します．
