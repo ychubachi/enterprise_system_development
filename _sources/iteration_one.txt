@@ -45,6 +45,7 @@ Create a scaffold project
 * capifyコマンドでデプロイのための設定を生成し，修正を行う::
 
   $ capify .
+  $ emacs Capfile &
   $ emacs config/deploy.rb &
 
 * capコマンドでデプロイ先をsetupする::
