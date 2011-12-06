@@ -4,9 +4,15 @@
 * エッジにこだわる
 * ドキュメントは英語の原典を参照する
 * PHP（担当者に開発経験がないため非推奨）
+* チケットの粒度はできるだけ細かく
+* 英語のエラーメッセージ，ログなどをよく読もう
+* gitでこまったら，git statusで状況把握．
+* HTMLの画面をみんなで手分けして修正してみよう
+* Scaffoldの作り方
+* テストの方法
 
-RPMForgeの導入
---------------
+* RPMForgeの導入
+
 標準にはない追加的なパッケージを利用できるようにします
 
 - ユーザアカウントでログインする
@@ -20,5 +26,5 @@ RPMForgeの導入
 .. _`RPMForge`: http://wiki.centos.org/AdditionalResources/Repositories/RPMForge#head-f0c3ecee3dbb407e4eed79a56ec0ae92d1398e01
 
 ToDo
-----
+====
 .. todolist::
