@@ -27,17 +27,8 @@ Create a scaffold project
 
 * Ctrl-Cでサーバを停止する
 
-デプロイ用の設定を行う
-~~~~~~~~~~~~~~~~~~~~~~
-* capifyコマンドでデプロイのための設定を生成し，修正を行う::
-
-  $ capify .
-  $ emacs config/deploy.rb &
-
-
 ローカルレポジトリを作成する
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 * gitでローカルレポジトリを作成し，Scaffoldをコミットする::
 
   $ git init
@@ -47,15 +38,27 @@ Create a scaffold project
 リモートレポジトリを作成する
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 * GitHubにリモートレポジトリを作成する
-* リモートレポジトリにローカルレポジトリの内容をpushする::
+* GitHubの画面にローカルレポジトリをpushする方法の説明が表示されるので，それに従い，pushする
 
-  $ git push remote master
+デプロイ用の設定を行う
+~~~~~~~~~~~~~~~~~~~~~~
+* capifyコマンドでデプロイのための設定を生成し，修正を行う::
+
+  $ capify .
+  $ emacs config/deploy.rb &
+
+* capコマンドでデプロイ先をsetupする::
+
+  $ cap deploy:setup
+  $ ls /home/rails
 
 Deploy products
 ---------------
 
 * ローカルApacheサーバにデプロイする::
 
+  $ git add .
+  $ git commit -a -m 'Deploy'
   $ cap deploy
 
 * ローカルApacheサーバを確認する
