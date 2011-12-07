@@ -151,13 +151,25 @@ $ sudo cat /etc/shadow   # &lt;- check this will success</pre>
 </li>
 </ul>
 </div>
+<div class="section" id="id7">
+<h2>4.5. 日本語環境のインストール<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul>
+<li><p class="first">ユーザアカウントでログインする</p>
+</li>
+<li><p class="first">日本語パッケージをインストールする:</p>
+<div class="highlight-python"><pre>$ sudo yum -y groupinstall "Japanese Support"</pre>
+</div>
+<p>参考: <a class="reference external" href="http://www.server-world.info/query?os=CentOS_6&amp;p=japanese">http://www.server-world.info/query?os=CentOS_6&amp;p=japanese</a></p>
+</li>
+</ul>
+</div>
 <div class="section" id="ssh">
-<h2>4.5. SSHのための公開鍵の作成<a class="headerlink" href="#ssh" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>4.6. SSHのための公開鍵の作成<a class="headerlink" href="#ssh" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>SSH接続で使う公開鍵/非公開鍵のペアを作成します．演習で利用する重要なファイルですので，USBメモリなどにバックアップをとっておくことをおすすめします．</p>
 <ul>
 <li><p class="first">ユーザアカウントでログインする</p>
 </li>
-<li><p class="first">公開鍵を作成します（演習用なので，パスフレーズは入れなくてもかまわない）:</p>
+<li><p class="first">公開鍵を作成する（演習用なので，パスフレーズは入れなくてもかまわない）:</p>
 <div class="highlight-python"><pre>$ ssh-keygen
 $ ls ~/.ssh    # &lt;- check</pre>
 </div>
@@ -175,16 +187,16 @@ $ exit</pre>
 </ul>
 </div>
 <div class="section" id="git">
-<h2>4.6. Git<a class="headerlink" href="#git" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>4.7. Git<a class="headerlink" href="#git" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul>
 <li><p class="first">gitのインストール:</p>
-<div class="highlight-python"><pre>$ sudo yum install git</pre>
+<div class="highlight-python"><pre>$ sudo yum -y install git</pre>
 </div>
 </li>
 </ul>
 </div>
 <div class="section" id="github">
-<h2>4.7. GitHub<a class="headerlink" href="#github" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>4.8. GitHub<a class="headerlink" href="#github" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/">GitHub</a> にアカウントを作成する<ul>
 <li>アカウント名とメールアドレスは大学のものと同じにしてください</li>
@@ -194,7 +206,7 @@ $ exit</pre>
 </ul>
 </div>
 <div class="section" id="rails">
-<h2>4.8. railsユーザアカウントを作成する<a class="headerlink" href="#rails" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>4.9. railsユーザアカウントを作成する<a class="headerlink" href="#rails" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>Railsのアプリケーションをデプロイする場所として，railsアカウントを作成してそのhomeを利用する．このhomeは，6770の設定をし，railsグループに所属するユーザからの参照・更新を許可する．</p>
 <ul>
 <li><p class="first">railsユーザアカウントの設定:</p>
@@ -209,21 +221,21 @@ $ sudo chmod 6770 /home/rails/</pre>
 </ul>
 </div>
 <div class="section" id="ruby-on-rails">
-<h2>4.9. Ruby on Rails<a class="headerlink" href="#ruby-on-rails" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>4.10. Ruby on Rails<a class="headerlink" href="#ruby-on-rails" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul>
-<li><p class="first">Ruby 1.8.7のインストール:</p>
-<div class="highlight-python"><pre>$ sudo yum install ruby
+<li><p class="first">Ruby 1.8.7のインストール（開発用パッケージも含む）:</p>
+<div class="highlight-python"><pre>$ sudo yum -y install ruby ruby-devel
 $ ruby -v   # &lt;- check</pre>
 </div>
 </li>
 <li><p class="first">Gem 1.8.7のインストール:</p>
-<div class="highlight-python"><pre>$ sudo yum install rubygems
+<div class="highlight-python"><pre>$ sudo yum -y install rubygems
 $ gem -v   # &lt;- check</pre>
 </div>
 </li>
 <li><p class="first"><a class="reference external" href="http://rubyonrails.org/download">Rails 3.1</a> のインストール:</p>
 <div class="highlight-python"><pre>$ sudo gem installl rails
-$ rails -v</pre>
+$ rails -v    # &lt;- check</pre>
 </div>
 </li>
 <li><p class="first"><a class="reference external" href="http://www.modrails.com/install.html">Phusion Passenger</a> のインストール:</p>
@@ -259,11 +271,12 @@ $ sudo passenger-install-apache2-module</pre>
 </ul>
 </li>
 <li><a class="reference internal" href="#id6">4.4. アカウントの作成と設定</a></li>
-<li><a class="reference internal" href="#ssh">4.5. SSHのための公開鍵の作成</a></li>
-<li><a class="reference internal" href="#git">4.6. Git</a></li>
-<li><a class="reference internal" href="#github">4.7. GitHub</a></li>
-<li><a class="reference internal" href="#rails">4.8. railsユーザアカウントを作成する</a></li>
-<li><a class="reference internal" href="#ruby-on-rails">4.9. Ruby on Rails</a></li>
+<li><a class="reference internal" href="#id7">4.5. 日本語環境のインストール</a></li>
+<li><a class="reference internal" href="#ssh">4.6. SSHのための公開鍵の作成</a></li>
+<li><a class="reference internal" href="#git">4.7. Git</a></li>
+<li><a class="reference internal" href="#github">4.8. GitHub</a></li>
+<li><a class="reference internal" href="#rails">4.9. railsユーザアカウントを作成する</a></li>
+<li><a class="reference internal" href="#ruby-on-rails">4.10. Ruby on Rails</a></li>
 </ul>
 </li>
 </ul>

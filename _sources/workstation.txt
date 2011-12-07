@@ -93,13 +93,24 @@ CentOS 6.0のインストール
   $ cat /etc/shadow        # <- check this will fails
   $ sudo cat /etc/shadow   # <- check this will success
 
+日本語環境のインストール
+------------------------
+
+- ユーザアカウントでログインする
+- 日本語パッケージをインストールする::
+
+  $ sudo yum -y groupinstall "Japanese Support"
+
+  参考: http://www.server-world.info/query?os=CentOS_6&p=japanese
+
+
 SSHのための公開鍵の作成
 -----------------------
 
 SSH接続で使う公開鍵/非公開鍵のペアを作成します．演習で利用する重要なファイルですので，USBメモリなどにバックアップをとっておくことをおすすめします．
 
 - ユーザアカウントでログインする
-- 公開鍵を作成します（演習用なので，パスフレーズは入れなくてもかまわない）::
+- 公開鍵を作成する（演習用なので，パスフレーズは入れなくてもかまわない）::
 
   $ ssh-keygen
   $ ls ~/.ssh    # <- check
@@ -119,7 +130,7 @@ Git
 
 - gitのインストール::
 
-  $ sudo yum install git
+  $ sudo yum -y install git
 
 GitHub
 ------
@@ -146,20 +157,20 @@ Railsのアプリケーションをデプロイする場所として，railsア�
 Ruby on Rails
 -------------
 
-- Ruby 1.8.7のインストール::
+- Ruby 1.8.7のインストール（開発用パッケージも含む）::
 
-  $ sudo yum install ruby
+  $ sudo yum -y install ruby ruby-devel
   $ ruby -v   # <- check
   
 - Gem 1.8.7のインストール::
 
-  $ sudo yum install rubygems
+  $ sudo yum -y install rubygems
   $ gem -v   # <- check
   
 - `Rails 3.1 <http://rubyonrails.org/download>`_ のインストール::
 
   $ sudo gem installl rails
-  $ rails -v
+  $ rails -v    # <- check
 
 - `Phusion Passenger <http://www.modrails.com/install.html>`_ のインストール::
 
