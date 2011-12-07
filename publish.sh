@@ -2,6 +2,7 @@
 git checkout master
 git add .
 git commit -a -m 'Prepared for publishing'
+git push origin master
 # Publish
 git checkout gh-pages
 git checkout master build
