@@ -23,7 +23,6 @@
 - IDE(統合開発環境)
 
   - `GNU Emacs`_
-  - `Eclipse Indigo`_ (オプショナル)
 
 - Ruby on Rails
 
@@ -48,29 +47,32 @@ VMware Playerのインストール
 
 CentOS 6.0のインストール
 ~~~~~~~~~~~~~~~~~~~~~~~~
-- `CentOS 6.0 DVDのISOイメージ`_ をダウンロードする
+- CentOS 6.0 DVDのISOイメージをダウンロードする
 
-.. _`CentOS 6.0 DVDのISOイメージ`: http://ftp.riken.jp/Linux/centos/6.0/isos/i386/CentOS-6.0-i386-bin-DVD.iso
+  - 32ビット版
+    - http://ftp.riken.jp/Linux/centos/6.0/isos/i386/CentOS-6.0-i386-bin-DVD.iso
+  - 64ビット版
+    - http://ftp.riken.jp/Linux/centos/6.0/isos/x86_64/CentOS-6.0-x86_64-bin-DVD1.iso
+    - http://ftp.riken.jp/Linux/centos/6.0/isos/x86_64/CentOS-6.0-x86_64-bin-DVD2.iso
 
 - VMware Playerを起動して，ISOイメージからインストールを行う．
-  このとき，「簡易モード」を使うとインストール後に日本語が表示されないので注意．
-
-- 参考URL
-
-  - http://freesoft.tvbok.com/freesoft/virtual/vmware_centos1.html （内容はCentOS 5なので注意）
 
 アカウントの作成と設定
 ----------------------
 
-- rootでログインする
+- 自分のルーザアカウントでログインする
+- rootアカウントに切り替える::
+
+  $ su -
+
 - OSをアップグレードする::
 
   # yum upgrade
 
-- 自分のユーザアカウント(例：username）を作成し，パスワードを設定する::
+- 自分のユーザアカウント(例：username）をwheelグループに追加する
 
-  # useradd username -G wheel
-  # passwd username
+  # usermod -G wheel username
+  # groups username    # <- check
 
 - wheelグループに対して，sudoでのコマンド実行を許可する::
 
@@ -81,13 +83,15 @@ CentOS 6.0のインストール
     ## Allows people in group wheel to run all commands
     %wheel  ALL=(ALL)       ALL
 
-- ログアウトする
-- ユーザアカウントでログインする
+- exitする::
+
+  # exit
+  # whoami    # <- check
+
 - 設定をが上手くいったか確認する::
 
-  $ groups
-  $ cat /etc/shadow
-  $ sudo cat /etc/shadow
+  $ cat /etc/shadow        # <- check this will fails
+  $ sudo cat /etc/shadow   # <- check this will success
 
 SSHのための公開鍵の作成
 -----------------------
@@ -98,7 +102,7 @@ SSH接続で使う公開鍵/非公開鍵のペアを作成します．演習で�
 - 公開鍵を作成します（演習用なので，パスフレーズは入れなくてもかまわない）::
 
   $ ssh-keygen
-  $ ls ~/.ssh
+  $ ls ~/.ssh    # <- check
 
 - 公開鍵をauthorized_keysに登録する::
 
@@ -162,4 +166,3 @@ Ruby on Rails
 - `Capistrano <https://github.com/capistrano/capistrano#readme>`_ のインストール::
 
   $ sudo gem install capistrano
-
