@@ -255,11 +255,19 @@ $ sudo passenger-install-apache2-module</pre>
 </ul>
 </li>
 </ul>
-<div class="admonition- admonition" id="index-0">
-<p class="first admonition-title">課題</p>
-<p class="last">[TODO] 設定ファイルの内容</p>
+<div class="highlight-python"><pre>LoadModule passenger_module /usr/lib/ruby/gems/1.8/gems/passenger-3.0.11/ext/apache2/mod_passenger.so
+PassengerRoot /usr/lib/ruby/gems/1.8/gems/passenger-3.0.11
+PassengerRuby /usr/bin/ruby
+
+&lt;VirtualHost *:80&gt;
+  ServerName localhost
+  DocumentRoot /home/rails/myapp/public    # &lt;-- be sure to point to 'public'!
+  &lt;Directory /home/rails/myapp/public&gt;
+     AllowOverride all              # &lt;-- relax Apache security settings
+     Options -MultiViews            # &lt;-- MultiViews must be turned off
+  &lt;/Directory&gt;
+&lt;/VirtualHost&gt;</pre>
 </div>
-<hr class="docutils" />
 <ul>
 <li><p class="first"><a class="reference external" href="https://github.com/capistrano/capistrano#readme">Capistrano</a> のインストール:</p>
 <div class="highlight-python"><pre>$ sudo gem install capistrano</pre>
