@@ -254,9 +254,7 @@ $ rails -v    # &lt;- check</pre>
 <div class="highlight-python"><pre>$ sudo yum -y install gcc-c++ curl-devel openssl-devel zlib-devel httpd-devel apr-devel apr-util-devel
 $ sudo passenger-install-apache2-module</pre>
 </div>
-<ul class="simple">
-<li>以下の内容を/etc/httpd/conf.d/rails.confに記述する</li>
-</ul>
+<p>以下の内容を/etc/httpd/conf.d/rails.confに記述する</p>
 <div class="highlight-python"><pre>LoadModule passenger_module /usr/lib/ruby/gems/1.8/gems/passenger-3.0.11/ext/apache2/mod_passenger.so
 PassengerRoot /usr/lib/ruby/gems/1.8/gems/passenger-3.0.11
 PassengerRuby /usr/bin/ruby
