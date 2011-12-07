@@ -62,21 +62,38 @@
 <div class="section" id="scaffold">
 <h3>5.2.1. ローカルレポジトリにScaffoldを作成する<a class="headerlink" href="#scaffold" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul>
-<li><p class="first">RailsでScaffoldを生成する:</p>
-<div class="highlight-python"><pre>$ rails new myapp
-$ cd myapp
-$ rails generate scaffold</pre>
+<li><p class="first">RailsでScaffoldを生成する</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>rails new myapp
+<span class="nv">$ </span><span class="nb">cd </span>myapp
+<span class="nv">$ </span>rails generate scaffold address name:string email:string
+<span class="nv">$ </span>rake db:migrate
+<span class="nv">$ </span>rm public/index.html
+</pre></div>
 </div>
+</li>
+<li><p class="first">生成されたもの
+名前(name)とアドレス(address)をもつPersonクラスと，それに対応するpersonsテーブルが作成されます．</p>
+<ul class="simple">
+<li>app/models/以下に，Modelクラスができます．</li>
+<li>app/controllers/以下に，Controllerクラスができます．</li>
+<li>app/views/以下に，Viewができます(erbファイル）．</li>
+<li>test/以下にテストのためのコードの雛形ができます．</li>
+</ul>
 </li>
 </ul>
 </div>
 <div class="section" id="id3">
 <h3>5.2.2. テストサーバで実行する<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul>
-<li><p class="first">テストサーバで動作を確認する:</p>
-<div class="highlight-python"><pre>$ cd myapp
-$ rails server</pre>
+<li><p class="first">テストサーバを起動する</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>rails server
+</pre></div>
 </div>
+</li>
+<li><p class="first">Webブラウザで次のURLにアクセスする</p>
+<ul class="simple">
+<li><a class="reference external" href="http://localhost:3000/addresses/index.html">http://localhost:3000/addresses/index.html</a></li>
+</ul>
 </li>
 <li><p class="first">Ctrl-Cでサーバを停止する</p>
 </li>
@@ -85,10 +102,11 @@ $ rails server</pre>
 <div class="section" id="id4">
 <h3>5.2.3. ローカルレポジトリを作成する<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul>
-<li><p class="first">gitでローカルレポジトリを作成し，Scaffoldをコミットする:</p>
-<div class="highlight-python"><pre>$ git init
-$ git add .
-$ git commit -a -m 'Initial commit'</pre>
+<li><p class="first">gitでローカルレポジトリを作成し，Scaffoldをコミットする</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git init
+<span class="nv">$ </span>git add .
+<span class="nv">$ </span>git commit -a -m <span class="s1">&#39;Initial commit&#39;</span>
+</pre></div>
 </div>
 </li>
 </ul>
@@ -103,15 +121,73 @@ $ git commit -a -m 'Initial commit'</pre>
 <div class="section" id="id6">
 <h3>5.2.5. デプロイ用の設定を行う<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul>
-<li><p class="first">capifyコマンドでデプロイのための設定を生成し，修正を行う:</p>
-<div class="highlight-python"><pre>$ capify .
-$ emacs Capfile &amp;
-$ emacs config/deploy.rb &amp;</pre>
+<li><p class="first">capifyコマンドでデプロイのための設定を生成し，修正を行う</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>capify .
+<span class="nv">$ </span>emacs Capfile &amp;
+<span class="nv">$ </span>emacs config/deploy.rb &amp;
+</pre></div>
 </div>
 </li>
-<li><p class="first">capコマンドでデプロイ先をsetupする:</p>
-<div class="highlight-python"><pre>$ cap deploy:setup
-$ ls /home/rails</pre>
+</ul>
+<div class="highlight-ruby"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span class="c1"># Capfile</span>
+<span class="nb">load</span> <span class="s1">&#39;deploy&#39;</span> <span class="k">if</span> <span class="nb">respond_to?</span><span class="p">(</span><span class="ss">:namespace</span><span class="p">)</span>
+<span class="nb">load</span> <span class="s1">&#39;deploy/assets&#39;</span>
+<span class="nb">load</span> <span class="s1">&#39;config/deploy&#39;</span>
+</pre></div>
+</td></tr></table></div>
+<div class="highlight-ruby"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre></div></td><td class="code"><div class="highlight"><pre><span class="c1"># config/deploy.rb</span>
+<span class="n">set</span> <span class="ss">:application</span><span class="p">,</span> <span class="s2">&quot;myapp&quot;</span>
+<span class="n">set</span> <span class="ss">:deploy_to</span><span class="p">,</span> <span class="s2">&quot;/home/rails/myapp&quot;</span>
+
+<span class="hll"><span class="n">set</span> <span class="ss">:repository</span><span class="p">,</span>  <span class="s2">&quot;git@github.com:username/myapp&quot;</span>
+</span><span class="n">set</span> <span class="ss">:scm</span><span class="p">,</span> <span class="ss">:git</span>
+
+<span class="n">set</span> <span class="ss">:use_sudo</span><span class="p">,</span> <span class="kp">false</span>
+
+<span class="n">role</span> <span class="ss">:web</span><span class="p">,</span> <span class="s2">&quot;localhost&quot;</span>
+<span class="n">role</span> <span class="ss">:app</span><span class="p">,</span> <span class="s2">&quot;localhost&quot;</span>
+<span class="n">role</span> <span class="ss">:db</span><span class="p">,</span>  <span class="s2">&quot;localhost&quot;</span><span class="p">,</span> <span class="ss">:primary</span> <span class="o">=&gt;</span> <span class="kp">true</span>
+
+<span class="n">namespace</span> <span class="ss">:deploy</span> <span class="k">do</span>
+  <span class="n">task</span> <span class="ss">:start</span> <span class="k">do</span> <span class="p">;</span> <span class="k">end</span>
+  <span class="n">task</span> <span class="ss">:stop</span> <span class="k">do</span> <span class="p">;</span> <span class="k">end</span>
+  <span class="n">task</span> <span class="ss">:restart</span><span class="p">,</span> <span class="ss">:roles</span> <span class="o">=&gt;</span> <span class="ss">:app</span><span class="p">,</span> <span class="ss">:except</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="ss">:no_release</span> <span class="o">=&gt;</span> <span class="kp">true</span> <span class="p">}</span> <span class="k">do</span>
+    <span class="n">run</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">try_sudo</span><span class="si">}</span><span class="s2"> touch </span><span class="si">#{</span><span class="no">File</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">current_path</span><span class="p">,</span><span class="s1">&#39;tmp&#39;</span><span class="p">,</span><span class="s1">&#39;restart.txt&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</pre></div>
+</td></tr></table></div>
+<p>※5行目のusernameは，各自のGitHubアカウント名に置き換えること．</p>
+</div>
+<div class="section" id="id7">
+<h3>5.2.6. デプロイ先のセットアップ<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ul>
+<li><p class="first">capコマンドでデプロイ先をsetupする</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>cap deploy:setup
+<span class="nv">$ </span>find /home/rails    <span class="c"># &lt;- check</span>
+</pre></div>
 </div>
 </li>
 </ul>
@@ -120,27 +196,32 @@ $ ls /home/rails</pre>
 <div class="section" id="deploy-products">
 <h2>5.3. Deploy products<a class="headerlink" href="#deploy-products" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul>
-<li><p class="first">ローカルApacheサーバにデプロイする:</p>
-<div class="highlight-python"><pre>$ git add .
-$ git commit -a -m 'Deploy'
-$ cap deploy</pre>
+<li><p class="first">ローカルApacheサーバにデプロイする</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git add .
+<span class="nv">$ </span>git commit -a -m <span class="s1">&#39;Deploy&#39;</span>
+<span class="nv">$ </span>cap deploy
+<span class="nv">$ </span>find /home/rails    <span class="c"># &lt;- check</span>
+</pre></div>
 </div>
 </li>
 <li><p class="first">ローカルApacheサーバを確認する</p>
+<ul class="simple">
+<li><a class="reference external" href="http://localhost/addresses/index.html">http://localhost/addresses/index.html</a></li>
+</ul>
 </li>
 </ul>
 </div>
 <div class="section" id="write-test-codes">
 <h2>5.4. Write/Test codes<a class="headerlink" href="#write-test-codes" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<div class="section" id="id7">
-<h3>5.4.1. テストコードを作成する<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="id8">
+<h3>5.4.1. テストコードを作成する<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul class="simple">
 <li>テストコードを作成する</li>
 <li>テストを実行する</li>
 </ul>
 </div>
-<div class="section" id="id8">
-<h3>5.4.2. コードを作成する<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="id9">
+<h3>5.4.2. コードを作成する<a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul class="simple">
 <li>コードを作成する</li>
 <li>テストを実行する</li>
@@ -165,12 +246,13 @@ $ cap deploy</pre>
 <li><a class="reference internal" href="#id4">5.2.3. ローカルレポジトリを作成する</a></li>
 <li><a class="reference internal" href="#id5">5.2.4. リモートレポジトリを作成する</a></li>
 <li><a class="reference internal" href="#id6">5.2.5. デプロイ用の設定を行う</a></li>
+<li><a class="reference internal" href="#id7">5.2.6. デプロイ先のセットアップ</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#deploy-products">5.3. Deploy products</a></li>
 <li><a class="reference internal" href="#write-test-codes">5.4. Write/Test codes</a><ul>
-<li><a class="reference internal" href="#id7">5.4.1. テストコードを作成する</a></li>
-<li><a class="reference internal" href="#id8">5.4.2. コードを作成する</a></li>
+<li><a class="reference internal" href="#id8">5.4.1. テストコードを作成する</a></li>
+<li><a class="reference internal" href="#id9">5.4.2. コードを作成する</a></li>
 </ul>
 </li>
 </ul>

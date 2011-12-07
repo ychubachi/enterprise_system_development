@@ -23,7 +23,6 @@
 - IDE(統合開発環境)
 
   - `GNU Emacs`_
-  - `Eclipse Indigo`_ (オプショナル)
 
 - Ruby on Rails
 
@@ -48,46 +47,79 @@ VMware Playerのインストール
 
 CentOS 6.0のインストール
 ~~~~~~~~~~~~~~~~~~~~~~~~
-- `CentOS 6.0 DVDのISOイメージ`_ をダウンロードする
+- CentOS 6.0 DVDのISOイメージをダウンロードする
 
-.. _`CentOS 6.0 DVDのISOイメージ`: http://ftp.riken.jp/Linux/centos/6.0/isos/i386/CentOS-6.0-i386-bin-DVD.iso
+  - 32ビット版
+  
+    - http://ftp.riken.jp/Linux/centos/6.0/isos/i386/CentOS-6.0-i386-bin-DVD.iso
+    
+  - 64ビット版
+  
+    - http://ftp.riken.jp/Linux/centos/6.0/isos/x86_64/CentOS-6.0-x86_64-bin-DVD1.iso
+    - http://ftp.riken.jp/Linux/centos/6.0/isos/x86_64/CentOS-6.0-x86_64-bin-DVD2.iso
 
 - VMware Playerを起動して，ISOイメージからインストールを行う．
-  このとき，「簡易モード」を使うとインストール後に日本語が表示されないので注意．
-
-- 参考URL
-
-  - http://freesoft.tvbok.com/freesoft/virtual/vmware_centos1.html （内容はCentOS 5なので注意）
 
 アカウントの作成と設定
 ----------------------
 
-- rootでログインする
-- OSをアップグレードする::
+- 自分のルーザアカウントでログインする
+- rootアカウントに切り替える
 
-  # yum upgrade
+  .. code-block:: bash
 
-- 自分のユーザアカウント(例：username）を作成し，パスワードを設定する::
+    $ su -
 
-  # useradd username -G wheel
-  # passwd username
+- OSをアップグレードする
 
-- wheelグループに対して，sudoでのコマンド実行を許可する::
+  .. code-block:: bash
 
-  # visudo
+    # yum upgrade
+
+- 自分のユーザアカウント(例：username）をwheelグループに追加する
+
+  .. code-block:: bash
+
+    # usermod -G wheel username
+    # groups username    # <- check
+
+- wheelグループに対して，sudoでのコマンド実行を許可する
+
+  .. code-block:: bash
+
+    # visudo
 
   変更する箇所::
 
     ## Allows people in group wheel to run all commands
     %wheel  ALL=(ALL)       ALL
 
-- ログアウトする
-- ユーザアカウントでログインする
-- 設定をが上手くいったか確認する::
+- exitする
 
-  $ groups
-  $ cat /etc/shadow
-  $ sudo cat /etc/shadow
+  .. code-block:: bash
+
+    # exit
+    # whoami    # <- check
+
+- 設定をが上手くいったか確認する
+
+  .. code-block:: bash
+
+    $ cat /etc/shadow        # <- check this will fail
+    $ sudo cat /etc/shadow   # <- check this will success
+
+日本語環境のインストール
+------------------------
+
+- ユーザアカウントでログインする
+- 日本語パッケージをインストールする
+
+  .. code-block:: bash
+
+    $ sudo yum -y groupinstall "Japanese Support"
+
+  参考: http://www.server-world.info/query?os=CentOS_6&p=japanese
+
 
 SSHのための公開鍵の作成
 -----------------------
@@ -95,32 +127,40 @@ SSHのための公開鍵の作成
 SSH接続で使う公開鍵/非公開鍵のペアを作成します．演習で利用する重要なファイルですので，USBメモリなどにバックアップをとっておくことをおすすめします．
 
 - ユーザアカウントでログインする
-- 公開鍵を作成します（演習用なので，パスフレーズは入れなくてもかまわない）::
+- 公開鍵を作成する（演習用なので，パスフレーズは入れなくてもかまわない）
 
-  $ ssh-keygen
-  $ ls ~/.ssh
+  .. code-block:: bash
 
-- 公開鍵をauthorized_keysに登録する::
+    $ ssh-keygen
+    $ ls ~/.ssh    # <- check
 
-  $ cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
-  $ chmod 600 ~/.ssh/authorized_keys
+- 公開鍵をauthorized_keysに登録する
 
-- 公開鍵でログインできるか確かめる::
+  .. code-block:: bash
 
-  $ ssh localhost
-  $ exit
+    $ cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+    $ chmod 600 ~/.ssh/authorized_keys
+
+- 公開鍵でログインできるか確かめる
+
+  .. code-block:: bash
+
+    $ ssh localhost
+    $ exit
 
 Git
 ---
 
-- gitのインストール::
+- gitのインストール
 
-  $ sudo yum install git
+  .. code-block:: bash
+
+    $ sudo yum -y install git
 
 GitHub
 ------
 
-* GitHubにアカウントを作成する
+* `GitHub <https://github.com/>`_ にアカウントを作成する
 
   - アカウント名とメールアドレスは大学のものと同じにしてください
   - 登録ができたら，管理画面でSSHの公開鍵を登録してください
@@ -130,36 +170,85 @@ railsユーザアカウントを作成する
 
 Railsのアプリケーションをデプロイする場所として，railsアカウントを作成してそのhomeを利用する．このhomeは，6770の設定をし，railsグループに所属するユーザからの参照・更新を許可する．
 
-- railsユーザアカウントの設定::
+- railsユーザアカウントの設定
 
-  $ sudo /usr/sbin/useradd rails
-  $ sudo chmod 6770 /home/rails/
+  .. code-block:: bash
 
-- railsグループに，自分のユーザアカウントとapacheアカウントを追加する::
+    $ sudo /usr/sbin/useradd rails
+    $ sudo chmod 6770 /home/rails/
 
-  $ sudo /usr/sbin/vigr
+- railsグループに，自分のユーザアカウントとapacheアカウントを追加する
+
+  .. code-block:: bash
+
+    $ sudo /usr/sbin/vigr
 
 Ruby on Rails
 -------------
 
-- Ruby 1.8.7のインストール::
+- Ruby 1.8.7のインストール（開発用パッケージも含む）
 
-  $ sudo yum install ruby
-  $ ruby -v
+  .. code-block:: bash
+
+    $ sudo yum -y install ruby ruby-devel
+    $ ruby -v   # <- check
   
-- `Rails 3.1 <http://rubyonrails.org/download>`_ のインストール::
+- Gem 1.8.7のインストール
 
-  $ sudo gem installl rails
-  $ rails -v
+  .. code-block:: bash
 
-- `Phusion Passenger <http://www.modrails.com/install.html>`_ のインストール::
+    $ sudo yum -y install rubygems
+    $ gem -v   # <- check
+  
+- `Rails 3.1 <http://rubyonrails.org/download>`_ のインストール
 
-  $ sudo gem install passenger
-  $ sudo passenger-install-apache2-module
+  .. code-block:: bash
 
-  - 設定のサンプルが表示されるので，/etc/httpd/conf.d/以下にrails.confを作り，そこにコピーする
+    $ sudo gem installl rails
+    $ rails -v    # <- check
 
-- `Capistrano <https://github.com/capistrano/capistrano#readme>`_ のインストール::
+- `Capistrano <https://github.com/capistrano/capistrano#readme>`_ のインストール
 
-  $ sudo gem install capistrano
+  .. code-block:: bash
 
+    $ sudo gem install capistrano
+
+- `Phusion Passenger <http://www.modrails.com/install.html>`_ のインストール
+
+  .. code-block:: bash
+
+    $ sudo gem install passenger
+
+- Passengerをapacheと接続するためのモジュールをコンパイルする
+
+  .. code-block:: bash
+
+    $ sudo yum -y install gcc-c++ curl-devel openssl-devel zlib-devel httpd-devel apr-devel apr-util-devel
+    $ sudo passenger-install-apache2-module
+
+  以下の内容を/etc/httpd/conf.d/rails.confに記述する
+
+  .. code-block:: apacheconf
+  
+    LoadModule passenger_module /usr/lib/ruby/gems/1.8/gems/passenger-3.0.11/ext/apache2/mod_passenger.so
+    PassengerRoot /usr/lib/ruby/gems/1.8/gems/passenger-3.0.11
+    PassengerRuby /usr/bin/ruby
+
+    <VirtualHost *:80>
+      ServerName localhost
+      DocumentRoot /home/rails/myapp/public
+      <Directory /home/rails/myapp/public>
+         AllowOverride all
+         Options -MultiViews
+      </Directory>
+    </VirtualHost>
+
+- httpdを再起動する
+
+  .. code-block:: bash
+
+    $ sudo service httpd restart
+
+.. Local Variables:
+.. compile-command: "(cd .. && make html)"
+.. End:
