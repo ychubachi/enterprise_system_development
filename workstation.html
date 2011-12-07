@@ -2,16 +2,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
     <title>4. ワークステーションを準備する &mdash; 基幹システム開発特論</title>
-    
     <link rel="stylesheet" href="_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '',
@@ -75,7 +72,6 @@
 </li>
 <li>IDE(統合開発環境)<ul>
 <li><a class="reference external" href="http://www.gnu.org/s/emacs/">GNU Emacs</a></li>
-<li><a class="reference external" href="http://www.eclipse.org/downloads/packages/release/indigo/r">Eclipse Indigo</a> (オプショナル)</li>
 </ul>
 </li>
 <li>Ruby on Rails<ul>
@@ -98,33 +94,35 @@
 <div class="section" id="id5">
 <h3>4.3.2. CentOS 6.0のインストール<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul class="simple">
-<li><a class="reference external" href="http://ftp.riken.jp/Linux/centos/6.0/isos/i386/CentOS-6.0-i386-bin-DVD.iso">CentOS 6.0 DVDのISOイメージ</a> をダウンロードする</li>
-</ul>
-<ul class="simple">
-<li>VMware Playerを起動して，ISOイメージからインストールを行う．
-このとき，「簡易モード」を使うとインストール後に日本語が表示されないので注意．</li>
-<li>参考URL<ul>
-<li><a class="reference external" href="http://freesoft.tvbok.com/freesoft/virtual/vmware_centos1.html">http://freesoft.tvbok.com/freesoft/virtual/vmware_centos1.html</a> （内容はCentOS 5なので注意）</li>
+<li>CentOS 6.0 DVDのISOイメージをダウンロードする<ul>
+<li>32ビット版
+- <a class="reference external" href="http://ftp.riken.jp/Linux/centos/6.0/isos/i386/CentOS-6.0-i386-bin-DVD.iso">http://ftp.riken.jp/Linux/centos/6.0/isos/i386/CentOS-6.0-i386-bin-DVD.iso</a></li>
+<li>64ビット版
+- <a class="reference external" href="http://ftp.riken.jp/Linux/centos/6.0/isos/x86_64/CentOS-6.0-x86_64-bin-DVD1.iso">http://ftp.riken.jp/Linux/centos/6.0/isos/x86_64/CentOS-6.0-x86_64-bin-DVD1.iso</a>
+- <a class="reference external" href="http://ftp.riken.jp/Linux/centos/6.0/isos/x86_64/CentOS-6.0-x86_64-bin-DVD2.iso">http://ftp.riken.jp/Linux/centos/6.0/isos/x86_64/CentOS-6.0-x86_64-bin-DVD2.iso</a></li>
 </ul>
 </li>
+<li>VMware Playerを起動して，ISOイメージからインストールを行う．</li>
 </ul>
 </div>
 </div>
 <div class="section" id="id6">
 <h2>4.4. アカウントの作成と設定<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul>
-<li><p class="first">rootでログインする</p>
+<li><p class="first">自分のルーザアカウントでログインする</p>
+</li>
+<li><p class="first">rootアカウントに切り替える:</p>
+<div class="highlight-python"><pre>$ su -</pre>
+</div>
 </li>
 <li><p class="first">OSをアップグレードする:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="c"># yum upgrade</span>
 </pre></div>
 </div>
 </li>
-<li><p class="first">自分のユーザアカウント(例：username）を作成し，パスワードを設定する:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="c"># useradd username -G wheel</span>
-<span class="c"># passwd username</span>
-</pre></div>
-</div>
+<li><p class="first">自分のユーザアカウント(例：username）をwheelグループに追加する</p>
+<p># usermod -G wheel username
+# groups username    # &lt;- check</p>
 </li>
 <li><p class="first">wheelグループに対して，sudoでのコマンド実行を許可する:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="c"># visudo</span>
@@ -135,14 +133,15 @@
 %wheel  ALL=(ALL)       ALL</pre>
 </div>
 </li>
-<li><p class="first">ログアウトする</p>
-</li>
-<li><p class="first">ユーザアカウントでログインする</p>
+<li><p class="first">exitする:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># exit</span>
+<span class="c"># whoami    # &lt;- check</span>
+</pre></div>
+</div>
 </li>
 <li><p class="first">設定をが上手くいったか確認する:</p>
-<div class="highlight-python"><pre>$ groups
-$ cat /etc/shadow
-$ sudo cat /etc/shadow</pre>
+<div class="highlight-python"><pre>$ cat /etc/shadow        # &lt;- check this will fails
+$ sudo cat /etc/shadow   # &lt;- check this will success</pre>
 </div>
 </li>
 </ul>
@@ -155,7 +154,7 @@ $ sudo cat /etc/shadow</pre>
 </li>
 <li><p class="first">公開鍵を作成します（演習用なので，パスフレーズは入れなくてもかまわない）:</p>
 <div class="highlight-python"><pre>$ ssh-keygen
-$ ls ~/.ssh</pre>
+$ ls ~/.ssh    # &lt;- check</pre>
 </div>
 </li>
 <li><p class="first">公開鍵をauthorized_keysに登録する:</p>
@@ -273,7 +272,7 @@ $ sudo passenger-install-apache2-module</pre>
 <div id="searchbox" style="display: none">
   <h3>クイック検索</h3>
     <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
+      <input type="text" name="q" size="18" />
       <input type="submit" value="検索" />
       <input type="hidden" name="check_keywords" value="yes" />
       <input type="hidden" name="area" value="default" />
@@ -304,7 +303,7 @@ $ sudo passenger-install-apache2-module</pre>
     </div>
     <div class="footer">
         &copy; Copyright 2011, Yoshihide Chubachi.
-      このドキュメントは <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.2 で生成しました。
+      このドキュメントは <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.0.7 で生成しました。
     </div>
   </body>
 </html>
