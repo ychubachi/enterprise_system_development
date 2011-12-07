@@ -205,7 +205,7 @@ Ruby on Rails
       </Directory>
     </VirtualHost>
 
-  - httpdを再起動する::
+- httpdを再起動する::
 
   $ sudo service httpd restart
 
