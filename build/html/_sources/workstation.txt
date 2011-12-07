@@ -149,7 +149,12 @@ Ruby on Rails
 - Ruby 1.8.7のインストール::
 
   $ sudo yum install ruby
-  $ ruby -v
+  $ ruby -v   # <- check
+  
+- Gem 1.8.7のインストール::
+
+  $ sudo yum install rubygems
+  $ gem -v   # <- check
   
 - `Rails 3.1 <http://rubyonrails.org/download>`_ のインストール::
 
