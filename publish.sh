@@ -1,5 +1,6 @@
 #!/bin/bash
 git checkout master
+make html
 git add .
 git commit -a -m 'Prepared for publishing'
 git push origin master
