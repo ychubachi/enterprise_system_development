@@ -50,8 +50,11 @@ CentOS 6.0のインストール
 - CentOS 6.0 DVDのISOイメージをダウンロードする
 
   - 32ビット版
+  
     - http://ftp.riken.jp/Linux/centos/6.0/isos/i386/CentOS-6.0-i386-bin-DVD.iso
+    
   - 64ビット版
+  
     - http://ftp.riken.jp/Linux/centos/6.0/isos/x86_64/CentOS-6.0-x86_64-bin-DVD1.iso
     - http://ftp.riken.jp/Linux/centos/6.0/isos/x86_64/CentOS-6.0-x86_64-bin-DVD2.iso
 
