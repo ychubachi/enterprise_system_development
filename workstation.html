@@ -243,13 +243,24 @@ $ rails -v    # &lt;- check</pre>
 </div>
 </li>
 <li><p class="first"><a class="reference external" href="http://www.modrails.com/install.html">Phusion Passenger</a> のインストール:</p>
-<div class="highlight-python"><pre>$ sudo gem install passenger
+<div class="highlight-python"><pre>$ sudo gem install passenger</pre>
+</div>
+</li>
+<li><p class="first">Passengerをapacheと接続するためのモジュールをコンパイルする:</p>
+<div class="highlight-python"><pre>$ sudo yum -y install gcc-c++ curl-devel openssl-devel zlib-devel httpd-devel apr-devel apr-util-devel
 $ sudo passenger-install-apache2-module</pre>
 </div>
 <ul class="simple">
 <li>設定のサンプルが表示されるので，/etc/httpd/conf.d/以下にrails.confを作り，そこにコピーする</li>
 </ul>
 </li>
+</ul>
+<div class="admonition- admonition" id="index-0">
+<p class="first admonition-title">課題</p>
+<p class="last">[TODO] 設定ファイルの内容</p>
+</div>
+<hr class="docutils" />
+<ul>
 <li><p class="first"><a class="reference external" href="https://github.com/capistrano/capistrano#readme">Capistrano</a> のインストール:</p>
 <div class="highlight-python"><pre>$ sudo gem install capistrano</pre>
 </div>

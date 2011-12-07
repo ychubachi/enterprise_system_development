@@ -178,9 +178,22 @@ Ruby on Rails
 - `Phusion Passenger <http://www.modrails.com/install.html>`_ のインストール::
 
   $ sudo gem install passenger
+
+- Passengerをapacheと接続するためのモジュールをコンパイルする::
+
+  $ sudo yum -y install gcc-c++ curl-devel openssl-devel zlib-devel httpd-devel apr-devel apr-util-devel
   $ sudo passenger-install-apache2-module
 
   - 設定のサンプルが表示されるので，/etc/httpd/conf.d/以下にrails.confを作り，そこにコピーする
+
+.. todo:: [TODO] 設定ファイルの内容
+
+
+
+
+
+====
+
 
 - `Capistrano <https://github.com/capistrano/capistrano#readme>`_ のインストール::
 
