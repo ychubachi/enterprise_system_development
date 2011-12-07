@@ -6,6 +6,7 @@ git push origin master
 # Publish
 git checkout gh-pages
 git checkout master build
+ls
 cp -rf build/html/* .
 rm -rf build/html
 git add .
