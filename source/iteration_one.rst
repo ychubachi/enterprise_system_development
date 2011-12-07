@@ -23,6 +23,7 @@ Create a scaffold project
     $ rm public/index.html
 
 * 生成されたもの
+
   名前(name)とアドレス(address)をもつPersonクラスと，それに対応するpersonsテーブルが作成されます．
 
   - app/models/以下に，Modelクラスができます．
