@@ -64,45 +64,59 @@ CentOS 6.0のインストール
 ----------------------
 
 - 自分のルーザアカウントでログインする
-- rootアカウントに切り替える::
+- rootアカウントに切り替える
 
-  $ su -
+  .. code-block:: bash
 
-- OSをアップグレードする::
+    $ su -
 
-  # yum upgrade
+- OSをアップグレードする
 
-- 自分のユーザアカウント(例：username）をwheelグループに追加する::
+  .. code-block:: bash
 
-  # usermod -G wheel username
-  # groups username    # <- check
+    # yum upgrade
 
-- wheelグループに対して，sudoでのコマンド実行を許可する::
+- 自分のユーザアカウント(例：username）をwheelグループに追加する
 
-  # visudo
+  .. code-block:: bash
+
+    # usermod -G wheel username
+    # groups username    # <- check
+
+- wheelグループに対して，sudoでのコマンド実行を許可する
+
+  .. code-block:: bash
+
+    # visudo
 
   変更する箇所::
 
     ## Allows people in group wheel to run all commands
     %wheel  ALL=(ALL)       ALL
 
-- exitする::
+- exitする
 
-  # exit
-  # whoami    # <- check
+  .. code-block:: bash
 
-- 設定をが上手くいったか確認する::
+    # exit
+    # whoami    # <- check
 
-  $ cat /etc/shadow        # <- check this will fails
-  $ sudo cat /etc/shadow   # <- check this will success
+- 設定をが上手くいったか確認する
+
+  .. code-block:: bash
+
+    $ cat /etc/shadow        # <- check this will fail
+    $ sudo cat /etc/shadow   # <- check this will success
 
 日本語環境のインストール
 ------------------------
 
 - ユーザアカウントでログインする
-- 日本語パッケージをインストールする::
+- 日本語パッケージをインストールする
 
-  $ sudo yum -y groupinstall "Japanese Support"
+  .. code-block:: bash
+
+    $ sudo yum -y groupinstall "Japanese Support"
 
   参考: http://www.server-world.info/query?os=CentOS_6&p=japanese
 
@@ -113,27 +127,35 @@ SSHのための公開鍵の作成
 SSH接続で使う公開鍵/非公開鍵のペアを作成します．演習で利用する重要なファイルですので，USBメモリなどにバックアップをとっておくことをおすすめします．
 
 - ユーザアカウントでログインする
-- 公開鍵を作成する（演習用なので，パスフレーズは入れなくてもかまわない）::
+- 公開鍵を作成する（演習用なので，パスフレーズは入れなくてもかまわない）
 
-  $ ssh-keygen
-  $ ls ~/.ssh    # <- check
+  .. code-block:: bash
 
-- 公開鍵をauthorized_keysに登録する::
+    $ ssh-keygen
+    $ ls ~/.ssh    # <- check
 
-  $ cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
-  $ chmod 600 ~/.ssh/authorized_keys
+- 公開鍵をauthorized_keysに登録する
 
-- 公開鍵でログインできるか確かめる::
+  .. code-block:: bash
 
-  $ ssh localhost
-  $ exit
+    $ cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+    $ chmod 600 ~/.ssh/authorized_keys
+
+- 公開鍵でログインできるか確かめる
+
+  .. code-block:: bash
+
+    $ ssh localhost
+    $ exit
 
 Git
 ---
 
-- gitのインストール::
+- gitのインストール
 
-  $ sudo yum -y install git
+  .. code-block:: bash
+
+    $ sudo yum -y install git
 
 GitHub
 ------
@@ -148,49 +170,65 @@ railsユーザアカウントを作成する
 
 Railsのアプリケーションをデプロイする場所として，railsアカウントを作成してそのhomeを利用する．このhomeは，6770の設定をし，railsグループに所属するユーザからの参照・更新を許可する．
 
-- railsユーザアカウントの設定::
+- railsユーザアカウントの設定
 
-  $ sudo /usr/sbin/useradd rails
-  $ sudo chmod 6770 /home/rails/
+  .. code-block:: bash
 
-- railsグループに，自分のユーザアカウントとapacheアカウントを追加する::
+    $ sudo /usr/sbin/useradd rails
+    $ sudo chmod 6770 /home/rails/
 
-  $ sudo /usr/sbin/vigr
+- railsグループに，自分のユーザアカウントとapacheアカウントを追加する
+
+  .. code-block:: bash
+
+    $ sudo /usr/sbin/vigr
 
 Ruby on Rails
 -------------
 
-- Ruby 1.8.7のインストール（開発用パッケージも含む）::
+- Ruby 1.8.7のインストール（開発用パッケージも含む）
 
-  $ sudo yum -y install ruby ruby-devel
-  $ ruby -v   # <- check
+  .. code-block:: bash
+
+    $ sudo yum -y install ruby ruby-devel
+    $ ruby -v   # <- check
   
-- Gem 1.8.7のインストール::
+- Gem 1.8.7のインストール
 
-  $ sudo yum -y install rubygems
-  $ gem -v   # <- check
+  .. code-block:: bash
+
+    $ sudo yum -y install rubygems
+    $ gem -v   # <- check
   
-- `Rails 3.1 <http://rubyonrails.org/download>`_ のインストール::
+- `Rails 3.1 <http://rubyonrails.org/download>`_ のインストール
 
-  $ sudo gem installl rails
-  $ rails -v    # <- check
+  .. code-block:: bash
 
-- `Capistrano <https://github.com/capistrano/capistrano#readme>`_ のインストール::
+    $ sudo gem installl rails
+    $ rails -v    # <- check
 
-  $ sudo gem install capistrano
+- `Capistrano <https://github.com/capistrano/capistrano#readme>`_ のインストール
 
-- `Phusion Passenger <http://www.modrails.com/install.html>`_ のインストール::
+  .. code-block:: bash
 
-  $ sudo gem install passenger
+    $ sudo gem install capistrano
 
-- Passengerをapacheと接続するためのモジュールをコンパイルする::
+- `Phusion Passenger <http://www.modrails.com/install.html>`_ のインストール
 
-  $ sudo yum -y install gcc-c++ curl-devel openssl-devel zlib-devel httpd-devel apr-devel apr-util-devel
-  $ sudo passenger-install-apache2-module
+  .. code-block:: bash
+
+    $ sudo gem install passenger
+
+- Passengerをapacheと接続するためのモジュールをコンパイルする
+
+  .. code-block:: bash
+
+    $ sudo yum -y install gcc-c++ curl-devel openssl-devel zlib-devel httpd-devel apr-devel apr-util-devel
+    $ sudo passenger-install-apache2-module
 
   以下の内容を/etc/httpd/conf.d/rails.confに記述する
 
-  ::
+  .. code-block:: apacheconf
   
     LoadModule passenger_module /usr/lib/ruby/gems/1.8/gems/passenger-3.0.11/ext/apache2/mod_passenger.so
     PassengerRoot /usr/lib/ruby/gems/1.8/gems/passenger-3.0.11
@@ -198,17 +236,18 @@ Ruby on Rails
 
     <VirtualHost *:80>
       ServerName localhost
-      DocumentRoot /home/rails/myapp/public    # <-- be sure to point to 'public'!
+      DocumentRoot /home/rails/myapp/public
       <Directory /home/rails/myapp/public>
-         AllowOverride all              # <-- relax Apache security settings
-         Options -MultiViews            # <-- MultiViews must be turned off
+         AllowOverride all
+         Options -MultiViews
       </Directory>
     </VirtualHost>
 
-- httpdを再起動する::
+- httpdを再起動する
 
-  $ sudo service httpd restart
+  .. code-block:: bash
 
+    $ sudo service httpd restart
 
 .. Local Variables:
 .. compile-command: "(cd .. && make html)"

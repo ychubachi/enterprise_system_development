@@ -12,28 +12,47 @@ Create a scaffold project
 ローカルレポジトリにScaffoldを作成する
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-* RailsでScaffoldを生成する::
+* RailsでScaffoldを生成する
 
-  $ rails new myapp
-  $ cd myapp
-  $ rails generate scaffold
+  .. code-block:: bash
+
+    $ rails new myapp
+    $ cd myapp
+    $ rails generate scaffold address name:string email:string
+    $ rake db:migrate
+    $ rm public/index.html
+
+* 生成されたもの
+  名前(name)とアドレス(address)をもつPersonクラスと，それに対応するpersonsテーブルが作成されます．
+
+  - app/models/以下に，Modelクラスができます．
+  - app/controllers/以下に，Controllerクラスができます．
+  - app/views/以下に，Viewができます(erbファイル）．
+  - test/以下にテストのためのコードの雛形ができます．
 
 テストサーバで実行する
 ~~~~~~~~~~~~~~~~~~~~~~
-* テストサーバで動作を確認する::
+* テストサーバを起動する
 
-  $ cd myapp
-  $ rails server
+  .. code-block:: bash
+
+    $ rails server
+
+* Webブラウザで次のURLにアクセスする
+
+  - http://localhost:3000/addresses/index.html
 
 * Ctrl-Cでサーバを停止する
 
 ローカルレポジトリを作成する
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-* gitでローカルレポジトリを作成し，Scaffoldをコミットする::
+* gitでローカルレポジトリを作成し，Scaffoldをコミットする
 
-  $ git init
-  $ git add .
-  $ git commit -a -m 'Initial commit'
+  .. code-block:: bash
+
+    $ git init
+    $ git add .
+    $ git commit -a -m 'Initial commit'
 
 リモートレポジトリを作成する
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -42,27 +61,49 @@ Create a scaffold project
 
 デプロイ用の設定を行う
 ~~~~~~~~~~~~~~~~~~~~~~
-* capifyコマンドでデプロイのための設定を生成し，修正を行う::
+* capifyコマンドでデプロイのための設定を生成し，修正を行う
 
-  $ capify .
-  $ emacs Capfile &
-  $ emacs config/deploy.rb &
+  .. code-block:: bash
 
-* capコマンドでデプロイ先をsetupする::
+    $ capify .
+    $ emacs Capfile &
+    $ emacs config/deploy.rb &
 
-  $ cap deploy:setup
-  $ ls /home/rails
+.. literalinclude:: Capfile
+   :language: ruby
+   :linenos:
+
+.. literalinclude:: deploy.rb
+   :language: ruby
+   :emphasize-lines: 5
+   :linenos:
+
+※5行目のusernameは，各自のGitHubアカウント名に置き換えること．
+
+デプロイ先のセットアップ
+~~~~~~~~~~~~~~~~~~~~~~~~
+* capコマンドでデプロイ先をsetupする
+
+  .. code-block:: bash
+
+    $ cap deploy:setup
+    $ find /home/rails    # <- check
 
 Deploy products
 ---------------
 
-* ローカルApacheサーバにデプロイする::
+* ローカルApacheサーバにデプロイする
 
-  $ git add .
-  $ git commit -a -m 'Deploy'
-  $ cap deploy
+  .. code-block:: bash
+
+    $ git add .
+    $ git commit -a -m 'Deploy'
+    $ cap deploy
+    $ find /home/rails    # <- check
 
 * ローカルApacheサーバを確認する
+
+  - http://localhost/addresses/index.html
 
 Write/Test codes
 ----------------
@@ -77,3 +118,6 @@ Write/Test codes
 * コードを作成する
 * テストを実行する
 
+.. Local Variables:
+.. compile-command: "(cd .. && make html)"
+.. End:
