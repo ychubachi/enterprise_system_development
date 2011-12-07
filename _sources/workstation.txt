@@ -186,14 +186,20 @@ Ruby on Rails
 
   - 設定のサンプルが表示されるので，/etc/httpd/conf.d/以下にrails.confを作り，そこにコピーする
 
-.. todo:: [TODO] 設定ファイルの内容
+::
 
+  LoadModule passenger_module /usr/lib/ruby/gems/1.8/gems/passenger-3.0.11/ext/apache2/mod_passenger.so
+  PassengerRoot /usr/lib/ruby/gems/1.8/gems/passenger-3.0.11
+  PassengerRuby /usr/bin/ruby
 
-
-
-
-====
-
+  <VirtualHost *:80>
+    ServerName localhost
+    DocumentRoot /home/rails/myapp/public    # <-- be sure to point to 'public'!
+    <Directory /home/rails/myapp/public>
+       AllowOverride all              # <-- relax Apache security settings
+       Options -MultiViews            # <-- MultiViews must be turned off
+    </Directory>
+  </VirtualHost>
 
 - `Capistrano <https://github.com/capistrano/capistrano#readme>`_ のインストール::
 
