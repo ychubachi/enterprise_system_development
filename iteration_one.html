@@ -63,14 +63,30 @@
 <h3>5.2.1. ローカルレポジトリにScaffoldを作成する<a class="headerlink" href="#scaffold" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul>
 <li><p class="first">RailsでScaffoldを生成する</p>
+<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span class="nv">$ </span>rails new myapp
+<span class="nv">$ </span><span class="nb">cd </span>myapp
+<span class="nv">$ </span>rails generate scaffold address name:string email:string
+<span class="nv">$ </span>rake db:migrate
+<span class="nv">$ </span>rm public/index.html
+</pre></div>
+</td></tr></table></div>
 </li>
-<li><p class="first">生成されたもの</p>
-<p>名前(name)とアドレス(address)をもつPersonクラスと，それに対応するpersonsテーブルが作成されます．</p>
+<li><p class="first">説明</p>
 <ul class="simple">
+<li>1行目：myappという名前で新しいRailsアプリケーションを生成します</li>
+<li>3行目：名前(name)とアドレス(address)をもつModelであるAddressクラスと，それに関連するControllerクラス，及びViewを生成します．<ul>
 <li>app/models/以下に，Modelクラスができます．</li>
 <li>app/controllers/以下に，Controllerクラスができます．</li>
 <li>app/views/以下に，Viewができます(erbファイル）．</li>
 <li>test/以下にテストのためのコードの雛形ができます．</li>
+</ul>
+</li>
+<li>4行目：データベースにAddressクラスに対応するaddressesテーブルが作成されます．</li>
+<li>5行目：デフォルトで表示されるトップページを削除します．</li>
 </ul>
 </li>
 </ul>
@@ -172,7 +188,12 @@
 <span class="k">end</span>
 </pre></div>
 </td></tr></table></div>
-<p>※5行目のusernameは，各自のGitHubアカウント名に置き換えること．</p>
+<ul class="simple">
+<li>注意<ul>
+<li>5行目のusernameは，各自のGitHubアカウント名に置き換えること．</li>
+</ul>
+</li>
+</ul>
 </div>
 <div class="section" id="id7">
 <h3>5.2.6. デプロイ先のセットアップ<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h3>
