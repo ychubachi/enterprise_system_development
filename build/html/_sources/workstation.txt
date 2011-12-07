@@ -69,7 +69,7 @@ CentOS 6.0のインストール
 
   # yum upgrade
 
-- 自分のユーザアカウント(例：username）をwheelグループに追加する
+- 自分のユーザアカウント(例：username）をwheelグループに追加する::
 
   # usermod -G wheel username
   # groups username    # <- check
@@ -166,3 +166,8 @@ Ruby on Rails
 - `Capistrano <https://github.com/capistrano/capistrano#readme>`_ のインストール::
 
   $ sudo gem install capistrano
+
+
+.. Local Variables:
+.. compile-command: "(cd .. && make html)"
+.. End:
