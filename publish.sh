@@ -9,5 +9,5 @@ cp -rf build/html/* .
 rm -rf build/html
 git add .
 git commit -a -m 'Published'
-git push
+git push +gh-pages
 git checkout master

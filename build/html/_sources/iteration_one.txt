@@ -15,6 +15,7 @@ Create a scaffold project
 * RailsでScaffoldを生成する
 
   .. code-block:: bash
+     :linenos:
 
     $ rails new myapp
     $ cd myapp
