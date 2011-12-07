@@ -188,7 +188,7 @@ Ruby on Rails
   $ sudo yum -y install gcc-c++ curl-devel openssl-devel zlib-devel httpd-devel apr-devel apr-util-devel
   $ sudo passenger-install-apache2-module
 
-  - 以下の内容を/etc/httpd/conf.d/rails.confに記述する
+  以下の内容を/etc/httpd/conf.d/rails.confに記述する
 
   ::
   
