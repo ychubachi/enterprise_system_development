@@ -175,6 +175,10 @@ Ruby on Rails
   $ sudo gem installl rails
   $ rails -v    # <- check
 
+- `Capistrano <https://github.com/capistrano/capistrano#readme>`_ のインストール::
+
+  $ sudo gem install capistrano
+
 - `Phusion Passenger <http://www.modrails.com/install.html>`_ のインストール::
 
   $ sudo gem install passenger
@@ -184,26 +188,26 @@ Ruby on Rails
   $ sudo yum -y install gcc-c++ curl-devel openssl-devel zlib-devel httpd-devel apr-devel apr-util-devel
   $ sudo passenger-install-apache2-module
 
-  - 設定のサンプルが表示されるので，/etc/httpd/conf.d/以下にrails.confを作り，そこにコピーする
+  - 以下の内容を/etc/httpd/conf.d/rails.confに記述する
 
-::
+  ::
+  
+    LoadModule passenger_module /usr/lib/ruby/gems/1.8/gems/passenger-3.0.11/ext/apache2/mod_passenger.so
+    PassengerRoot /usr/lib/ruby/gems/1.8/gems/passenger-3.0.11
+    PassengerRuby /usr/bin/ruby
 
-  LoadModule passenger_module /usr/lib/ruby/gems/1.8/gems/passenger-3.0.11/ext/apache2/mod_passenger.so
-  PassengerRoot /usr/lib/ruby/gems/1.8/gems/passenger-3.0.11
-  PassengerRuby /usr/bin/ruby
+    <VirtualHost *:80>
+      ServerName localhost
+      DocumentRoot /home/rails/myapp/public    # <-- be sure to point to 'public'!
+      <Directory /home/rails/myapp/public>
+         AllowOverride all              # <-- relax Apache security settings
+         Options -MultiViews            # <-- MultiViews must be turned off
+      </Directory>
+    </VirtualHost>
 
-  <VirtualHost *:80>
-    ServerName localhost
-    DocumentRoot /home/rails/myapp/public    # <-- be sure to point to 'public'!
-    <Directory /home/rails/myapp/public>
-       AllowOverride all              # <-- relax Apache security settings
-       Options -MultiViews            # <-- MultiViews must be turned off
-    </Directory>
-  </VirtualHost>
+  - httpdを再起動する::
 
-- `Capistrano <https://github.com/capistrano/capistrano#readme>`_ のインストール::
-
-  $ sudo gem install capistrano
+  $ sudo service httpd restart
 
 
 .. Local Variables:

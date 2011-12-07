@@ -242,6 +242,10 @@ $ gem -v   # &lt;- check</pre>
 $ rails -v    # &lt;- check</pre>
 </div>
 </li>
+<li><p class="first"><a class="reference external" href="https://github.com/capistrano/capistrano#readme">Capistrano</a> のインストール:</p>
+<div class="highlight-python"><pre>$ sudo gem install capistrano</pre>
+</div>
+</li>
 <li><p class="first"><a class="reference external" href="http://www.modrails.com/install.html">Phusion Passenger</a> のインストール:</p>
 <div class="highlight-python"><pre>$ sudo gem install passenger</pre>
 </div>
@@ -251,9 +255,7 @@ $ rails -v    # &lt;- check</pre>
 $ sudo passenger-install-apache2-module</pre>
 </div>
 <ul class="simple">
-<li>設定のサンプルが表示されるので，/etc/httpd/conf.d/以下にrails.confを作り，そこにコピーする</li>
-</ul>
-</li>
+<li>以下の内容を/etc/httpd/conf.d/rails.confに記述する</li>
 </ul>
 <div class="highlight-python"><pre>LoadModule passenger_module /usr/lib/ruby/gems/1.8/gems/passenger-3.0.11/ext/apache2/mod_passenger.so
 PassengerRoot /usr/lib/ruby/gems/1.8/gems/passenger-3.0.11
@@ -268,10 +270,10 @@ PassengerRuby /usr/bin/ruby
   &lt;/Directory&gt;
 &lt;/VirtualHost&gt;</pre>
 </div>
-<ul>
-<li><p class="first"><a class="reference external" href="https://github.com/capistrano/capistrano#readme">Capistrano</a> のインストール:</p>
-<div class="highlight-python"><pre>$ sudo gem install capistrano</pre>
-</div>
+<ul class="simple">
+<li>httpdを再起動する:</li>
+</ul>
+<p>$ sudo service httpd restart</p>
 </li>
 </ul>
 </div>
