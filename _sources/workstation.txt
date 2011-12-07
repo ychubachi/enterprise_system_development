@@ -64,32 +64,17 @@ CentOS 6.0のインストール
 ----------------------
 
 - 自分のルーザアカウントでログインする
-<<<<<<< HEAD
 - rootアカウントに切り替える
 
   .. code-block:: bash
 
     $ su -
-=======
-- rootアカウントに切り替える::
-
-  $ su -
-
-- OSをアップグレードする::
->>>>>>> d0f17b1fdd8c8f651800d33cd344738c2868cc39
 
 - OSをアップグレードする
 
-<<<<<<< HEAD
   .. code-block:: bash
 
     # yum upgrade
-=======
-- 自分のユーザアカウント(例：username）をwheelグループに追加する::
-
-  # usermod -G wheel username
-  # groups username    # <- check
->>>>>>> d0f17b1fdd8c8f651800d33cd344738c2868cc39
 
 - 自分のユーザアカウント(例：username）をwheelグループに追加する
 
@@ -109,7 +94,6 @@ CentOS 6.0のインストール
     ## Allows people in group wheel to run all commands
     %wheel  ALL=(ALL)       ALL
 
-<<<<<<< HEAD
 - exitする
 
   .. code-block:: bash
@@ -136,28 +120,6 @@ CentOS 6.0のインストール
 
   参考: http://www.server-world.info/query?os=CentOS_6&p=japanese
 
-=======
-- exitする::
-
-  # exit
-  # whoami    # <- check
-
-- 設定をが上手くいったか確認する::
-
-  $ cat /etc/shadow        # <- check this will fails
-  $ sudo cat /etc/shadow   # <- check this will success
-
-日本語環境のインストール
-------------------------
-
-- ユーザアカウントでログインする
-- 日本語パッケージをインストールする::
-
-  $ sudo yum -y groupinstall "Japanese Support"
-
-  参考: http://www.server-world.info/query?os=CentOS_6&p=japanese
-
->>>>>>> d0f17b1fdd8c8f651800d33cd344738c2868cc39
 
 SSHのための公開鍵の作成
 -----------------------
@@ -165,19 +127,12 @@ SSHのための公開鍵の作成
 SSH接続で使う公開鍵/非公開鍵のペアを作成します．演習で利用する重要なファイルですので，USBメモリなどにバックアップをとっておくことをおすすめします．
 
 - ユーザアカウントでログインする
-<<<<<<< HEAD
 - 公開鍵を作成する（演習用なので，パスフレーズは入れなくてもかまわない）
 
   .. code-block:: bash
 
     $ ssh-keygen
     $ ls ~/.ssh    # <- check
-=======
-- 公開鍵を作成する（演習用なので，パスフレーズは入れなくてもかまわない）::
-
-  $ ssh-keygen
-  $ ls ~/.ssh    # <- check
->>>>>>> d0f17b1fdd8c8f651800d33cd344738c2868cc39
 
 - 公開鍵をauthorized_keysに登録する
 
@@ -200,11 +155,7 @@ Git
 
   .. code-block:: bash
 
-<<<<<<< HEAD
     $ sudo yum -y install git
-=======
-  $ sudo yum -y install git
->>>>>>> d0f17b1fdd8c8f651800d33cd344738c2868cc39
 
 GitHub
 ------
@@ -235,24 +186,12 @@ Railsのアプリケーションをデプロイする場所として，railsア�
 Ruby on Rails
 -------------
 
-<<<<<<< HEAD
 - Ruby 1.8.7のインストール（開発用パッケージも含む）
 
   .. code-block:: bash
 
     $ sudo yum -y install ruby ruby-devel
     $ ruby -v   # <- check
-=======
-- Ruby 1.8.7のインストール（開発用パッケージも含む）::
-
-  $ sudo yum -y install ruby ruby-devel
-  $ ruby -v   # <- check
-  
-- Gem 1.8.7のインストール::
-
-  $ sudo yum -y install rubygems
-  $ gem -v   # <- check
->>>>>>> d0f17b1fdd8c8f651800d33cd344738c2868cc39
   
 - Gem 1.8.7のインストール
 
@@ -268,16 +207,7 @@ Ruby on Rails
     $ sudo gem installl rails
     $ rails -v    # <- check
 
-<<<<<<< HEAD
 - `Capistrano <https://github.com/capistrano/capistrano#readme>`_ のインストール
-=======
-  $ sudo gem installl rails
-  $ rails -v    # <- check
-
-- `Capistrano <https://github.com/capistrano/capistrano#readme>`_ のインストール::
-
-  $ sudo gem install capistrano
->>>>>>> d0f17b1fdd8c8f651800d33cd344738c2868cc39
 
   .. code-block:: bash
 
@@ -304,7 +234,6 @@ Ruby on Rails
     PassengerRoot /usr/lib/ruby/gems/1.8/gems/passenger-3.0.11
     PassengerRuby /usr/bin/ruby
 
-<<<<<<< HEAD
     <VirtualHost *:80>
       ServerName localhost
       DocumentRoot /home/rails/myapp/public
@@ -319,36 +248,6 @@ Ruby on Rails
   .. code-block:: bash
 
     $ sudo service httpd restart
-=======
-  $ sudo gem install passenger
-
-- Passengerをapacheと接続するためのモジュールをコンパイルする::
-
-  $ sudo yum -y install gcc-c++ curl-devel openssl-devel zlib-devel httpd-devel apr-devel apr-util-devel
-  $ sudo passenger-install-apache2-module
-
-  以下の内容を/etc/httpd/conf.d/rails.confに記述する
-
-  ::
-  
-    LoadModule passenger_module /usr/lib/ruby/gems/1.8/gems/passenger-3.0.11/ext/apache2/mod_passenger.so
-    PassengerRoot /usr/lib/ruby/gems/1.8/gems/passenger-3.0.11
-    PassengerRuby /usr/bin/ruby
-
-    <VirtualHost *:80>
-      ServerName localhost
-      DocumentRoot /home/rails/myapp/public    # <-- be sure to point to 'public'!
-      <Directory /home/rails/myapp/public>
-         AllowOverride all              # <-- relax Apache security settings
-         Options -MultiViews            # <-- MultiViews must be turned off
-      </Directory>
-    </VirtualHost>
-
-- httpdを再起動する::
-
-  $ sudo service httpd restart
-
->>>>>>> d0f17b1fdd8c8f651800d33cd344738c2868cc39
 
 .. Local Variables:
 .. compile-command: "(cd .. && make html)"

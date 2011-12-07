@@ -105,14 +105,8 @@
 <li>64ビット版<ul>
 <li><a class="reference external" href="http://ftp.riken.jp/Linux/centos/6.0/isos/x86_64/CentOS-6.0-x86_64-bin-DVD1.iso">http://ftp.riken.jp/Linux/centos/6.0/isos/x86_64/CentOS-6.0-x86_64-bin-DVD1.iso</a></li>
 <li><a class="reference external" href="http://ftp.riken.jp/Linux/centos/6.0/isos/x86_64/CentOS-6.0-x86_64-bin-DVD2.iso">http://ftp.riken.jp/Linux/centos/6.0/isos/x86_64/CentOS-6.0-x86_64-bin-DVD2.iso</a></li>
-<<<<<<< HEAD
-=======
 </ul>
 </li>
->>>>>>> d0f17b1fdd8c8f651800d33cd344738c2868cc39
-</ul>
-</li>
-<li>VMware Playerを起動して，ISOイメージからインストールを行う．</li>
 </ul>
 </li>
 <li>VMware Playerを起動して，ISOイメージからインストールを行う．</li>
@@ -124,14 +118,9 @@
 <ul>
 <li><p class="first">自分のルーザアカウントでログインする</p>
 </li>
-<<<<<<< HEAD
 <li><p class="first">rootアカウントに切り替える</p>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>su -
 </pre></div>
-=======
-<li><p class="first">rootアカウントに切り替える:</p>
-<div class="highlight-python"><pre>$ su -</pre>
->>>>>>> d0f17b1fdd8c8f651800d33cd344738c2868cc39
 </div>
 </li>
 <li><p class="first">OSをアップグレードする</p>
@@ -139,13 +128,8 @@
 </pre></div>
 </div>
 </li>
-<<<<<<< HEAD
 <li><p class="first">自分のユーザアカウント(例：username）をwheelグループに追加する</p>
 <div class="highlight-bash"><div class="highlight"><pre><span class="c"># usermod -G wheel username</span>
-=======
-<li><p class="first">自分のユーザアカウント(例：username）をwheelグループに追加する:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="c"># usermod -G wheel username</span>
->>>>>>> d0f17b1fdd8c8f651800d33cd344738c2868cc39
 <span class="c"># groups username    # &lt;- check</span>
 </pre></div>
 </div>
@@ -159,7 +143,6 @@
 %wheel  ALL=(ALL)       ALL</pre>
 </div>
 </li>
-<<<<<<< HEAD
 <li><p class="first">exitする</p>
 <div class="highlight-bash"><div class="highlight"><pre><span class="c"># exit</span>
 <span class="c"># whoami    # &lt;- check</span>
@@ -172,19 +155,6 @@
 </pre></div>
 </div>
 </li>
-=======
-<li><p class="first">exitする:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="c"># exit</span>
-<span class="c"># whoami    # &lt;- check</span>
-</pre></div>
-</div>
-</li>
-<li><p class="first">設定をが上手くいったか確認する:</p>
-<div class="highlight-python"><pre>$ cat /etc/shadow        # &lt;- check this will fails
-$ sudo cat /etc/shadow   # &lt;- check this will success</pre>
-</div>
-</li>
->>>>>>> d0f17b1fdd8c8f651800d33cd344738c2868cc39
 </ul>
 </div>
 <div class="section" id="id7">
@@ -192,14 +162,9 @@ $ sudo cat /etc/shadow   # &lt;- check this will success</pre>
 <ul>
 <li><p class="first">ユーザアカウントでログインする</p>
 </li>
-<<<<<<< HEAD
 <li><p class="first">日本語パッケージをインストールする</p>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo yum -y groupinstall <span class="s2">&quot;Japanese Support&quot;</span>
 </pre></div>
-=======
-<li><p class="first">日本語パッケージをインストールする:</p>
-<div class="highlight-python"><pre>$ sudo yum -y groupinstall "Japanese Support"</pre>
->>>>>>> d0f17b1fdd8c8f651800d33cd344738c2868cc39
 </div>
 <p>参考: <a class="reference external" href="http://www.server-world.info/query?os=CentOS_6&amp;p=japanese">http://www.server-world.info/query?os=CentOS_6&amp;p=japanese</a></p>
 </li>
@@ -211,16 +176,10 @@ $ sudo cat /etc/shadow   # &lt;- check this will success</pre>
 <ul>
 <li><p class="first">ユーザアカウントでログインする</p>
 </li>
-<<<<<<< HEAD
 <li><p class="first">公開鍵を作成する（演習用なので，パスフレーズは入れなくてもかまわない）</p>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>ssh-keygen
 <span class="nv">$ </span>ls ~/.ssh    <span class="c"># &lt;- check</span>
 </pre></div>
-=======
-<li><p class="first">公開鍵を作成する（演習用なので，パスフレーズは入れなくてもかまわない）:</p>
-<div class="highlight-python"><pre>$ ssh-keygen
-$ ls ~/.ssh    # &lt;- check</pre>
->>>>>>> d0f17b1fdd8c8f651800d33cd344738c2868cc39
 </div>
 </li>
 <li><p class="first">公開鍵をauthorized_keysに登録する</p>
@@ -240,14 +199,9 @@ $ ls ~/.ssh    # &lt;- check</pre>
 <div class="section" id="git">
 <h2>4.7. Git<a class="headerlink" href="#git" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul>
-<<<<<<< HEAD
 <li><p class="first">gitのインストール</p>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo yum -y install git
 </pre></div>
-=======
-<li><p class="first">gitのインストール:</p>
-<div class="highlight-python"><pre>$ sudo yum -y install git</pre>
->>>>>>> d0f17b1fdd8c8f651800d33cd344738c2868cc39
 </div>
 </li>
 </ul>
@@ -282,7 +236,6 @@ $ ls ~/.ssh    # &lt;- check</pre>
 <div class="section" id="ruby-on-rails">
 <h2>4.10. Ruby on Rails<a class="headerlink" href="#ruby-on-rails" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul>
-<<<<<<< HEAD
 <li><p class="first">Ruby 1.8.7のインストール（開発用パッケージも含む）</p>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo yum -y install ruby ruby-devel
 <span class="nv">$ </span>ruby -v   <span class="c"># &lt;- check</span>
@@ -335,52 +288,6 @@ $ ls ~/.ssh    # &lt;- check</pre>
 <li><p class="first">httpdを再起動する</p>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo service httpd restart
 </pre></div>
-=======
-<li><p class="first">Ruby 1.8.7のインストール（開発用パッケージも含む）:</p>
-<div class="highlight-python"><pre>$ sudo yum -y install ruby ruby-devel
-$ ruby -v   # &lt;- check</pre>
-</div>
-</li>
-<li><p class="first">Gem 1.8.7のインストール:</p>
-<div class="highlight-python"><pre>$ sudo yum -y install rubygems
-$ gem -v   # &lt;- check</pre>
-</div>
-</li>
-<li><p class="first"><a class="reference external" href="http://rubyonrails.org/download">Rails 3.1</a> のインストール:</p>
-<div class="highlight-python"><pre>$ sudo gem installl rails
-$ rails -v    # &lt;- check</pre>
-</div>
-</li>
-<li><p class="first"><a class="reference external" href="https://github.com/capistrano/capistrano#readme">Capistrano</a> のインストール:</p>
-<div class="highlight-python"><pre>$ sudo gem install capistrano</pre>
-</div>
-</li>
-<li><p class="first"><a class="reference external" href="http://www.modrails.com/install.html">Phusion Passenger</a> のインストール:</p>
-<div class="highlight-python"><pre>$ sudo gem install passenger</pre>
-</div>
-</li>
-<li><p class="first">Passengerをapacheと接続するためのモジュールをコンパイルする:</p>
-<div class="highlight-python"><pre>$ sudo yum -y install gcc-c++ curl-devel openssl-devel zlib-devel httpd-devel apr-devel apr-util-devel
-$ sudo passenger-install-apache2-module</pre>
-</div>
-<p>以下の内容を/etc/httpd/conf.d/rails.confに記述する</p>
-<div class="highlight-python"><pre>LoadModule passenger_module /usr/lib/ruby/gems/1.8/gems/passenger-3.0.11/ext/apache2/mod_passenger.so
-PassengerRoot /usr/lib/ruby/gems/1.8/gems/passenger-3.0.11
-PassengerRuby /usr/bin/ruby
-
-&lt;VirtualHost *:80&gt;
-  ServerName localhost
-  DocumentRoot /home/rails/myapp/public    # &lt;-- be sure to point to 'public'!
-  &lt;Directory /home/rails/myapp/public&gt;
-     AllowOverride all              # &lt;-- relax Apache security settings
-     Options -MultiViews            # &lt;-- MultiViews must be turned off
-  &lt;/Directory&gt;
-&lt;/VirtualHost&gt;</pre>
-</div>
-</li>
-<li><p class="first">httpdを再起動する:</p>
-<div class="highlight-python"><pre>$ sudo service httpd restart</pre>
->>>>>>> d0f17b1fdd8c8f651800d33cd344738c2868cc39
 </div>
 </li>
 </ul>
