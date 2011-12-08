@@ -188,7 +188,7 @@
 </pre></div>
 </div>
 </li>
-<li><p class="first">公開鍵でログインできるか確かめる</p>
+<li><p class="first">公開鍵で（＝パスワード無しで）ログインできるか確かめる</p>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>ssh localhost    <span class="c"># &lt;- you don&#39;t need to type your password</span>
 <span class="nv">$ </span><span class="nb">exit</span>
 </pre></div>
@@ -211,10 +211,16 @@
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/">GitHub</a> にアカウントを作成する<ul>
 <li>アカウント名とメールアドレスは大学のものと同じにしてください</li>
-<li>登録ができたら，管理画面でSSHの公開鍵を登録してください</li>
+<li>登録ができたら，管理画面でSSHの公開鍵を登録してください <a class="footnote-reference" href="#win-set-up-git" id="id9">[1]</a> ．</li>
 </ul>
 </li>
 </ul>
+<table class="docutils footnote" frame="void" id="win-set-up-git" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id9">[1]</a></td><td><a class="reference external" href="http://help.github.com/win-set-up-git/">http://help.github.com/win-set-up-git/</a> の4節参照</td></tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="rails">
 <h2>4.9. railsユーザアカウントを作成する<a class="headerlink" href="#rails" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -292,6 +298,33 @@
 </li>
 </ul>
 </div>
+<div class="section" id="id10">
+<h2>4.11. 追記(12/8)<a class="headerlink" href="#id10" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id11">
+<h3>4.11.1. gitの設定方法<a class="headerlink" href="#id11" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<blockquote>
+<div><p>次のコマンドで，gitの設定をしてください．</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git config --global user.name <span class="s2">&quot;Your Name&quot;</span>
+<span class="nv">$ </span>git config --global user.email <span class="s2">&quot;username@domain.example&quot;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="id12">
+<h3>4.11.2. gitの利用で困ったら？<a class="headerlink" href="#id12" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<blockquote>
+<div><p>次のコマンドで，状況が確認できます．</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git status
+</pre></div>
+</div>
+<p>次のコマンドで，ログが確認できます．</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git log
+</pre></div>
+</div>
+<p>なお，gitのエラーメッセージは英語ですが，わりと丁寧に記述されているので，しっかりと読むようにしましょう．</p>
+</div></blockquote>
+</div>
+</div>
 </div>
 
 
@@ -317,6 +350,11 @@
 <li><a class="reference internal" href="#github">4.8. GitHub</a></li>
 <li><a class="reference internal" href="#rails">4.9. railsユーザアカウントを作成する</a></li>
 <li><a class="reference internal" href="#ruby-on-rails">4.10. Ruby on Rails</a></li>
+<li><a class="reference internal" href="#id10">4.11. 追記(12/8)</a><ul>
+<li><a class="reference internal" href="#id11">4.11.1. gitの設定方法</a></li>
+<li><a class="reference internal" href="#id12">4.11.2. gitの利用で困ったら？</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
