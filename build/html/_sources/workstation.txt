@@ -145,7 +145,7 @@ SSH接続で使う公開鍵/非公開鍵のペアを作成します．演習で�
 
   .. code-block:: bash
 
-    $ ssh localhost
+    $ ssh localhost    # <- you don't need to type your password
     $ exit
 
 Git
