@@ -57,21 +57,89 @@
 <h2>6.1. イテレーションサイクルの概要<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <img alt="_images/IterationCycleWithGitHub.png" src="_images/IterationCycleWithGitHub.png" style="width: 100%;" />
 </div>
+<div class="section" id="tkdd">
+<h2>6.2. チケット駆動型開発（TkDD）<a class="headerlink" href="#tkdd" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>GitHubのissueを使って，チケットを管理します．</p>
+<ul class="simple">
+<li>issueはメンバー全員が発行できる</li>
+<li>issueはできる限り具体的に，細かく</li>
+</ul>
+</div>
 <div class="section" id="id3">
-<h2>6.2. イテレーションサイクルのシナリオ<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>6.3. ドキュメントの共有<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>ドキュメントは全てGitHubのWikiで共有します．</p>
+</div>
+<div class="section" id="id4">
+<h2>6.4. イテレーションサイクルのシナリオ<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <img alt="_images/GitHubWorkflow.png" src="_images/GitHubWorkflow.png" style="width: 100%;" />
 <div class="admonition- admonition" id="index-0">
 <p class="first admonition-title">課題</p>
 <p class="last">図の修正：deployはDeveloper Aが行う</p>
 </div>
 </div>
-<div class="section" id="tkdd">
-<h2>6.3. チケット駆動型開発（TkDD）<a class="headerlink" href="#tkdd" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>GitHubのissueを使って，チケットを管理します．</p>
+<div class="section" id="id5">
+<h2>6.5. 概要<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>ここからはチームでの作業になります．作成するアプリは「ブログアプリ」です．次のURLに詳しい説明があります．</p>
+<p><a class="reference external" href="http://guides.rubyonrails.org/getting_started.html">http://guides.rubyonrails.org/getting_started.html</a></p>
+<p>作業を始めるにあたり，メンバーのなかから一人「Master Developer」を決めてください．</p>
+<p>最初は，HTML(erbファイル）ごとに担当をきめ，Viewまわりを変更することから開始するとよいでしょう．</p>
 </div>
-<div class="section" id="id4">
-<h2>6.4. ドキュメントの共有<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>ドキュメントは全てGitHubのWikiで共有します．</p>
+<div class="section" id="id6">
+<h2>6.6. レポジトリの準備<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="create-a-scaffold-product">
+<h3>6.6.1. Create a scaffold product<a class="headerlink" href="#create-a-scaffold-product" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>Master Developerは，次のコマンドで，Scaffoldを作成します．</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>rails new blog
+<span class="nv">$ </span><span class="nb">cd </span>blog
+<span class="nv">$ </span>rm public/index.html
+<span class="nv">$ </span>rails generate scaffold Post name:string title:string content:text
+<span class="nv">$ </span>rake db:migrate
+</pre></div>
+</div>
+</div>
+<div class="section" id="create-a-local-repo">
+<h3>6.6.2. Create a local repo<a class="headerlink" href="#create-a-local-repo" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>Master Developerは，ローカルのgitレポジトリにcommitします．</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git init
+<span class="nv">$ </span>git add .
+<span class="nv">$ </span>git commi -a -m <span class="s1">&#39;Initial commit&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="push-the-repos">
+<h3>6.6.3. Push the repos<a class="headerlink" href="#push-the-repos" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>次に，GitHubにも新しいレポジトリ「blog」を作成します．作成できたら，pushしてください．</p>
+</div>
+<div class="section" id="fork-the-master-to-create-a-remote-repos">
+<h3>6.6.4. Fork the master to create a remote repos<a class="headerlink" href="#fork-the-master-to-create-a-remote-repos" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>Developer（他のメンバー）は，Master Developerが作成したblogレポジトリをGitHubから検索し，「Frok」します．</p>
+</div>
+<div class="section" id="clone-the-remote-repos-into-local-repos">
+<h3>6.6.5. clone the remote repos into local repos<a class="headerlink" href="#clone-the-remote-repos-into-local-repos" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>自分のblogレポジトリをcloneします．</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git clone git:.....git
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id7">
+<h2>6.7. イテレーション<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="pull-the-master-repos">
+<h3>6.7.1. Pull the master repos<a class="headerlink" href="#pull-the-master-repos" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>DeveloperはMasterのレポジトリをpullします．</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git pull ....
+</pre></div>
+</div>
+</div>
+<div class="section" id="write-test-codes">
+<h3>6.7.2. Write/Test codes<a class="headerlink" href="#write-test-codes" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>プログラミングします．</p>
+</div>
+<div class="section" id="commit-to-the-local-repos">
+<h3>6.7.3. commit to the local repos<a class="headerlink" href="#commit-to-the-local-repos" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>ローカルレポジトリにコミット
+.. code-block:: bash</p>
+</div>
 </div>
 </div>
 
@@ -85,9 +153,24 @@
   <ul>
 <li><a class="reference internal" href="#">6. チームでまわすイテレーション</a><ul>
 <li><a class="reference internal" href="#id2">6.1. イテレーションサイクルの概要</a></li>
-<li><a class="reference internal" href="#id3">6.2. イテレーションサイクルのシナリオ</a></li>
-<li><a class="reference internal" href="#tkdd">6.3. チケット駆動型開発（TkDD）</a></li>
-<li><a class="reference internal" href="#id4">6.4. ドキュメントの共有</a></li>
+<li><a class="reference internal" href="#tkdd">6.2. チケット駆動型開発（TkDD）</a></li>
+<li><a class="reference internal" href="#id3">6.3. ドキュメントの共有</a></li>
+<li><a class="reference internal" href="#id4">6.4. イテレーションサイクルのシナリオ</a></li>
+<li><a class="reference internal" href="#id5">6.5. 概要</a></li>
+<li><a class="reference internal" href="#id6">6.6. レポジトリの準備</a><ul>
+<li><a class="reference internal" href="#create-a-scaffold-product">6.6.1. Create a scaffold product</a></li>
+<li><a class="reference internal" href="#create-a-local-repo">6.6.2. Create a local repo</a></li>
+<li><a class="reference internal" href="#push-the-repos">6.6.3. Push the repos</a></li>
+<li><a class="reference internal" href="#fork-the-master-to-create-a-remote-repos">6.6.4. Fork the master to create a remote repos</a></li>
+<li><a class="reference internal" href="#clone-the-remote-repos-into-local-repos">6.6.5. clone the remote repos into local repos</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id7">6.7. イテレーション</a><ul>
+<li><a class="reference internal" href="#pull-the-master-repos">6.7.1. Pull the master repos</a></li>
+<li><a class="reference internal" href="#write-test-codes">6.7.2. Write/Test codes</a></li>
+<li><a class="reference internal" href="#commit-to-the-local-repos">6.7.3. commit to the local repos</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
