@@ -15,8 +15,8 @@
    overview
    workstation
    iteration_one
-   server
    iteration_team
+   enterprise
    memo
 
 ---
