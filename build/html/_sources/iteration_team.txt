@@ -6,13 +6,53 @@
 .. image:: _static/IterationCycleWithGitHub.png
    :width: 100%
 
+GitHub型開発モデル
+------------------
+
+  ..                       you push
+  .. your personal repo ------------------> your public repo
+  ..       ^                                     |
+  ..       |                                     |
+  ..       | you pull                            | they pull
+  ..       |                                     |
+  ..       |                                     |
+  ..       |               they push             V
+  .. their public repo <------------------- their repo
+
+
+.. todo:: GitHub型モデルの図を作成する
+
 チケット駆動型開発（TkDD）
 --------------------------
 
-GitHubのissueを使って，チケットを管理します．
+チケットとは，仕事に取りかかるために必要な切符のようなものです．TkDDでは，仕事をする前に，必ずチケットを発行しなくてはなりません．また，チケットは誰が読んでも仕事の内容が分かるものでなくてはなりません．このチケットをグループ内で有効に共有して，プロジェクトを進めるのがTkDDです．
 
-- issueはメンバー全員が発行できる
-- issueはできる限り具体的に，細かく
+チケットの「書き方」に関する大原則は次の通りです [#ticket]_ ．
+
+- やらなければいけないことを網羅する
+- 誰が見ても分かるようにかく
+- タスクの終了条件をはっきりさせる
+- 大きなタスクは処理しやすい大きさに分ける
+- 進捗がわかるようにする（誰がやってるか？もう終わったか？）
+- リストは定期的に見直す
+
+これらに加えて，次のことを追加します．
+
+- チケットは，メンバーが自ら発行できる（PMが発行しても **構わない** ）
+- チケットは，メンバーが自らとりにいく（PMがアサインしても **構わない** ）
+
+チームメンバー全員が，チケットを介して主体的に仕事の分担をするのが理想です．
+
+※チケットの状況（進捗）は成績評価に反映させますので，必ずチケットを発行した上で仕事を始め，進捗があったらチケットの状態を変化させてください．
+
+.. rubric:: 脚注
+
+.. [#ticket] http://www.slideshare.net/Ryuzee/ss-9800501
+
+チケットの共有
+--------------
+
+この演習では，GitHubのissueを使って，チケットを管理します．
 
 ドキュメントの共有
 ------------------
@@ -28,23 +68,44 @@ GitHubのissueを使って，チケットを管理します．
 
   図の修正：deployはDeveloper Aが行う
 
-概要
-----
+シナリオの説明
+--------------
 
-ここからはチームでの作業になります．作成するアプリは「ブログアプリ」です．次のURLに詳しい説明があります．
+ここからはチームでの作業になります．
 
-http://guides.rubyonrails.org/getting_started.html
+作業を始めるにあたり役割分担をします．まず，全てのメンバーはDeveloperです．加えて，メンバーのなかから一人「Merger」を決めてください．MergerはDeveloperを兼ねます．
 
-作業を始めるにあたり，メンバーのなかから一人「Master Developer」を決めてください．
+以下のシナリオでは，次の3名からなるグループを想定します．
 
-最初は，HTML(erbファイル）ごとに担当をきめ，Viewまわりを変更することから開始するとよいでしょう．
+========  =================
+Name      Role               
+========  =================
+doraemon  Developer, Merger
+nobita    Developer          
+shizuka   Developer          
+========  =================
 
-レポジトリの準備
-----------------
+全てのメンバーはGitHubで互いをFollowしてください．
+
+  - http://help.github.com/be-social/ 
+
+作成するアプリケーション
+------------------------
+
+作成するアプリは「ブログアプリ」です [#blog]_ ．
+
+.. rubric:: 脚注
+
+.. [#blog] 次のURLに詳しい説明がありますので，必要に応じて参照してください．
+   http://guides.rubyonrails.org/getting_started.html
+
+
+レポジトリの準備（Mergerが行う作業）
+------------------------------------
 
 Create a scaffold product
 ~~~~~~~~~~~~~~~~~~~~~~~~~
-Master Developerは，次のコマンドで，Scaffoldを作成します．
+Mergerは，次のコマンドで，Scaffoldを作成します．
 
 .. code-block:: bash
 
@@ -54,9 +115,18 @@ Master Developerは，次のコマンドで，Scaffoldを作成します．
   $ rails generate scaffold Post name:string title:string content:text
   $ rake db:migrate
 
+デプロイの設定を行います．
+
+.. code-block:: bash
+
+  $ capify .
+
+※前に作業したときと同様に，Capfile, config/deploy.shを書き換えます．
+
+
 Create a local repo
 ~~~~~~~~~~~~~~~~~~~
-Master Developerは，ローカルのgitレポジトリにcommitします．
+Mergerは，ローカルのgitレポジトリにcommitします．
 
 .. code-block:: bash
 
@@ -64,44 +134,148 @@ Master Developerは，ローカルのgitレポジトリにcommitします．
   $ git add .
   $ git commi -a -m 'Initial commit'
 
-Push the repos
-~~~~~~~~~~~~~~
+Push the repo
+~~~~~~~~~~~~~
 
-次に，GitHubにも新しいレポジトリ「blog」を作成します．作成できたら，pushしてください．
+次に，GitHubにも新しいレポジトリ「blog」を作成します．
 
-Fork the master to create a remote repos
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Developer（他のメンバー）は，Master Developerが作成したblogレポジトリをGitHubから検索し，「Frok」します．
-
-clone the remote repos into local repos
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-自分のblogレポジトリをcloneします．
+作成できたら，pushしてください．
 
 .. code-block:: bash
 
-  $ git clone git:.....git
+  $ git remote add origin git@github.com:doraemon/blog.git
+  $ git push -u origin master
 
-イテレーション
---------------
+レポジトリの準備（Developerが行う作業）
+---------------------------------------
 
-Pull the master repos
-~~~~~~~~~~~~~~~~~~~~~
+Fork the merger repo
+~~~~~~~~~~~~~~~~~~~~
+Developerは，Mergerが作成したレポジトリをGitHubから検索し，「Frok」します．
 
-DeveloperはMasterのレポジトリをpullします．
+  - http://help.github.com/fork-a-repo/
+
+同様に，Watchも設定してください
+
+  - http://help.github.com/be-social/
+
+clone the remote repo into local repo
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+DeveloperはGitHubにある **自分のレポジトリ** をcloneします．
 
 .. code-block:: bash
 
-  $ git pull ....
+  $ git clone git@github.com:nobita/blog.git
+
+イテレーション(Developer)
+-------------------------
+
+Pull the merger repo
+~~~~~~~~~~~~~~~~~~~~
+Mergerのレポジトリをpullします．
+
+.. code-block:: bash
+
+  $ git pull git@github.com:doraemon/blog.git
 
 Write/Test codes
 ~~~~~~~~~~~~~~~~
-プログラミングします．
+まず，MergerのGitHubレポジトリにアクセスして，チケット（issue）を発行します．
 
-commit to the local repos
-~~~~~~~~~~~~~~~~~~~~~~~~~
-ローカルレポジトリにコミット
+.. todo:: 自分のレポジトリのissueのほうがよいかも？
+
+次に，作業（プログラミング）をします．
+
+※はじめは，app/views/blogs/以下にある各*.html.erbファイルを，ファイル毎に分担して編集してみるのがよいでしょう．
+
+※なお，チケットなしに作業をしたメンバーには，何らかのペナルティを科しましょう．
+
+Commit to the local repo
+~~~~~~~~~~~~~~~~~~~~~~~~
+チケットに書いた作業が終わったら，ローカルレポジトリにコミットします．
+
 .. code-block:: bash
 
+  $ git add .
+  $ git commit -a -m 'Closes #10'
+
+2行目の#10のところは，作業したチケットの番号（issue number）に置き換えてください．こうすることで，後ほどMergerがマージの作業を終えたら自動的にチケットがクローズされます（はず？）．
+
+※ローカルレポジトリのコミットは，他のメンバーに影響しないので，こまめに実行しましょう．
+
+Push to the remote repo
+~~~~~~~~~~~~~~~~~~~~~~~
+.. code-block:: bash
+
+  $ git push
+
+※pushする前に，必ずテストとローカルサーバでの動作確認をしてください．実行時にエラーがでるようなコードをpushすると，他の人に迷惑がかかります．もし，単純な文法ミスなどの明らかなエラーを含むコードをpushした人には，何らかのペナルティを科しましょう．
+
+Send a pull request
+~~~~~~~~~~~~~~~~~~~
+Mergerにpullを要求します
+
+  - http://help.github.com/send-pull-requests/
+
+以上で，イテレーション終了です．
+
+作業中，Mergerが他のDeveloperのコードをマージした可能性があるので，6.11.1に戻って作業を継続します．
+
+イテレーションサイクル(Merger)
+------------------------------
+
+Pull the merger repo
+~~~~~~~~~~~~~~~~~~~~
+Mergerのレポジトリをpullします．
+
+.. code-block:: bash
+
+  $ git pull
+
+Deploy the product
+~~~~~~~~~~~~~~~~~~
+サーバにdeployします．
+
+.. code-block:: bash
+
+  $ cap deploy
+
+Merge pull requests
+~~~~~~~~~~~~~~~~~~~
+DeveloperからのpullリクエストをMergeします．
+
+https://github.com/blog/843-the-merge-button
+
+エラー無くMergeできたら，6.12.1に戻ります．
+
+Solve conflicts
+~~~~~~~~~~~~~~~
+
+Mergeする際，コンフリクトが発生して，オートマージできない場合があります．コンフリクトは，複数のDeveloperが同じ箇所を，別の内容に変更した場合に生じます．この場合は，手動で解消することになります．
+
+この作業を行うためには，まず，MergerがDeveloperのレポジトリを登録しておきます．
+
+.. code-block:: bash
+
+  $ git checkout master
+  $ git remote add shizuka git://github.com/sizuka/jobs.git
+
+コンフリクトが発生したら，Developerのレポジトリから新しいコードを取得します．
+
+.. code-block:: bash
+
+  $ git fetch shizuka
+  $ git merge shizuka
+
+ここで，コンフリクトの内容が確認できるので，適宜修正します（どっちかを活かして，どっちかを消します）．
+
+完了したら，pushします．
+
+.. code-block:: bash
+
+  $ git push origin master
+
+6.12.2に戻ります．
 
 .. Local Variables:
 .. compile-command: "(cd .. && make html)"

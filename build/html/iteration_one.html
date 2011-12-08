@@ -122,9 +122,22 @@
 </div>
 <div class="section" id="id5">
 <h3>5.2.4. リモートレポジトリを作成する<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ul>
+<li><p class="first">GitHubにリモートレポジトリを作成する</p>
 <ul class="simple">
-<li>GitHubにリモートレポジトリを作成する</li>
-<li>GitHubの画面にローカルレポジトリをpushする方法の説明が表示されるので，それに従い，pushする</li>
+<li><a class="reference external" href="http://help.github.com/create-a-repo/">http://help.github.com/create-a-repo/</a></li>
+</ul>
+</li>
+<li><p class="first">GitHubの画面にローカルレポジトリをpushする方法の説明が表示されるので，それに従い，pushする</p>
+<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span class="hll"><span class="nv">$ </span>git remote add origin git@github.com:username/myapp.git
+</span><span class="nv">$ </span>git push -u origin master
+</pre></div>
+</td></tr></table></div>
+<p>↑1行目のusernameは，各自のGitHubアカウント名に置き換えること．</p>
+</li>
+<li><p class="first">GitHubのページで，ソースコードが登録されたことを確認する</p>
+</li>
 </ul>
 </div>
 <div class="section" id="id6">
@@ -136,8 +149,6 @@
 <span class="nv">$ </span>emacs config/deploy.rb &amp;
 </pre></div>
 </div>
-</li>
-</ul>
 <div class="highlight-ruby"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -188,10 +199,7 @@
 <span class="k">end</span>
 </pre></div>
 </td></tr></table></div>
-<ul class="simple">
-<li>注意<ul>
-<li>5行目のusernameは，各自のGitHubアカウント名に置き換えること．</li>
-</ul>
+<p>↑5行目のusernameは，各自のGitHubアカウント名に置き換えること．</p>
 </li>
 </ul>
 </div>
@@ -210,10 +218,19 @@
 <div class="section" id="deploy-products">
 <h2>5.3. Deploy products<a class="headerlink" href="#deploy-products" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul>
-<li><p class="first">ローカルApacheサーバにデプロイする</p>
+<li><p class="first">ローカルレポジトリにcommitする</p>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git add .
 <span class="nv">$ </span>git commit -a -m <span class="s1">&#39;Deploy&#39;</span>
-<span class="nv">$ </span>cap deploy
+</pre></div>
+</div>
+</li>
+<li><p class="first">リモートレポジトリにpushする</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git push
+</pre></div>
+</div>
+</li>
+<li><p class="first">Apacheサーバにデプロイする</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>cap deploy
 <span class="nv">$ </span>find /home/rails    <span class="c"># &lt;- check</span>
 </pre></div>
 </div>

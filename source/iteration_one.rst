@@ -64,7 +64,21 @@ Create a scaffold project
 リモートレポジトリを作成する
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 * GitHubにリモートレポジトリを作成する
+
+  - http://help.github.com/create-a-repo/
+
 * GitHubの画面にローカルレポジトリをpushする方法の説明が表示されるので，それに従い，pushする
+
+  .. code-block:: bash
+    :linenos:
+    :emphasize-lines: 1
+
+    $ git remote add origin git@github.com:username/myapp.git
+    $ git push -u origin master
+
+  ↑1行目のusernameは，各自のGitHubアカウント名に置き換えること．
+
+* GitHubのページで，ソースコードが登録されたことを確認する
 
 デプロイ用の設定を行う
 ~~~~~~~~~~~~~~~~~~~~~~
@@ -76,18 +90,16 @@ Create a scaffold project
     $ emacs Capfile &
     $ emacs config/deploy.rb &
 
-.. literalinclude:: Capfile
-   :language: ruby
-   :linenos:
+  .. literalinclude:: Capfile
+    :language: ruby
+    :linenos:
 
-.. literalinclude:: deploy.rb
-   :language: ruby
-   :emphasize-lines: 5
-   :linenos:
+  .. literalinclude:: deploy.rb
+    :language: ruby
+    :emphasize-lines: 5
+    :linenos:
 
-- 注意
-
-  - 5行目のusernameは，各自のGitHubアカウント名に置き換えること．
+  ↑5行目のusernameは，各自のGitHubアカウント名に置き換えること．
 
 デプロイ先のセットアップ
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -101,12 +113,23 @@ Create a scaffold project
 Deploy products
 ---------------
 
-* ローカルApacheサーバにデプロイする
+* ローカルレポジトリにcommitする
 
   .. code-block:: bash
 
     $ git add .
     $ git commit -a -m 'Deploy'
+
+* リモートレポジトリにpushする
+
+  .. code-block:: bash
+
+    $ git push
+
+* Apacheサーバにデプロイする
+
+  .. code-block:: bash
+
     $ cap deploy
     $ find /home/rails    # <- check
 
