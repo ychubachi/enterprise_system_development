@@ -324,6 +324,23 @@
 <p>なお，gitのエラーメッセージは英語ですが，わりと丁寧に記述されているので，しっかりと読むようにしましょう．</p>
 </div></blockquote>
 </div>
+<div class="section" id="macruby">
+<h3>4.11.3. Macにrubyをインストールする<a class="headerlink" href="#macruby" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<blockquote>
+<div><p><a class="reference external" href="http://beginrescueend.com/">RVM</a> を使って，コンパイルします．</p>
+<p>RVMをインストールします．</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>curl -O -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer
+<span class="nv">$ </span>sudo . rvm-installer
+</pre></div>
+</div>
+<p>Rubyをインストールします</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>rvm install 1.8.7
+<span class="nv">$ </span>ruby -v <span class="c"># &lt;- check</span>
+<span class="nv">$ </span>rvm use 1.8.7 --default
+</pre></div>
+</div>
+</div></blockquote>
+</div>
 </div>
 </div>
 
@@ -353,6 +370,7 @@
 <li><a class="reference internal" href="#id10">4.11. 追記(12/8)</a><ul>
 <li><a class="reference internal" href="#id11">4.11.1. gitの設定方法</a></li>
 <li><a class="reference internal" href="#id12">4.11.2. gitの利用で困ったら？</a></li>
+<li><a class="reference internal" href="#macruby">4.11.3. Macにrubyをインストールする</a></li>
 </ul>
 </li>
 </ul>
