@@ -145,15 +145,7 @@
 </div>
 <div class="section" id="id8">
 <h2>6.8. 作成するアプリケーション<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>作成するアプリは「ブログアプリ」です <a class="footnote-reference" href="#blog" id="id9">[2]</a> ．</p>
-<p class="rubric">脚注</p>
-<table class="docutils footnote" frame="void" id="blog" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id9">[2]</a></td><td>次のURLに詳しい説明がありますので，必要に応じて参照してください．
-<a class="reference external" href="http://guides.rubyonrails.org/getting_started.html">http://guides.rubyonrails.org/getting_started.html</a></td></tr>
-</tbody>
-</table>
+<p>作成するアプリは「ブログアプリ」です．</p>
 </div>
 <div class="section" id="merger">
 <h2>6.9. レポジトリの準備（Mergerが行う作業）<a class="headerlink" href="#merger" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -196,7 +188,8 @@
 <h2>6.10. レポジトリの準備（Developerが行う作業）<a class="headerlink" href="#developer" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="fork-the-merger-repo">
 <h3>6.10.1. Fork the merger repo<a class="headerlink" href="#fork-the-merger-repo" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>Developerは，Mergerが作成したレポジトリをGitHubから検索し，「Frok」します．</p>
+<p>Developerは，GitHubにリモートレポジトリを作ります．</p>
+<p>まず，Mergerが作成したレポジトリをGitHubから検索し，「Frok」します．</p>
 <blockquote>
 <div><ul class="simple">
 <li><a class="reference external" href="http://help.github.com/fork-a-repo/">http://help.github.com/fork-a-repo/</a></li>
@@ -213,29 +206,40 @@
 <h3>6.10.2. clone the remote repo into local repo<a class="headerlink" href="#clone-the-remote-repo-into-local-repo" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>DeveloperはGitHubにある <strong>自分のレポジトリ</strong> をcloneします．</p>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git clone git@github.com:nobita/blog.git
+<span class="nv">$ </span><span class="nb">cd </span>blog
+<span class="nv">$ </span>git status     <span class="c"># &lt;- check</span>
+<span class="nv">$ </span>git remote -v     <span class="c"># &lt;- check</span>
+</pre></div>
+</div>
+<p>※自分のレポジトリは&#8217;origin&#8217;という名前で参照できるようになります．</p>
+<p><strong>Mergerのレポジトリ</strong> のURLを登録します．</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git remote add doraemon git://github.com/doraemon/jobs.git
+<span class="nv">$ </span>git remote -v <span class="c"># &lt;- check</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="section" id="id10">
-<h2>6.11. イテレーション(Developer)<a class="headerlink" href="#id10" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id9">
+<h2>6.11. イテレーション(Developer)<a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="pull-the-merger-repo">
 <h3>6.11.1. Pull the merger repo<a class="headerlink" href="#pull-the-merger-repo" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>Mergerのレポジトリをpullします．</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git pull git@github.com:doraemon/blog.git
+<p>GitHubの <strong>Mergerのレポジトリ</strong> をpullします．</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git pull doraemon master
 </pre></div>
 </div>
 </div>
 <div class="section" id="write-test-codes">
 <h3>6.11.2. Write/Test codes<a class="headerlink" href="#write-test-codes" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>まず，MergerのGitHubレポジトリにアクセスして，チケット（issue）を発行します．</p>
-<div class="admonition- admonition" id="index-2">
-<p class="first admonition-title">課題</p>
-<p class="last">自分のレポジトリのissueのほうがよいかも？</p>
-</div>
+<p>まず，MergerのGitHubレポジトリのページにアクセスして，チケット（issue）を発行します．</p>
+<p>※なお，チケットなしに作業をしたメンバーには，何らかのペナルティを科しましょう．</p>
 <p>次に，作業（プログラミング）をします．</p>
 <p>※はじめは，app/views/blogs/以下にある各*.html.erbファイルを，ファイル毎に分担して編集してみるのがよいでしょう．</p>
-<p>※なお，チケットなしに作業をしたメンバーには，何らかのペナルティを科しましょう．</p>
+<p>慣れてきたら，プログラムに機能追加をしてみてください．次のblogアプリを開発するチュートリアルがありますので，必要に応じて参照してください．</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference external" href="http://guides.rubyonrails.org/getting_started.html">http://guides.rubyonrails.org/getting_started.html</a></li>
+</ul>
+</div></blockquote>
 </div>
 <div class="section" id="commit-to-the-local-repo">
 <h3>6.11.3. Commit to the local repo<a class="headerlink" href="#commit-to-the-local-repo" title="このヘッドラインへのパーマリンク">¶</a></h3>
@@ -244,12 +248,19 @@
 <span class="nv">$ </span>git commit -a -m <span class="s1">&#39;Closes #10&#39;</span>
 </pre></div>
 </div>
-<p>2行目の#10のところは，作業したチケットの番号（issue number）に置き換えてください．こうすることで，後ほどMergerがマージの作業を終えたら自動的にチケットがクローズされます（はず？）．</p>
-<p>※ローカルレポジトリのコミットは，他のメンバーに影響しないので，こまめに実行しましょう．</p>
+<p>2行目の#10のところは，作業したチケットの番号（issue number）に置き換えてください．こうすることで，後ほどMergerがマージの作業を終えたら自動的にチケットがクローズされます．</p>
+<p>※ローカルレポジトリのコミットは，他のメンバーに影響しないので，こまめに実行しましょう <a class="footnote-reference" href="#svn" id="id10">[2]</a> ．</p>
+<table class="docutils footnote" frame="void" id="svn" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id10">[2]</a></td><td>これが，従来のCVSやSVNの運用とは異なる点です．</td></tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="push-to-the-remote-repo">
 <h3>6.11.4. Push to the remote repo<a class="headerlink" href="#push-to-the-remote-repo" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git push
+<p>GitHubの <strong>自分のレポジトリ</strong> にpushします．</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git push origin master
 </pre></div>
 </div>
 <p>※pushする前に，必ずテストとローカルサーバでの動作確認をしてください．実行時にエラーがでるようなコードをpushすると，他の人に迷惑がかかります．もし，単純な文法ミスなどの明らかなエラーを含むコードをpushした人には，何らかのペナルティを科しましょう．</p>
@@ -271,7 +282,7 @@
 <div class="section" id="id12">
 <h3>6.12.1. Pull the merger repo<a class="headerlink" href="#id12" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>Mergerのレポジトリをpullします．</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git pull
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git pull origin master
 </pre></div>
 </div>
 </div>
@@ -292,8 +303,7 @@
 <h3>6.12.4. Solve conflicts<a class="headerlink" href="#solve-conflicts" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>Mergeする際，コンフリクトが発生して，オートマージできない場合があります．コンフリクトは，複数のDeveloperが同じ箇所を，別の内容に変更した場合に生じます．この場合は，手動で解消することになります．</p>
 <p>この作業を行うためには，まず，MergerがDeveloperのレポジトリを登録しておきます．</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git checkout master
-<span class="nv">$ </span>git remote add shizuka git://github.com/sizuka/jobs.git
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git remote add shizuka git://github.com/sizuka/jobs.git
 </pre></div>
 </div>
 <p>コンフリクトが発生したら，Developerのレポジトリから新しいコードを取得します．</p>
@@ -312,6 +322,7 @@
 <div class="section" id="id13">
 <h2>6.13. 進捗報告<a class="headerlink" href="#id13" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>授業開始後，適切なタイミングで進捗報告会を開催してください．</p>
+<p>事前に，次の作業を行なっておくこと．</p>
 <ol class="arabic simple">
 <li>Developerは，進捗報告会までに，チケットの一覧を確認すること</li>
 </ol>
@@ -363,7 +374,7 @@
 <li><a class="reference internal" href="#clone-the-remote-repo-into-local-repo">6.10.2. clone the remote repo into local repo</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id10">6.11. イテレーション(Developer)</a><ul>
+<li><a class="reference internal" href="#id9">6.11. イテレーション(Developer)</a><ul>
 <li><a class="reference internal" href="#pull-the-merger-repo">6.11.1. Pull the merger repo</a></li>
 <li><a class="reference internal" href="#write-test-codes">6.11.2. Write/Test codes</a></li>
 <li><a class="reference internal" href="#commit-to-the-local-repo">6.11.3. Commit to the local repo</a></li>

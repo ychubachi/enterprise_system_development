@@ -38,8 +38,8 @@ Java
 ~~~~
 * Scaffolding
 
-  * Spring poo
-  * Grails
+  * `Spring Roo <http://www.springsource.org/spring-roo>`_
+  * `Grails <http://grails.org/>`_
   * など
 
 PHP，その他
