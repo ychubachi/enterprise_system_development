@@ -92,13 +92,7 @@ shizuka   Developer
 作成するアプリケーション
 ------------------------
 
-作成するアプリは「ブログアプリ」です [#blog]_ ．
-
-.. rubric:: 脚注
-
-.. [#blog] 次のURLに詳しい説明がありますので，必要に応じて参照してください．
-   http://guides.rubyonrails.org/getting_started.html
-
+作成するアプリは「ブログアプリ」です．
 
 レポジトリの準備（Mergerが行う作業）
 ------------------------------------
@@ -151,7 +145,9 @@ Push the repo
 
 Fork the merger repo
 ~~~~~~~~~~~~~~~~~~~~
-Developerは，Mergerが作成したレポジトリをGitHubから検索し，「Frok」します．
+Developerは，GitHubにリモートレポジトリを作ります．
+
+まず，Mergerが作成したレポジトリをGitHubから検索し，「Frok」します．
 
   - http://help.github.com/fork-a-repo/
 
@@ -166,29 +162,45 @@ DeveloperはGitHubにある **自分のレポジトリ** をcloneします．
 .. code-block:: bash
 
   $ git clone git@github.com:nobita/blog.git
+  $ cd blog
+  $ git status     # <- check
+  $ git remote -v     # <- check
+
+※自分のレポジトリは'origin'という名前で参照できるようになります．
+
+**Mergerのレポジトリ** のURLを登録します．
+
+.. code-block:: bash
+
+  $ git remote add doraemon git://github.com/doraemon/jobs.git
+  $ git remote -v # <- check
 
 イテレーション(Developer)
 -------------------------
 
 Pull the merger repo
 ~~~~~~~~~~~~~~~~~~~~
-Mergerのレポジトリをpullします．
+GitHubの **Mergerのレポジトリ** をpullします．
 
 .. code-block:: bash
 
-  $ git pull git@github.com:doraemon/blog.git
+  $ git pull doraemon master
 
 Write/Test codes
 ~~~~~~~~~~~~~~~~
-まず，MergerのGitHubレポジトリにアクセスして，チケット（issue）を発行します．
+まず，MergerのGitHubレポジトリのページにアクセスして，チケット（issue）を発行します．
 
-.. todo:: 自分のレポジトリのissueのほうがよいかも？
+※なお，チケットなしに作業をしたメンバーには，何らかのペナルティを科しましょう．
 
 次に，作業（プログラミング）をします．
 
 ※はじめは，app/views/blogs/以下にある各*.html.erbファイルを，ファイル毎に分担して編集してみるのがよいでしょう．
 
-※なお，チケットなしに作業をしたメンバーには，何らかのペナルティを科しましょう．
+慣れてきたら，プログラムに機能追加をしてみてください．次のblogアプリを開発するチュートリアルがありますので，必要に応じて参照してください．
+
+  - http://guides.rubyonrails.org/getting_started.html
+
+
 
 Commit to the local repo
 ~~~~~~~~~~~~~~~~~~~~~~~~
@@ -199,15 +211,19 @@ Commit to the local repo
   $ git add .
   $ git commit -a -m 'Closes #10'
 
-2行目の#10のところは，作業したチケットの番号（issue number）に置き換えてください．こうすることで，後ほどMergerがマージの作業を終えたら自動的にチケットがクローズされます（はず？）．
+2行目の#10のところは，作業したチケットの番号（issue number）に置き換えてください．こうすることで，後ほどMergerがマージの作業を終えたら自動的にチケットがクローズされます．
 
-※ローカルレポジトリのコミットは，他のメンバーに影響しないので，こまめに実行しましょう．
+※ローカルレポジトリのコミットは，他のメンバーに影響しないので，こまめに実行しましょう [#svn]_ ．
+
+.. [#svn] これが，従来のCVSやSVNの運用とは異なる点です．
 
 Push to the remote repo
 ~~~~~~~~~~~~~~~~~~~~~~~
+GitHubの **自分のレポジトリ** にpushします．
+
 .. code-block:: bash
 
-  $ git push
+  $ git push origin master
 
 ※pushする前に，必ずテストとローカルサーバでの動作確認をしてください．実行時にエラーがでるようなコードをpushすると，他の人に迷惑がかかります．もし，単純な文法ミスなどの明らかなエラーを含むコードをpushした人には，何らかのペナルティを科しましょう．
 
@@ -230,7 +246,7 @@ Mergerのレポジトリをpullします．
 
 .. code-block:: bash
 
-  $ git pull
+  $ git pull origin master
 
 Deploy the product
 ~~~~~~~~~~~~~~~~~~
@@ -250,14 +266,12 @@ https://github.com/blog/843-the-merge-button
 
 Solve conflicts
 ~~~~~~~~~~~~~~~
-
 Mergeする際，コンフリクトが発生して，オートマージできない場合があります．コンフリクトは，複数のDeveloperが同じ箇所を，別の内容に変更した場合に生じます．この場合は，手動で解消することになります．
 
 この作業を行うためには，まず，MergerがDeveloperのレポジトリを登録しておきます．
 
 .. code-block:: bash
 
-  $ git checkout master
   $ git remote add shizuka git://github.com/sizuka/jobs.git
 
 コンフリクトが発生したら，Developerのレポジトリから新しいコードを取得します．
@@ -281,6 +295,8 @@ Mergeする際，コンフリクトが発生して，オートマージできな
 --------
 
 授業開始後，適切なタイミングで進捗報告会を開催してください．
+
+事前に，次の作業を行なっておくこと．
 
 #. Developerは，進捗報告会までに，チケットの一覧を確認すること
 
