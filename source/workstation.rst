@@ -280,11 +280,20 @@ gitの利用で困ったら？
 
   なお，gitのエラーメッセージは英語ですが，わりと丁寧に記述されているので，しっかりと読むようにしましょう．
 
-Macにrubyをインストールする
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
   `RVM <http://beginrescueend.com/>`_ を使って，コンパイルします．
 
-  RVMをインストールします．
+
+
+追記（12/10）
+-------------
+
+Macにrubyをインストールする
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+* GUIツール
+
+  http://unfiniti.com/software/mac/jewelrybox
+
+* コマンドラインからインストールする場合
   
   .. code-block:: bash
 
@@ -298,6 +307,7 @@ Macにrubyをインストールする
     $ rvm install 1.8.7
     $ ruby -v # <- check
     $ rvm use 1.8.7 --default
+
 
 .. Local Variables:
 .. compile-command: "(cd .. && make html)"
