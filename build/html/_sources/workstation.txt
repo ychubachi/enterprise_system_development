@@ -308,6 +308,14 @@ Macにrubyをインストールする
     $ ruby -v # <- check
     $ rvm use 1.8.7 --default
 
+追記（12/11）
+-------------
+
+EmacsでGit
+~~~~~~~~~~
+Magitがよいようです．
+
+http://philjackson.github.com/magit/
 
 .. Local Variables:
 .. compile-command: "(cd .. && make html)"
