@@ -54,15 +54,20 @@
   <div class="section" id="id1">
 <h1>7. 基幹システム開発<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="section" id="id2">
-<h2>7.1. サーバ環境<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<div class="section" id="os">
-<h3>7.1.1. OSのインストール<a class="headerlink" href="#os" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<ul class="simple">
-<li>DVDからOSをインストールする</li>
-</ul>
+<h2>7.1. 概要<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>ここまでに習得した，チームによるイテレーションサイクルの方法を活かして，本格的な基幹システムを開発します．</p>
+<p>今までのトレーニングと異なるのは，グローバルなIPアドレスを持ったサーバに開発したアプリケーションをデプロイすることです．つまり，開発したアプリを実際に「公開」することになります．</p>
 </div>
 <div class="section" id="id3">
-<h3>7.1.2. アカウントの設定<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h2>7.2. サーバ環境<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id4">
+<h3>7.2.1. サーバの構築<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>仮想OSではなく，実機へのインストールを行います．OSはDVDからインストールします．</p>
+<p>サーバのセキュリティ設定が済んだら，グローバルIPを設定します．DNSにも登録可能です．</p>
+</div>
+<div class="section" id="id5">
+<h3>7.2.2. アカウントの設定<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>デプロイ用にサーバにアカウントを作成します．これには2つのパターンがあります．</p>
 <ul class="simple">
 <li>パターン1：1つのデプロイアカウントを共有<ul>
 <li>ディプロイ用のアカウント（&#8217;rails&#8217;アカウント）に，ディプロイを担当するメンバー全員の公開鍵を登録する</li>
@@ -73,12 +78,19 @@
 </ul>
 </li>
 </ul>
+<p>特にサーバにログインして作業する必要がない場合，パターン1にしましょう．</p>
+</div>
+<div class="section" id="id6">
+<h3>7.2.3. 最初の準備<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>まずは，グローバルIPが降られたサーバを1台構築し，そこにアプリケーションをデプロイできるようにしましょう．サーバを構築する手順は，ワークステーションのときの手順と一緒です．</p>
+<p>ただし，全員が公開鍵でアクセスできるようにした後，パスワードによるアクセスを禁止してください．グローバルIPはこの作業が終わってから設定してください．</p>
 </div>
 </div>
-<div class="section" id="id4">
-<h2>7.2. フレームワークの利用<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id7">
+<h2>7.3. フレームワークについて<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>ここまでのトレーニングでは，Ruby on Railsを利用しましたが，ここから先はお好きなフレームワークを利用して構いません．チームで合意を形成してください．</p>
 <div class="section" id="ruby-on-rails">
-<h3>7.2.1. Ruby on Rails<a class="headerlink" href="#ruby-on-rails" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>7.3.1. Ruby on Rails<a class="headerlink" href="#ruby-on-rails" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul class="simple">
 <li>View<ul>
 <li>Haml</li>
@@ -91,7 +103,7 @@
 </ul>
 </div>
 <div class="section" id="java">
-<h3>7.2.2. Java<a class="headerlink" href="#java" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>7.3.2. Java<a class="headerlink" href="#java" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul class="simple">
 <li>Scaffolding<ul>
 <li><a class="reference external" href="http://www.springsource.org/spring-roo">Spring Roo</a></li>
@@ -102,7 +114,7 @@
 </ul>
 </div>
 <div class="section" id="php">
-<h3>7.2.3. PHP，その他<a class="headerlink" href="#php" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>7.3.3. PHP，その他<a class="headerlink" href="#php" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>興味関心・実力にあわせてご自由に．</p>
 <p>ただし，初心者には推奨しません（授業担当者に開発経験がない場合，的確なアドバイスはできません）．</p>
 </div>
@@ -118,15 +130,17 @@
   <h3><a href="index.html">目次</a></h3>
   <ul>
 <li><a class="reference internal" href="#">7. 基幹システム開発</a><ul>
-<li><a class="reference internal" href="#id2">7.1. サーバ環境</a><ul>
-<li><a class="reference internal" href="#os">7.1.1. OSのインストール</a></li>
-<li><a class="reference internal" href="#id3">7.1.2. アカウントの設定</a></li>
+<li><a class="reference internal" href="#id2">7.1. 概要</a></li>
+<li><a class="reference internal" href="#id3">7.2. サーバ環境</a><ul>
+<li><a class="reference internal" href="#id4">7.2.1. サーバの構築</a></li>
+<li><a class="reference internal" href="#id5">7.2.2. アカウントの設定</a></li>
+<li><a class="reference internal" href="#id6">7.2.3. 最初の準備</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id4">7.2. フレームワークの利用</a><ul>
-<li><a class="reference internal" href="#ruby-on-rails">7.2.1. Ruby on Rails</a></li>
-<li><a class="reference internal" href="#java">7.2.2. Java</a></li>
-<li><a class="reference internal" href="#php">7.2.3. PHP，その他</a></li>
+<li><a class="reference internal" href="#id7">7.3. フレームワークについて</a><ul>
+<li><a class="reference internal" href="#ruby-on-rails">7.3.1. Ruby on Rails</a></li>
+<li><a class="reference internal" href="#java">7.3.2. Java</a></li>
+<li><a class="reference internal" href="#php">7.3.3. PHP，その他</a></li>
 </ul>
 </li>
 </ul>
