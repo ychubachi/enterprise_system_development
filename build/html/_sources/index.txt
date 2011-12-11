@@ -6,6 +6,8 @@
 基幹システム開発特論
 ====================
 
+`[Issue] <https://github.com/ychubachi/enterprise_system_development/issues>`_
+
 .. toctree::
    :numbered:
    :maxdepth: 2
