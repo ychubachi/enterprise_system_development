@@ -7,6 +7,7 @@
 ====================
 
 `[Issue] <https://github.com/ychubachi/enterprise_system_development/issues>`_
+- `[Repo] <https://github.com/ychubachi/enterprise_system_development>`_
 
 .. toctree::
    :numbered:
@@ -20,7 +21,6 @@
    memo
 
 - `GitHub Page <http://ychubachi.github.com/enterprise_system_development/index.html>`_ 
-- `GitHub Repository <https://github.com/ychubachi/enterprise_system_development>`_
 - `Sphinx <http://sphinx.pocoo.org/>`_
 
 .. todo:: コラボレーティブ型ソフトウェア開発
