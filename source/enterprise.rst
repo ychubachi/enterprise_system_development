@@ -67,6 +67,12 @@ PHP，その他
 
 ただし，初心者には推奨しません（授業担当者に開発経験がない場合，的確なアドバイスはできません）．
 
+Misc
+----
+
+- http://nginx.org/
+- http://wiki.nginx.org/Main
+
 .. Local Variables:
 .. compile-command: "(cd .. && make html)"
 .. End:
