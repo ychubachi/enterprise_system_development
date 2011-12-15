@@ -239,8 +239,8 @@ Ruby on Rails
 
     <VirtualHost *:80>
       ServerName localhost
-      DocumentRoot /home/rails/myapp/public
-      <Directory /home/rails/myapp/public>
+      DocumentRoot /home/rails/myapp/current/public
+      <Directory /home/rails/myapp/current/public>
          AllowOverride all
          Options -MultiViews
       </Directory>
