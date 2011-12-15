@@ -45,15 +45,16 @@ Create a scaffold project
 
 * 説明
 
-  - 1行目：名前(name)とアドレス(address)をもつModelであるAddressクラスと，それに関連するControllerクラス，及びViewを生成します．
+  - 1行目：myappという名前で新しいRailsアプリケーションを生成します
+  - 3行目：名前(name)とアドレス(address)をもつModelであるAddressクラスと，それに関連するControllerクラス，及びViewを生成します．
 
     - app/models/以下に，Modelクラスができます．
     - app/controllers/以下に，Controllerクラスができます．
     - app/views/以下に，Viewができます(erbファイル）．
     - test/以下にテストのためのコードの雛形ができます．
 
-  - 2行目：データベースにAddressクラスに対応するaddressesテーブルが作成されます．
-  - 3行目：デフォルトで表示されるトップページを削除します．
+  - 4行目：データベースにAddressクラスに対応するaddressesテーブルが作成されます．
+  - 5行目：デフォルトで表示されるトップページを削除します．
 
 
 テストサーバで実行する
@@ -66,9 +67,11 @@ Create a scaffold project
 
 * Webブラウザで次のURLにアクセスする
 
-  - http://localhost:3000/addresses/index.html
+  - http://localhost:3000/addresses
 
 * Ctrl-Cでサーバを停止する
+
+**ここでAddressアプリケーションがうまく動かない場合，先に進んではいけません!!!**
 
 ローカルレポジトリを作成する
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
