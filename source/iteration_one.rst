@@ -152,7 +152,7 @@ Deploy products
 
   .. code-block:: bash
 
-    $ cap deploy
+    $ cap deploy:migrations
     $ find /home/rails    # <- check
 
 * ローカルApacheサーバを確認する
