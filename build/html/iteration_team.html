@@ -312,8 +312,10 @@
 </pre></div>
 </div>
 <p>ここで，コンフリクトの内容が確認できるので，適宜修正します（どっちかを活かして，どっちかを消します）．</p>
-<p>完了したら，pushします．</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git push origin master
+<p>完了したら，commitしてpushします．</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git add .
+<span class="nv">$ </span>git commit -a -m <span class="s1">&#39;Merged&#39;</span>
+<span class="nv">$ </span>git push origin master
 </pre></div>
 </div>
 <p>6.12.2に戻ります．</p>
@@ -322,9 +324,9 @@
 <div class="section" id="id13">
 <h2>6.13. 進捗報告<a class="headerlink" href="#id13" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>授業開始後，適切なタイミングで進捗報告会を開催してください．</p>
-<p>事前に，次の作業を行なっておくこと．</p>
+<p>進捗報告会は，次の作業が終わった後に行います．</p>
 <ol class="arabic simple">
-<li>Developerは，進捗報告会までに，チケットの一覧を確認すること</li>
+<li>Developerは，チケットの一覧を確認すること</li>
 </ol>
 <blockquote>
 <div><ul class="simple">
@@ -335,7 +337,16 @@
 <p>など</p>
 </div></blockquote>
 <ol class="arabic simple">
-<li>Mergerは，進捗報告会までに，そこまでできたソフトウェアをdeployすること</li>
+<li>Developerは，自分の作業を確認し，commitすること</li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li>テストは通るか？</li>
+<li>テスト用サーバで動作するか？</li>
+</ul>
+</div></blockquote>
+<ol class="arabic simple">
+<li>Mergerは，Pull Requestに対応し，そこまでできたソフトウェアをdeployすること</li>
 </ol>
 <blockquote>
 <div><ul class="simple">
