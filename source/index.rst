@@ -6,10 +6,18 @@
 基幹システム開発特論
 ====================
 
-`[Repo] <https://github.com/ychubachi/enterprise_system_development>`_
-`[Issue] <https://github.com/ychubachi/enterprise_system_development/issues>`_
-`[Page] <http://ychubachi.github.com/enterprise_system_development/index.html>`_ 
+この資料について
+----------------
+※この資料は
+`[GitHub Page] <http://ychubachi.github.com/enterprise_system_development/index.html>`_ 
+にあります．
 
+※この資料に関する質問や意見，改善提案などは
+`[GitHub Issues] <https://github.com/ychubachi/enterprise_system_development/issues/new>`_
+にご記入ください．
+
+目次
+----
 .. toctree::
    :numbered:
    :maxdepth: 2
@@ -21,9 +29,12 @@
    enterprise
    memo
 
-- `Sphinx <http://sphinx.pocoo.org/>`_
 
-.. todo:: コラボレーティブ型ソフトウェア開発
+ToDo
+----
+.. todo:: コラボレーティブソフトウェアデベロップメント (CSD)
+
+.. todolist::
 
 .. Local Variables:
 .. compile-command: "(cd .. && make html)"
