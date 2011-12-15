@@ -67,7 +67,7 @@ Create a scaffold project
 
 * Webブラウザで次のURLにアクセスする
 
-  - http://localhost:3000/addresses
+  - http://localhost:3000/addresses/
 
 * Ctrl-Cでサーバを停止する
 
@@ -157,7 +157,7 @@ Deploy products
 
 * ローカルApacheサーバを確認する
 
-  - http://localhost/addresses/index.html
+  - http://localhost/addresses/
 
 Write/Test codes
 ----------------
