@@ -326,7 +326,9 @@ CentOSインストール時の注意
 
 -  CentOSのインストール時に，SELinuxは選択しないこと．SELinuxを有効にしてしまうと，httpdを起動するときにWarningがでてしまいます．
 
-.. TODO:: SELinux時のエラーの回避法について書く
+.. TODO:: SELinux時のエラーをとりあえず回避する方法については， 選択しないこと．SELinuxを有効にしてしまうと，httpdを起動するときにWarningがでてしまいます．
+
+※ SELinux時のエラーをとりあえず回避する方法については， http://kennyqi.com/archives/43.html を参照
 
 .. Local Variables:
 .. compile-command: "(cd .. && make html)"
