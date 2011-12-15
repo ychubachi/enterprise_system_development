@@ -20,11 +20,12 @@ Create a scaffold project
     $ rails new myapp
     $ cd myapp
 
-* Gemfileに以下の内容を追加する
+* GemfileにJavascriptエンジンのための以下の内容を追加する
 
   .. code-block:: ruby
     :linenos:
 
+    # Gemfile
     gem 'execjs'
     gem 'therubyracer'
 
@@ -71,7 +72,7 @@ Create a scaffold project
 
 * Ctrl-Cでサーバを停止する
 
-**ここでAddressアプリケーションがうまく動かない場合，先に進んではいけません!!!**
+**!!!ここでAddressアプリケーションがうまく動かない場合，先に進んではいけません!!!**
 
 ローカルレポジトリを作成する
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
