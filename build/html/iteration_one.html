@@ -62,14 +62,29 @@
 <div class="section" id="scaffold">
 <h3>5.2.1. ローカルレポジトリにScaffoldを作成する<a class="headerlink" href="#scaffold" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul>
+<li><p class="first">Railsでアプリケーションを生成する</p>
+<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span class="nv">$ </span>rails new myapp
+<span class="nv">$ </span><span class="nb">cd </span>myapp
+</pre></div>
+</td></tr></table></div>
+</li>
+<li><p class="first">Gemfileに以下の内容を追加する</p>
+<div class="highlight-ruby"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span class="n">gem</span> <span class="s1">&#39;execjs&#39;</span>
+<span class="n">gem</span> <span class="s1">&#39;therubyracer&#39;</span>
+</pre></div>
+</td></tr></table></div>
+</li>
+<li><p class="first">bundle installする</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>bundle install
+</pre></div>
+</div>
+</li>
 <li><p class="first">RailsでScaffoldを生成する</p>
 <div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
-3
-4
-5</pre></div></td><td class="code"><div class="highlight"><pre><span class="nv">$ </span>rails new myapp
-<span class="nv">$ </span><span class="nb">cd </span>myapp
-<span class="nv">$ </span>rails generate scaffold address name:string email:string
+3</pre></div></td><td class="code"><div class="highlight"><pre><span class="nv">$ </span>rails generate scaffold address name:string email:string
 <span class="nv">$ </span>rake db:migrate
 <span class="nv">$ </span>rm public/index.html
 </pre></div>

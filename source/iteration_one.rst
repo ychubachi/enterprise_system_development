@@ -12,13 +12,33 @@ Create a scaffold project
 ローカルレポジトリにScaffoldを作成する
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-* RailsでScaffoldを生成する
+* Railsでアプリケーションを生成する
 
   .. code-block:: bash
     :linenos:
 
     $ rails new myapp
     $ cd myapp
+
+* Gemfileに以下の内容を追加する
+
+  .. code-block:: ruby
+    :linenos:
+
+    gem 'execjs'
+    gem 'therubyracer'
+
+* bundle installする
+
+  .. code-block:: bash
+
+    $ bundle install     
+
+* RailsでScaffoldを生成する
+
+  .. code-block:: bash
+    :linenos:
+
     $ rails generate scaffold address name:string email:string
     $ rake db:migrate
     $ rm public/index.html
