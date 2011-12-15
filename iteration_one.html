@@ -62,14 +62,31 @@
 <div class="section" id="scaffold">
 <h3>5.2.1. ローカルレポジトリにScaffoldを作成する<a class="headerlink" href="#scaffold" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul>
+<li><p class="first">Railsでアプリケーションを生成する</p>
+<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span class="nv">$ </span>rails new myapp
+<span class="nv">$ </span><span class="nb">cd </span>myapp
+</pre></div>
+</td></tr></table></div>
+</li>
+<li><p class="first">GemfileにJavascriptエンジンのための以下の内容を追加する</p>
+<div class="highlight-ruby"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span class="c1"># Gemfile</span>
+<span class="n">gem</span> <span class="s1">&#39;execjs&#39;</span>
+<span class="n">gem</span> <span class="s1">&#39;therubyracer&#39;</span>
+</pre></div>
+</td></tr></table></div>
+</li>
+<li><p class="first">bundle installする</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>bundle install
+</pre></div>
+</div>
+</li>
 <li><p class="first">RailsでScaffoldを生成する</p>
 <div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
-3
-4
-5</pre></div></td><td class="code"><div class="highlight"><pre><span class="nv">$ </span>rails new myapp
-<span class="nv">$ </span><span class="nb">cd </span>myapp
-<span class="nv">$ </span>rails generate scaffold address name:string email:string
+3</pre></div></td><td class="code"><div class="highlight"><pre><span class="nv">$ </span>rails generate scaffold address name:string email:string
 <span class="nv">$ </span>rake db:migrate
 <span class="nv">$ </span>rm public/index.html
 </pre></div>
@@ -101,12 +118,13 @@
 </li>
 <li><p class="first">Webブラウザで次のURLにアクセスする</p>
 <ul class="simple">
-<li><a class="reference external" href="http://localhost:3000/addresses/index.html">http://localhost:3000/addresses/index.html</a></li>
+<li><a class="reference external" href="http://localhost:3000/addresses/">http://localhost:3000/addresses/</a></li>
 </ul>
 </li>
 <li><p class="first">Ctrl-Cでサーバを停止する</p>
 </li>
 </ul>
+<p><strong>!!!ここでAddressアプリケーションがうまく動かない場合，先に進んではいけません!!!</strong></p>
 </div>
 <div class="section" id="id4">
 <h3>5.2.3. ローカルレポジトリを作成する<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h3>
@@ -230,14 +248,14 @@
 </div>
 </li>
 <li><p class="first">Apacheサーバにデプロイする</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>cap deploy
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>cap deploy:migrations
 <span class="nv">$ </span>find /home/rails    <span class="c"># &lt;- check</span>
 </pre></div>
 </div>
 </li>
 <li><p class="first">ローカルApacheサーバを確認する</p>
 <ul class="simple">
-<li><a class="reference external" href="http://localhost/addresses/index.html">http://localhost/addresses/index.html</a></li>
+<li><a class="reference external" href="http://localhost/addresses/">http://localhost/addresses/</a></li>
 </ul>
 </li>
 </ul>

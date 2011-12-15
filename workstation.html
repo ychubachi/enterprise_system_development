@@ -282,8 +282,8 @@
 
 <span class="nt">&lt;VirtualHost</span> <span class="s">*:80</span><span class="nt">&gt;</span>
   <span class="nb">ServerName</span> localhost
-  <span class="nb">DocumentRoot</span> <span class="sx">/home/rails/myapp/public</span>
-  <span class="nt">&lt;Directory</span> <span class="s">/home/rails/myapp/public</span><span class="nt">&gt;</span>
+  <span class="nb">DocumentRoot</span> <span class="sx">/home/rails/myapp/current/public</span>
+  <span class="nt">&lt;Directory</span> <span class="s">/home/rails/myapp/current/public</span><span class="nt">&gt;</span>
      <span class="nb">AllowOverride</span> <span class="k">all</span>
      <span class="nb">Options</span> -MultiViews
   <span class="nt">&lt;/Directory&gt;</span>
@@ -357,6 +357,20 @@
 <p><a class="reference external" href="http://philjackson.github.com/magit/">http://philjackson.github.com/magit/</a></p>
 </div>
 </div>
+<div class="section" id="id15">
+<h2>4.14. 追記（12/15）<a class="headerlink" href="#id15" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="centos">
+<h3>4.14.1. CentOSインストール時の注意<a class="headerlink" href="#centos" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ul class="simple">
+<li>インストール時のパスワードは絶対に忘れないこと（とりあえず，間違えなく入力できる文字でパスワードを指定しておき，インストール後にログインできることが確認できてから，より難解なものに修正するとよいでしょう．</li>
+<li>CentOSのインストール時に，SELinuxは選択しないこと．SELinuxを有効にしてしまうと，httpdを起動するときにWarningがでてしまいます．</li>
+</ul>
+<div class="admonition- admonition" id="index-0">
+<p class="first admonition-title">課題</p>
+<p class="last">SELinux時のエラーの回避法について書く</p>
+</div>
+</div>
+</div>
 </div>
 
 
@@ -393,6 +407,10 @@
 </li>
 <li><a class="reference internal" href="#id14">4.13. 追記（12/11）</a><ul>
 <li><a class="reference internal" href="#emacsgit">4.13.1. EmacsでGit</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id15">4.14. 追記（12/15）</a><ul>
+<li><a class="reference internal" href="#centos">4.14.1. CentOSインストール時の注意</a></li>
 </ul>
 </li>
 </ul>

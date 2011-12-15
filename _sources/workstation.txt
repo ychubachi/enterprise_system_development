@@ -239,8 +239,8 @@ Ruby on Rails
 
     <VirtualHost *:80>
       ServerName localhost
-      DocumentRoot /home/rails/myapp/public
-      <Directory /home/rails/myapp/public>
+      DocumentRoot /home/rails/myapp/current/public
+      <Directory /home/rails/myapp/current/public>
          AllowOverride all
          Options -MultiViews
       </Directory>
@@ -316,6 +316,17 @@ EmacsでGit
 Magitがよいようです．
 
 http://philjackson.github.com/magit/
+
+追記（12/15）
+-------------
+
+CentOSインストール時の注意
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+- インストール時のパスワードは絶対に忘れないこと（とりあえず，間違えなく入力できる文字でパスワードを指定しておき，インストール後にログインできることが確認できてから，より難解なものに修正するとよいでしょう．
+
+-  CentOSのインストール時に，SELinuxは選択しないこと．SELinuxを有効にしてしまうと，httpdを起動するときにWarningがでてしまいます．
+
+.. TODO:: SELinux時のエラーの回避法について書く
 
 .. Local Variables:
 .. compile-command: "(cd .. && make html)"
