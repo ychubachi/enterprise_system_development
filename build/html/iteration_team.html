@@ -57,17 +57,8 @@
 <h2>6.1. イテレーションサイクルの概要<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <img alt="_images/IterationCycleWithGitHub.png" src="_images/IterationCycleWithGitHub.png" style="width: 100%;" />
 </div>
-<div class="section" id="github">
-<h2>6.2. GitHub型開発モデル<a class="headerlink" href="#github" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<blockquote>
-<div></div></blockquote>
-<div class="admonition- admonition" id="index-0">
-<p class="first admonition-title">課題</p>
-<p class="last">GitHub型モデルの図を作成する</p>
-</div>
-</div>
 <div class="section" id="tkdd">
-<h2>6.3. チケット駆動型開発（TkDD）<a class="headerlink" href="#tkdd" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>6.2. チケット駆動型開発（TkDD）<a class="headerlink" href="#tkdd" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>チケットとは，仕事に取りかかるために必要な切符のようなものです．TkDDでは，仕事をする前に，必ずチケットを発行しなくてはなりません．また，チケットは誰が読んでも仕事の内容が分かるものでなくてはなりません．このチケットをグループ内で有効に共有して，プロジェクトを進めるのがTkDDです．</p>
 <p>チケットの「書き方」に関する大原則は次の通りです <a class="footnote-reference" href="#ticket" id="id3">[1]</a> ．</p>
 <ul class="simple">
@@ -94,23 +85,23 @@
 </table>
 </div>
 <div class="section" id="id4">
-<h2>6.4. チケットの共有<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>6.3. チケットの共有<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>この演習では，GitHubのissueを使って，チケットを管理します．</p>
 </div>
 <div class="section" id="id5">
-<h2>6.5. ドキュメントの共有<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>6.4. ドキュメントの共有<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>ドキュメントは全てGitHubのWikiで共有します．</p>
 </div>
 <div class="section" id="id6">
-<h2>6.6. イテレーションサイクルのシナリオ<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>6.5. イテレーションサイクルのシナリオ<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <img alt="_images/GitHubWorkflow.png" src="_images/GitHubWorkflow.png" style="width: 100%;" />
-<div class="admonition- admonition" id="index-1">
+<div class="admonition- admonition" id="index-0">
 <p class="first admonition-title">課題</p>
 <p class="last">図の修正：deployはDeveloper Aが行う</p>
 </div>
 </div>
 <div class="section" id="id7">
-<h2>6.7. シナリオの説明<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>6.6. シナリオの説明<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>ここからはチームでの作業になります．</p>
 <p>作業を始めるにあたり役割分担をします．まず，全てのメンバーはDeveloperです．加えて，メンバーのなかから一人「Merger」を決めてください．MergerはDeveloperを兼ねます．</p>
 <p>以下のシナリオでは，次の3名からなるグループを想定します．</p>
@@ -142,6 +133,11 @@
 <li><a class="reference external" href="http://help.github.com/be-social/">http://help.github.com/be-social/</a></li>
 </ul>
 </div></blockquote>
+</div>
+<div class="section" id="git">
+<h2>6.7. Git型開発のフロー<a class="headerlink" href="#git" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<img src="_images/GitWorkflow.svg" width="100%" /><p>上の図は，典型的なgit型の共同開発ワークフローの概要を示したものです．従来型のレポジトリを利用したフローとの大きな違いは最新版のコードがpull型でやりとりされるということです．SVN等では1つのリモートレポジトリをメンバーが共有しますから，gitのpushに相当するSVNのcommitを行うことで常に最新版のコードがリモートに存在することになります．しかしながら，この場合の問題は，コードが完成する（少なくとも，コンパイル時や実行時のエラーがなくなる）までcommitできないことです．さらに，マージの際に発生するコンフリクトは，comit時に解決することになります．これに対してgitでは，commitはローカルレポジトリに対して実施します．よって，他人の作業に影響を与えることなく，好きなタイミングでcommitができるため，柔軟にバージョンを管理することができます．</p>
+<p>さらに，GitHubを利用すると，NobitaがDoraemon&#8217;s RemoteにPull Requestを送ることができます．これをうけてDoraemonはGitHub上のRemoteレポジトリに対してボタン1つでmergeすることができます．すなわち，Doraemonが行うNobitaからのpullと自分のリモートへpushする作業が省略できるのです．ただし，mergeの際にconflictが発生した場合は，基本のワークフローに戻って作業をすることになります．また，mergeが成功した場合は，Doraemonは自分のoriginから最新版をpullすることが必要となります．</p>
 </div>
 <div class="section" id="id8">
 <h2>6.8. 作成するアプリケーション<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -367,12 +363,12 @@
   <ul>
 <li><a class="reference internal" href="#">6. チームでまわすイテレーション</a><ul>
 <li><a class="reference internal" href="#id2">6.1. イテレーションサイクルの概要</a></li>
-<li><a class="reference internal" href="#github">6.2. GitHub型開発モデル</a></li>
-<li><a class="reference internal" href="#tkdd">6.3. チケット駆動型開発（TkDD）</a></li>
-<li><a class="reference internal" href="#id4">6.4. チケットの共有</a></li>
-<li><a class="reference internal" href="#id5">6.5. ドキュメントの共有</a></li>
-<li><a class="reference internal" href="#id6">6.6. イテレーションサイクルのシナリオ</a></li>
-<li><a class="reference internal" href="#id7">6.7. シナリオの説明</a></li>
+<li><a class="reference internal" href="#tkdd">6.2. チケット駆動型開発（TkDD）</a></li>
+<li><a class="reference internal" href="#id4">6.3. チケットの共有</a></li>
+<li><a class="reference internal" href="#id5">6.4. ドキュメントの共有</a></li>
+<li><a class="reference internal" href="#id6">6.5. イテレーションサイクルのシナリオ</a></li>
+<li><a class="reference internal" href="#id7">6.6. シナリオの説明</a></li>
+<li><a class="reference internal" href="#git">6.7. Git型開発のフロー</a></li>
 <li><a class="reference internal" href="#id8">6.8. 作成するアプリケーション</a></li>
 <li><a class="reference internal" href="#merger">6.9. レポジトリの準備（Mergerが行う作業）</a><ul>
 <li><a class="reference internal" href="#create-a-scaffold-product">6.9.1. Create a scaffold product</a></li>
