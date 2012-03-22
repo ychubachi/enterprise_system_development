@@ -15,7 +15,7 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.48.1 "
-   sodipodi:docname="GitWorkflow.svg">
+   sodipodi:docname="GitWorkflow">
   <defs
      id="defs4">
     <marker
@@ -292,11 +292,11 @@
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="true"
-     inkscape:window-width="1920"
-     inkscape:window-height="1058"
-     inkscape:window-x="-8"
-     inkscape:window-y="-8"
-     inkscape:window-maximized="1">
+     inkscape:window-width="789"
+     inkscape:window-height="438"
+     inkscape:window-x="150"
+     inkscape:window-y="150"
+     inkscape:window-maximized="0">
     <inkscape:grid
        type="xygrid"
        id="grid2985"
@@ -315,7 +315,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -330,14 +330,20 @@
        width="185.69423"
        height="93.435143"
        x="817.3996"
-       y="726.85846" />
+       y="726.85846"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600"
+       inkscape:export-filename="C:\Users\yc\Apps\gnupack_basic-7.02\home\work\enterprise_system_development\source\_static\GitWorkflow.png" />
     <rect
        style="fill:#cccccc;stroke:#000000;stroke-width:0.91331929;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
        id="rect3862-7-2"
        width="185.69423"
        height="93.435143"
        x="35.749008"
-       y="727.3656" />
+       y="727.3656"
+       inkscape:export-filename="C:\Users\yc\Apps\gnupack_basic-7.02\home\work\enterprise_system_development\source\_static\GitWorkflow.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
     <rect
        style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.67309189;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
        id="rect3898-1"
@@ -345,14 +351,20 @@
        height="22.424435"
        x="880.53571"
        y="704.43396"
-       ry="11.212217" />
+       ry="11.212217"
+       inkscape:export-filename="C:\Users\yc\Apps\gnupack_basic-7.02\home\work\enterprise_system_development\source\_static\GitWorkflow.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
     <rect
        style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.74512529;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
        id="rect3862-0"
        width="185.69423"
        height="93.435143"
        x="817.3996"
-       y="483.92703" />
+       y="483.92703"
+       inkscape:export-filename="C:\Users\yc\Apps\gnupack_basic-7.02\home\work\enterprise_system_development\source\_static\GitWorkflow.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
     <rect
        style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.81624389;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
        id="rect3898"
@@ -360,14 +372,20 @@
        height="22.424435"
        x="613.13605"
        y="510.08887"
-       ry="11.212217" />
+       ry="11.212217"
+       inkscape:export-filename="C:\Users\yc\Apps\gnupack_basic-7.02\home\work\enterprise_system_development\source\_static\GitWorkflow.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
     <rect
        style="fill:#cccccc;stroke:#000000;stroke-width:0.91331929;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
        id="rect3862"
        width="185.69423"
        height="93.435143"
        x="427.44177"
-       y="483.92703" />
+       y="483.92703"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600"
+       inkscape:export-filename="C:\Users\yc\Apps\gnupack_basic-7.02\home\work\enterprise_system_development\source\_static\GitWorkflow.png" />
     <text
        xml:space="preserve"
        style="font-size:33.27247238px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Calibri"
@@ -375,7 +393,10 @@
        y="668.19922"
        id="text6696"
        sodipodi:linespacing="125%"
-       transform="scale(1.0249657,0.9756424)"><tspan
+       transform="scale(1.0249657,0.9756424)"
+       inkscape:export-filename="C:\Users\yc\Apps\gnupack_basic-7.02\home\work\enterprise_system_development\source\_static\GitWorkflow.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600"><tspan
          sodipodi:role="line"
          id="tspan6698"
          x="433.87921"
@@ -384,7 +405,10 @@
        style="fill:none;stroke:#000000;stroke-width:1.06281006px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend)"
        d="m 520.28887,726.85838 0,-123.33438"
        id="path6316-4-7"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\yc\Apps\gnupack_basic-7.02\home\work\enterprise_system_development\source\_static\GitWorkflow.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
     <text
        xml:space="preserve"
        style="font-size:33.27247238px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Calibri"
@@ -392,7 +416,10 @@
        y="537.05194"
        id="text6748"
        sodipodi:linespacing="125%"
-       transform="scale(1.0249657,0.9756424)"><tspan
+       transform="scale(1.0249657,0.9756424)"
+       inkscape:export-filename="C:\Users\yc\Apps\gnupack_basic-7.02\home\work\enterprise_system_development\source\_static\GitWorkflow.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600"><tspan
          sodipodi:role="line"
          id="tspan6750"
          x="504.888"
@@ -408,7 +435,10 @@
        y="537.05194"
        id="text6754"
        sodipodi:linespacing="125%"
-       transform="scale(1.0249657,0.9756424)"><tspan
+       transform="scale(1.0249657,0.9756424)"
+       inkscape:export-filename="C:\Users\yc\Apps\gnupack_basic-7.02\home\work\enterprise_system_development\source\_static\GitWorkflow.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600"><tspan
          sodipodi:role="line"
          id="tspan6756"
          x="892.80157"
@@ -424,7 +454,10 @@
        y="783.31201"
        id="text6760"
        sodipodi:linespacing="125%"
-       transform="scale(1.0249657,0.9756424)"><tspan
+       transform="scale(1.0249657,0.9756424)"
+       inkscape:export-filename="C:\Users\yc\Apps\gnupack_basic-7.02\home\work\enterprise_system_development\source\_static\GitWorkflow.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600"><tspan
          sodipodi:role="line"
          x="888.07532"
          y="783.31201"
@@ -440,7 +473,10 @@
        y="783.31201"
        id="text6774"
        sodipodi:linespacing="125%"
-       transform="scale(1.0249657,0.9756424)"><tspan
+       transform="scale(1.0249657,0.9756424)"
+       inkscape:export-filename="C:\Users\yc\Apps\gnupack_basic-7.02\home\work\enterprise_system_development\source\_static\GitWorkflow.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600"><tspan
          sodipodi:role="line"
          id="tspan6776"
          x="507.61591"
@@ -456,7 +492,10 @@
        y="518.99286"
        id="text6780"
        sodipodi:linespacing="125%"
-       transform="scale(1.0249657,0.9756424)"><tspan
+       transform="scale(1.0249657,0.9756424)"
+       inkscape:export-filename="C:\Users\yc\Apps\gnupack_basic-7.02\home\work\enterprise_system_development\source\_static\GitWorkflow.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600"><tspan
          sodipodi:role="line"
          id="tspan6782"
          x="710.52759"
@@ -468,7 +507,10 @@
        y="668.39063"
        id="text6784"
        sodipodi:linespacing="125%"
-       transform="scale(1.0249657,0.9756424)"><tspan
+       transform="scale(1.0249657,0.9756424)"
+       inkscape:export-filename="C:\Users\yc\Apps\gnupack_basic-7.02\home\work\enterprise_system_development\source\_static\GitWorkflow.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600"><tspan
          sodipodi:role="line"
          id="tspan6786"
          x="895.32202"
@@ -480,7 +522,10 @@
        y="810.70172"
        id="text6788"
        sodipodi:linespacing="125%"
-       transform="scale(1.0249657,0.9756424)"><tspan
+       transform="scale(1.0249657,0.9756424)"
+       inkscape:export-filename="C:\Users\yc\Apps\gnupack_basic-7.02\home\work\enterprise_system_development\source\_static\GitWorkflow.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600"><tspan
          sodipodi:role="line"
          id="tspan6790"
          x="630.44995"
@@ -489,24 +534,36 @@
        style="fill:none;stroke:#000000;stroke-width:0.75174874px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend-9)"
        d="m 705.98309,521.30108 c 111.41654,0 111.41654,0 111.41654,0"
        id="path6792"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\yc\Apps\gnupack_basic-7.02\home\work\enterprise_system_development\source\_static\GitWorkflow.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
     <path
        style="fill:none;stroke:#000000;stroke-width:0.8707363px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend-9)"
        d="m 743.12194,764.23244 c -130.79331,0 -130.79331,0 -130.79331,0"
        id="path6802"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\yc\Apps\gnupack_basic-7.02\home\work\enterprise_system_development\source\_static\GitWorkflow.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
     <path
        style="fill:none;stroke:#000000;stroke-width:1.02543795px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend-9)"
        d="m 910.2467,577.36216 c 0,123.3344 0,123.3344 0,123.3344"
        id="path7180"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\yc\Apps\gnupack_basic-7.02\home\work\enterprise_system_development\source\_static\GitWorkflow.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
     <rect
        style="fill:none;stroke:#000000;stroke-width:0.91331929;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
        id="rect3862-7"
        width="185.69423"
        height="93.435143"
        x="427.44177"
-       y="726.85846" />
+       y="726.85846"
+       inkscape:export-filename="C:\Users\yc\Apps\gnupack_basic-7.02\home\work\enterprise_system_development\source\_static\GitWorkflow.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
     <text
        xml:space="preserve"
        style="font-size:23.8440094px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Calibri"
@@ -514,7 +571,10 @@
        y="717.11633"
        id="text3863"
        sodipodi:linespacing="125%"
-       transform="scale(0.99684829,1.0031617)"><tspan
+       transform="scale(0.99684829,1.0031617)"
+       inkscape:export-filename="C:\Users\yc\Apps\gnupack_basic-7.02\home\work\enterprise_system_development\source\_static\GitWorkflow.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600"><tspan
          sodipodi:role="line"
          id="tspan3865"
          x="894.49652"
@@ -527,7 +587,10 @@
        y="523.38373"
        id="text3867"
        sodipodi:linespacing="125%"
-       transform="scale(0.99684829,1.0031617)"><tspan
+       transform="scale(0.99684829,1.0031617)"
+       inkscape:export-filename="C:\Users\yc\Apps\gnupack_basic-7.02\home\work\enterprise_system_development\source\_static\GitWorkflow.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600"><tspan
          sodipodi:role="line"
          id="tspan3869"
          x="622.52576"
@@ -539,7 +602,10 @@
        height="22.424435"
        x="743.12195"
        y="753.0202"
-       ry="11.212217" />
+       ry="11.212217"
+       inkscape:export-filename="C:\Users\yc\Apps\gnupack_basic-7.02\home\work\enterprise_system_development\source\_static\GitWorkflow.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
     <text
        xml:space="preserve"
        style="font-size:23.8440094px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Calibri"
@@ -547,7 +613,10 @@
        y="765.5495"
        id="text3892"
        sodipodi:linespacing="125%"
-       transform="scale(0.99684829,1.0031617)"><tspan
+       transform="scale(0.99684829,1.0031617)"
+       inkscape:export-filename="C:\Users\yc\Apps\gnupack_basic-7.02\home\work\enterprise_system_development\source\_static\GitWorkflow.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600"><tspan
          sodipodi:role="line"
          id="tspan3894"
          x="760.37402"
@@ -560,7 +629,10 @@
        height="22.424435"
        x="486.86395"
        y="577.36218"
-       ry="11.212217" />
+       ry="11.212217"
+       inkscape:export-filename="C:\Users\yc\Apps\gnupack_basic-7.02\home\work\enterprise_system_development\source\_static\GitWorkflow.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
     <text
        xml:space="preserve"
        style="font-size:23.8440094px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Calibri"
@@ -568,7 +640,10 @@
        y="590.44501"
        id="text3863-14"
        sodipodi:linespacing="125%"
-       transform="scale(0.99684829,1.0031617)"><tspan
+       transform="scale(0.99684829,1.0031617)"
+       inkscape:export-filename="C:\Users\yc\Apps\gnupack_basic-7.02\home\work\enterprise_system_development\source\_static\GitWorkflow.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600"><tspan
          sodipodi:role="line"
          id="tspan3865-6"
          x="499.58008"
@@ -581,14 +656,20 @@
        height="22.424435"
        x="334.59464"
        y="512.89191"
-       ry="11.212217" />
+       ry="11.212217"
+       inkscape:export-filename="C:\Users\yc\Apps\gnupack_basic-7.02\home\work\enterprise_system_development\source\_static\GitWorkflow.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
     <rect
        style="fill:none;stroke:#000000;stroke-width:0.91331929;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
        id="rect3862-48"
        width="185.69423"
        height="93.435143"
        x="35.749008"
-       y="484.43427" />
+       y="484.43427"
+       inkscape:export-filename="C:\Users\yc\Apps\gnupack_basic-7.02\home\work\enterprise_system_development\source\_static\GitWorkflow.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
     <text
        xml:space="preserve"
        style="font-size:33.27247238px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Calibri"
@@ -596,7 +677,10 @@
        y="537.57196"
        id="text6748-5"
        sodipodi:linespacing="125%"
-       transform="scale(1.0249657,0.9756424)"><tspan
+       transform="scale(1.0249657,0.9756424)"
+       inkscape:export-filename="C:\Users\yc\Apps\gnupack_basic-7.02\home\work\enterprise_system_development\source\_static\GitWorkflow.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600"><tspan
          sodipodi:role="line"
          id="tspan6750-5"
          x="122.73592"
@@ -612,7 +696,10 @@
        y="783.83191"
        id="text6774-7"
        sodipodi:linespacing="125%"
-       transform="scale(1.0249657,0.9756424)"><tspan
+       transform="scale(1.0249657,0.9756424)"
+       inkscape:export-filename="C:\Users\yc\Apps\gnupack_basic-7.02\home\work\enterprise_system_development\source\_static\GitWorkflow.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600"><tspan
          sodipodi:role="line"
          id="tspan6776-1"
          x="125.46384"
@@ -628,7 +715,10 @@
        y="519.75903"
        id="text6780-5"
        sodipodi:linespacing="125%"
-       transform="scale(1.0249657,0.9756424)"><tspan
+       transform="scale(1.0249657,0.9756424)"
+       inkscape:export-filename="C:\Users\yc\Apps\gnupack_basic-7.02\home\work\enterprise_system_development\source\_static\GitWorkflow.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600"><tspan
          sodipodi:role="line"
          id="tspan6782-2"
          x="254.15742"
@@ -640,7 +730,10 @@
        y="810.70172"
        id="text6788-7"
        sodipodi:linespacing="125%"
-       transform="scale(1.0249657,0.9756424)"><tspan
+       transform="scale(1.0249657,0.9756424)"
+       inkscape:export-filename="C:\Users\yc\Apps\gnupack_basic-7.02\home\work\enterprise_system_development\source\_static\GitWorkflow.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600"><tspan
          sodipodi:role="line"
          id="tspan6790-6"
          x="315.9368"
@@ -652,7 +745,10 @@
        y="526.17792"
        id="text3867-3"
        sodipodi:linespacing="125%"
-       transform="scale(0.99684829,1.0031617)"><tspan
+       transform="scale(0.99684829,1.0031617)"
+       inkscape:export-filename="C:\Users\yc\Apps\gnupack_basic-7.02\home\work\enterprise_system_development\source\_static\GitWorkflow.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600"><tspan
          sodipodi:role="line"
          id="tspan3869-2"
          x="343.10379"
@@ -664,7 +760,10 @@
        height="22.424435"
        x="220.76411"
        y="756.19696"
-       ry="11.212217" />
+       ry="11.212217"
+       inkscape:export-filename="C:\Users\yc\Apps\gnupack_basic-7.02\home\work\enterprise_system_development\source\_static\GitWorkflow.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
     <text
        xml:space="preserve"
        style="font-size:23.8440094px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Calibri"
@@ -672,7 +771,10 @@
        y="771.13794"
        id="text3892-1"
        sodipodi:linespacing="125%"
-       transform="scale(0.99684829,1.0031617)"><tspan
+       transform="scale(0.99684829,1.0031617)"
+       inkscape:export-filename="C:\Users\yc\Apps\gnupack_basic-7.02\home\work\enterprise_system_development\source\_static\GitWorkflow.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600"><tspan
          sodipodi:role="line"
          id="tspan3894-6"
          x="226.67796"
@@ -682,12 +784,18 @@
        style="fill:none;stroke:#000000;stroke-width:0.81948656px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend-9)"
        d="m 295.0418,767.78297 c 132.39997,0 132.39997,0 132.39997,0"
        id="path6792-1-8"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\yc\Apps\gnupack_basic-7.02\home\work\enterprise_system_development\source\_static\GitWorkflow.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
     <path
        style="fill:none;stroke:#000000;stroke-width:0.81121743px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend-9)"
        d="m 335.33743,524.47788 c -113.52375,0 -113.52375,0 -113.52375,0"
        id="path6802-5"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\yc\Apps\gnupack_basic-7.02\home\work\enterprise_system_development\source\_static\GitWorkflow.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
     <rect
        style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.67309189;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
        id="rect3898-1-1"
@@ -695,7 +803,10 @@
        height="22.424435"
        x="96.720451"
        y="704.24713"
-       ry="11.212217" />
+       ry="11.212217"
+       inkscape:export-filename="C:\Users\yc\Apps\gnupack_basic-7.02\home\work\enterprise_system_development\source\_static\GitWorkflow.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
     <text
        xml:space="preserve"
        style="font-size:33.27247238px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Calibri"
@@ -703,7 +814,10 @@
        y="662.2616"
        id="text6784-2"
        sodipodi:linespacing="125%"
-       transform="scale(1.0249657,0.9756424)"><tspan
+       transform="scale(1.0249657,0.9756424)"
+       inkscape:export-filename="C:\Users\yc\Apps\gnupack_basic-7.02\home\work\enterprise_system_development\source\_static\GitWorkflow.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600"><tspan
          sodipodi:role="line"
          id="tspan6786-3"
          x="51.97044"
@@ -712,7 +826,10 @@
        style="fill:none;stroke:#000000;stroke-width:1.02543795px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow1Lend-9)"
        d="m 126.43152,577.17532 c 0,123.33439 0,123.33439 0,123.33439"
        id="path7180-3"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:export-filename="C:\Users\yc\Apps\gnupack_basic-7.02\home\work\enterprise_system_development\source\_static\GitWorkflow.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
     <text
        xml:space="preserve"
        style="font-size:23.8440094px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Calibri;-inkscape-font-specification:Calibri"
@@ -720,7 +837,10 @@
        y="716.93011"
        id="text3863-4"
        sodipodi:linespacing="125%"
-       transform="scale(0.99684829,1.0031617)"><tspan
+       transform="scale(0.99684829,1.0031617)"
+       inkscape:export-filename="C:\Users\yc\Apps\gnupack_basic-7.02\home\work\enterprise_system_development\source\_static\GitWorkflow.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600"><tspan
          sodipodi:role="line"
          id="tspan3865-1"
          x="108.20314"

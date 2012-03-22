@@ -25,7 +25,7 @@ import sys, os
 
 # Add any Sphinx extension module names here, as strings. They can be extensions
 # coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
-extensions = ['sphinx.ext.todo', 'sphinx.ext.coverage']
+extensions = ['sphinx.ext.todo', 'sphinx.ext.coverage', 'rst2pdf.pdfbuilder']
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -243,3 +243,8 @@ texinfo_documents = [
 
 ################################################################
 todo_include_todos = True
+
+pdf_documents = [ 
+    ('index', u'OutPut_FileName', u'Doc Title', u'Author Name'),
+]
+pdf_stylesheets = ['sphinx','kerning','a4','ja']
