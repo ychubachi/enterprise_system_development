@@ -245,6 +245,6 @@ texinfo_documents = [
 todo_include_todos = True
 
 pdf_documents = [ 
-    ('index', u'OutPut_FileName', u'Doc Title', u'Author Name'),
+    ('index', u'esd', u'基幹システム開発論', u'中鉢 欣秀'),
 ]
 pdf_stylesheets = ['sphinx','kerning','a4','ja']
