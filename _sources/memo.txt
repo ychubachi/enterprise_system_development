@@ -20,6 +20,14 @@ Misc
 * 古い記事は絶対に参考にならない．
 * バージョンあわせ
 
+EmacsでGit
+~~~~~~~~~~
+Magitがよいようです．
+
+http://philjackson.github.com/magit/
+
+- インストール時のパスワードは絶対に忘れないこと（とりあえず，間違えなく入力できる文字でパスワードを指定しておき，インストール後にログインできることが確認できてから，より難解なものに修正するとよいでしょう．
+
 .. Local Variables:
 .. compile-command: "(cd .. && make html)"
 .. End:

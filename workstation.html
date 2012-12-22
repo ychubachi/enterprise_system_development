@@ -7,7 +7,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>4. ワークステーションを準備する &mdash; 基幹システム開発特論</title>
+    <title>3. ワークステーションを準備する &mdash; 基幹システム開発特論</title>
     
     <link rel="stylesheet" href="_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -26,7 +26,7 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/translations.js"></script>
     <link rel="top" title="基幹システム開発特論" href="index.html" />
-    <link rel="next" title="5. 一人でまわすイテレーション" href="iteration_one.html" />
+    <link rel="next" title="4. GitとGitHub" href="git.html" />
     <link rel="prev" title="1. 概要" href="overview.html" /> 
   </head>
   <body>
@@ -37,7 +37,7 @@
           <a href="genindex.html" title="総合索引"
              accesskey="I">索引</a></li>
         <li class="right" >
-          <a href="iteration_one.html" title="5. 一人でまわすイテレーション"
+          <a href="git.html" title="4. GitとGitHub"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
           <a href="overview.html" title="1. 概要"
@@ -52,29 +52,22 @@
           <div class="body">
             
   <div class="section" id="id1">
-<h1>4. ワークステーションを準備する<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h1>3. ワークステーションを準備する<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="section" id="id2">
-<h2>4.1. ワークステーションとは<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>3.1. ワークステーションとは<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
 <li>プログラマが開発に使用するコンピュータ</li>
 <li>ソースコードのコーディングを行う</li>
 <li>サースコードの単体テスト（Unit Test）を行う</li>
 <li>ローカルのテスト用サーバを使ってテストを行う</li>
 </ul>
+<p>など</p>
 </div>
 <div class="section" id="id3">
-<h2>4.2. 全体構成<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>3.2. 開発に用いる環境<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
-<li>OS<ul>
-<li>Windows（またはMacOS）</li>
-</ul>
-</li>
-<li>仮想化<ul>
-<li>Windowsの場合， <a class="reference external" href="http://www.vmware.com/products/player/">VMWare Player</a> を用いて <a class="reference external" href="http://wiki.centos.org/Manuals/ReleaseNotes/CentOS6.0">CentOS 6.0</a> をインストールする</li>
-</ul>
-</li>
-<li>IDE(統合開発環境)<ul>
-<li><a class="reference external" href="http://www.gnu.org/s/emacs/">GNU Emacs</a></li>
+<li>演習の環境<ul>
+<li>Windows/Mac/Linuxを問わず <a class="reference external" href="https://www.virtualbox.org/">VirtualBox</a> を用いて <a class="reference external" href="http://www.ubuntu.com/">Ubuntu</a> をインストールする</li>
 </ul>
 </li>
 <li>Ruby on Rails<ul>
@@ -87,289 +80,24 @@
 </ul>
 </div>
 <div class="section" id="os">
-<h2>4.3. 仮想OSのインストール<a class="headerlink" href="#os" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<div class="section" id="id4">
-<h3>4.3.1. VMware Playerのインストール<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h2>3.3. 仮想OSのインストール<a class="headerlink" href="#os" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="vmware-player">
+<h3>3.3.1. VMware Playerのインストール<a class="headerlink" href="#vmware-player" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul class="simple">
-<li><a class="reference external" href="https://www.vmware.com/tryvmware/?p=player&amp;lp=1">VMware PlayerのDownloadページ</a> に行き，アカウントを作成して，ダウンロードして，インストールする</li>
+<li><a class="reference external" href="https://www.virtualbox.org/wiki/Downloads">VirtualBoxのDownloadページ</a> に行き，ダウンロードしてインストールする</li>
 </ul>
 </div>
-<div class="section" id="id5">
-<h3>4.3.2. CentOS 6.0のインストール<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="ubuntu-12-4">
+<h3>3.3.2. Ubuntu 12.4のインストール<a class="headerlink" href="#ubuntu-12-4" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul class="simple">
-<li>CentOS 6.0 DVDのISOイメージをダウンロードする<ul>
-<li>32ビット版<ul>
-<li><a class="reference external" href="http://ftp.riken.jp/Linux/centos/6.0/isos/i386/CentOS-6.0-i386-bin-DVD.iso">http://ftp.riken.jp/Linux/centos/6.0/isos/i386/CentOS-6.0-i386-bin-DVD.iso</a></li>
-</ul>
-</li>
-<li>64ビット版<ul>
-<li><a class="reference external" href="http://ftp.riken.jp/Linux/centos/6.0/isos/x86_64/CentOS-6.0-x86_64-bin-DVD1.iso">http://ftp.riken.jp/Linux/centos/6.0/isos/x86_64/CentOS-6.0-x86_64-bin-DVD1.iso</a></li>
-<li><a class="reference external" href="http://ftp.riken.jp/Linux/centos/6.0/isos/x86_64/CentOS-6.0-x86_64-bin-DVD2.iso">http://ftp.riken.jp/Linux/centos/6.0/isos/x86_64/CentOS-6.0-x86_64-bin-DVD2.iso</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li>VMware Playerを起動して，ISOイメージからインストールを行う．</li>
+<li><a class="reference external" href="http://www.ubuntulinux.jp/download/ja-remix-vhd">仮想ハードディスクイメージのダウンロード</a> の手順に従い，Ubuntu 12.4をインストールする</li>
 </ul>
 </div>
-</div>
-<div class="section" id="id6">
-<h2>4.4. アカウントの作成と設定<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul>
-<li><p class="first">自分のルーザアカウントでログインする</p>
-</li>
-<li><p class="first">rootアカウントに切り替える</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>su -
-</pre></div>
-</div>
-</li>
-<li><p class="first">OSをアップグレードする</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="c"># yum upgrade</span>
-</pre></div>
-</div>
-</li>
-<li><p class="first">自分のユーザアカウント(例：username）をwheelグループに追加する</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="c"># usermod -G wheel username</span>
-<span class="c"># groups username    # &lt;- check</span>
-</pre></div>
-</div>
-</li>
-<li><p class="first">wheelグループに対して，sudoでのコマンド実行を許可する</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="c"># visudo</span>
-</pre></div>
-</div>
-<p>変更する箇所:</p>
-<div class="highlight-python"><pre>## Allows people in group wheel to run all commands
-%wheel  ALL=(ALL)       ALL</pre>
-</div>
-</li>
-<li><p class="first">exitする</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="c"># exit</span>
-<span class="c"># whoami    # &lt;- check</span>
-</pre></div>
-</div>
-</li>
-<li><p class="first">設定をが上手くいったか確認する</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>cat /etc/shadow        <span class="c"># &lt;- check this will fail</span>
-<span class="nv">$ </span>sudo cat /etc/shadow   <span class="c"># &lt;- check this will success</span>
-</pre></div>
-</div>
-</li>
-</ul>
-</div>
-<div class="section" id="id7">
-<h2>4.5. 日本語環境のインストール<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul>
-<li><p class="first">ユーザアカウントでログインする</p>
-</li>
-<li><p class="first">日本語パッケージをインストールする</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo yum -y groupinstall <span class="s2">&quot;Japanese Support&quot;</span>
-</pre></div>
-</div>
-<p>参考: <a class="reference external" href="http://www.server-world.info/query?os=CentOS_6&amp;p=japanese">http://www.server-world.info/query?os=CentOS_6&amp;p=japanese</a></p>
-</li>
-</ul>
-</div>
-<div class="section" id="ssh">
-<h2>4.6. SSHのための公開鍵の作成<a class="headerlink" href="#ssh" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>SSH接続で使う公開鍵/非公開鍵のペアを作成します．演習で利用する重要なファイルですので，USBメモリなどにバックアップをとっておくことをおすすめします．</p>
-<ul>
-<li><p class="first">ユーザアカウントでログインする</p>
-</li>
-<li><p class="first">公開鍵を作成する（演習用なので，パスフレーズは入れなくてもかまわない）</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>ssh-keygen
-<span class="nv">$ </span>ls ~/.ssh    <span class="c"># &lt;- check</span>
-</pre></div>
-</div>
-</li>
-<li><p class="first">公開鍵をauthorized_keysに登録する</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>cat ~/.ssh/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys
-<span class="nv">$ </span>chmod 600 ~/.ssh/authorized_keys
-</pre></div>
-</div>
-</li>
-<li><p class="first">公開鍵で（＝パスワード無しで）ログインできるか確かめる</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>ssh localhost    <span class="c"># &lt;- you don&#39;t need to type your password</span>
-<span class="nv">$ </span><span class="nb">exit</span>
-</pre></div>
-</div>
-</li>
-</ul>
-</div>
-<div class="section" id="git">
-<h2>4.7. Git<a class="headerlink" href="#git" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul>
-<li><p class="first">gitのインストール</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo yum -y install git
-</pre></div>
-</div>
-</li>
-</ul>
-</div>
-<div class="section" id="github">
-<h2>4.8. GitHub<a class="headerlink" href="#github" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="auest-additions">
+<h3>3.3.3. Auest Additionsのインストール<a class="headerlink" href="#auest-additions" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul class="simple">
-<li><a class="reference external" href="https://github.com/">GitHub</a> にアカウントを作成する<ul>
-<li>アカウント名とメールアドレスは大学のものと同じにしてください</li>
-<li>登録ができたら，管理画面でSSHの公開鍵を登録してください <a class="footnote-reference" href="#win-set-up-git" id="id9">[1]</a> ．</li>
+<li>Virtual BoxのメニューからInstall -&gt; Guest Additions... と選ぶ．</li>
 </ul>
-</li>
-</ul>
-<table class="docutils footnote" frame="void" id="win-set-up-git" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id9">[1]</a></td><td><a class="reference external" href="http://help.github.com/win-set-up-git/">http://help.github.com/win-set-up-git/</a> の4節参照</td></tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="rails">
-<h2>4.9. railsユーザアカウントを作成する<a class="headerlink" href="#rails" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Railsのアプリケーションをデプロイする場所として，railsアカウントを作成してそのhomeを利用する．このhomeは，6770の設定をし，railsグループに所属するユーザからの参照・更新を許可する．</p>
-<ul>
-<li><p class="first">railsユーザアカウントの設定</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo /usr/sbin/useradd rails
-<span class="nv">$ </span>sudo chmod 6770 /home/rails/
-</pre></div>
-</div>
-</li>
-<li><p class="first">railsグループに，自分のユーザアカウントとapacheアカウントを追加する</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo /usr/sbin/vigr
-</pre></div>
-</div>
-</li>
-</ul>
-</div>
-<div class="section" id="ruby-on-rails">
-<h2>4.10. Ruby on Rails<a class="headerlink" href="#ruby-on-rails" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul>
-<li><p class="first">Ruby 1.8.7のインストール（開発用パッケージも含む）</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo yum -y install ruby ruby-devel
-<span class="nv">$ </span>ruby -v   <span class="c"># &lt;- check</span>
-</pre></div>
-</div>
-</li>
-<li><p class="first">Gem 1.8.7のインストール</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo yum -y install rubygems
-<span class="nv">$ </span>gem -v   <span class="c"># &lt;- check</span>
-</pre></div>
-</div>
-</li>
-<li><p class="first"><a class="reference external" href="http://rubyonrails.org/download">Rails 3.1</a> のインストール</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo gem installl rails
-<span class="nv">$ </span>rails -v    <span class="c"># &lt;- check</span>
-</pre></div>
-</div>
-</li>
-<li><p class="first"><a class="reference external" href="https://github.com/capistrano/capistrano#readme">Capistrano</a> のインストール</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo gem install capistrano
-</pre></div>
-</div>
-</li>
-<li><p class="first"><a class="reference external" href="http://www.modrails.com/install.html">Phusion Passenger</a> のインストール</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo gem install passenger
-</pre></div>
-</div>
-</li>
-<li><p class="first">Passengerをapacheと接続するためのモジュールをコンパイルする</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo yum -y install gcc-c++ curl-devel openssl-devel zlib-devel httpd-devel apr-devel apr-util-devel
-<span class="nv">$ </span>sudo passenger-install-apache2-module
-</pre></div>
-</div>
-<p>以下の内容を/etc/httpd/conf.d/rails.confに記述する</p>
-<div class="highlight-apacheconf"><div class="highlight"><pre><span class="nb">LoadModule</span> passenger_module <span class="sx">/usr/lib/ruby/gems/1.8/gems/passenger-3.0.11/ext/apache2/mod_passenger.so</span>
-<span class="nb">PassengerRoot</span> <span class="sx">/usr/lib/ruby/gems/1.8/gems/passenger-3.0.11</span>
-<span class="nb">PassengerRuby</span> <span class="sx">/usr/bin/ruby</span>
-
-<span class="nt">&lt;VirtualHost</span> <span class="s">*:80</span><span class="nt">&gt;</span>
-  <span class="nb">ServerName</span> localhost
-  <span class="nb">DocumentRoot</span> <span class="sx">/home/rails/myapp/current/public</span>
-  <span class="nt">&lt;Directory</span> <span class="s">/home/rails/myapp/current/public</span><span class="nt">&gt;</span>
-     <span class="nb">AllowOverride</span> <span class="k">all</span>
-     <span class="nb">Options</span> -MultiViews
-  <span class="nt">&lt;/Directory&gt;</span>
-<span class="nt">&lt;/VirtualHost&gt;</span>
-</pre></div>
-</div>
-</li>
-<li><p class="first">httpdを再起動する</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo service httpd restart
-</pre></div>
-</div>
-</li>
-</ul>
-</div>
-<div class="section" id="id10">
-<h2>4.11. 追記(12/8)<a class="headerlink" href="#id10" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<div class="section" id="id11">
-<h3>4.11.1. gitの設定方法<a class="headerlink" href="#id11" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<blockquote>
-<div><p>次のコマンドで，gitの設定をしてください．</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git config --global user.name <span class="s2">&quot;Your Name&quot;</span>
-<span class="nv">$ </span>git config --global user.email <span class="s2">&quot;username@domain.example&quot;</span>
-</pre></div>
-</div>
-</div></blockquote>
-</div>
-<div class="section" id="id12">
-<h3>4.11.2. gitの利用で困ったら？<a class="headerlink" href="#id12" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<blockquote>
-<div><p>次のコマンドで，状況が確認できます．</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git status
-</pre></div>
-</div>
-<p>次のコマンドで，ログが確認できます．</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git log
-</pre></div>
-</div>
-<p>なお，gitのエラーメッセージは英語ですが，わりと丁寧に記述されているので，しっかりと読むようにしましょう．</p>
-<p><a class="reference external" href="http://beginrescueend.com/">RVM</a> を使って，コンパイルします．</p>
-</div></blockquote>
-</div>
-</div>
-<div class="section" id="id13">
-<h2>4.12. 追記（12/10）<a class="headerlink" href="#id13" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<div class="section" id="macruby">
-<h3>4.12.1. Macにrubyをインストールする<a class="headerlink" href="#macruby" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<ul>
-<li><p class="first">GUIツール</p>
-<p><a class="reference external" href="http://unfiniti.com/software/mac/jewelrybox">http://unfiniti.com/software/mac/jewelrybox</a></p>
-</li>
-<li><p class="first">コマンドラインからインストールする場合</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>curl -O -s https://raw.github.com/wayneeseguin/rvm/master/binscripts/rvm-installer
-<span class="nv">$ </span>sudo . rvm-installer
-</pre></div>
-</div>
-<p>Rubyをインストールします</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>rvm install 1.8.7
-<span class="nv">$ </span>ruby -v <span class="c"># &lt;- check</span>
-<span class="nv">$ </span>rvm use 1.8.7 --default
-</pre></div>
-</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="section" id="id14">
-<h2>4.13. 追記（12/11）<a class="headerlink" href="#id14" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<div class="section" id="emacsgit">
-<h3>4.13.1. EmacsでGit<a class="headerlink" href="#emacsgit" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>Magitがよいようです．</p>
-<p><a class="reference external" href="http://philjackson.github.com/magit/">http://philjackson.github.com/magit/</a></p>
-</div>
-</div>
-<div class="section" id="id15">
-<h2>4.14. 追記（12/15）<a class="headerlink" href="#id15" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<div class="section" id="centos">
-<h3>4.14.1. CentOSインストール時の注意<a class="headerlink" href="#centos" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<ul class="simple">
-<li>インストール時のパスワードは絶対に忘れないこと（とりあえず，間違えなく入力できる文字でパスワードを指定しておき，インストール後にログインできることが確認できてから，より難解なものに修正するとよいでしょう．</li>
-<li>CentOSのインストール時に，SELinuxは選択しないこと．SELinuxを有効にしてしまうと，httpdを起動するときにWarningがでてしまいます．</li>
-</ul>
-<div class="admonition- admonition" id="index-0">
-<p class="first admonition-title">課題</p>
-<p class="last">SELinux時のエラーをとりあえず回避する方法については， 選択しないこと．SELinuxを有効にしてしまうと，httpdを起動するときにWarningがでてしまいます．</p>
-</div>
-<p>※ SELinux時のエラーをとりあえず回避する方法については， <a class="reference external" href="http://kennyqi.com/archives/43.html">http://kennyqi.com/archives/43.html</a> を参照</p>
 </div>
 </div>
 </div>
@@ -382,36 +110,13 @@
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">目次</a></h3>
   <ul>
-<li><a class="reference internal" href="#">4. ワークステーションを準備する</a><ul>
-<li><a class="reference internal" href="#id2">4.1. ワークステーションとは</a></li>
-<li><a class="reference internal" href="#id3">4.2. 全体構成</a></li>
-<li><a class="reference internal" href="#os">4.3. 仮想OSのインストール</a><ul>
-<li><a class="reference internal" href="#id4">4.3.1. VMware Playerのインストール</a></li>
-<li><a class="reference internal" href="#id5">4.3.2. CentOS 6.0のインストール</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id6">4.4. アカウントの作成と設定</a></li>
-<li><a class="reference internal" href="#id7">4.5. 日本語環境のインストール</a></li>
-<li><a class="reference internal" href="#ssh">4.6. SSHのための公開鍵の作成</a></li>
-<li><a class="reference internal" href="#git">4.7. Git</a></li>
-<li><a class="reference internal" href="#github">4.8. GitHub</a></li>
-<li><a class="reference internal" href="#rails">4.9. railsユーザアカウントを作成する</a></li>
-<li><a class="reference internal" href="#ruby-on-rails">4.10. Ruby on Rails</a></li>
-<li><a class="reference internal" href="#id10">4.11. 追記(12/8)</a><ul>
-<li><a class="reference internal" href="#id11">4.11.1. gitの設定方法</a></li>
-<li><a class="reference internal" href="#id12">4.11.2. gitの利用で困ったら？</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id13">4.12. 追記（12/10）</a><ul>
-<li><a class="reference internal" href="#macruby">4.12.1. Macにrubyをインストールする</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id14">4.13. 追記（12/11）</a><ul>
-<li><a class="reference internal" href="#emacsgit">4.13.1. EmacsでGit</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id15">4.14. 追記（12/15）</a><ul>
-<li><a class="reference internal" href="#centos">4.14.1. CentOSインストール時の注意</a></li>
+<li><a class="reference internal" href="#">3. ワークステーションを準備する</a><ul>
+<li><a class="reference internal" href="#id2">3.1. ワークステーションとは</a></li>
+<li><a class="reference internal" href="#id3">3.2. 開発に用いる環境</a></li>
+<li><a class="reference internal" href="#os">3.3. 仮想OSのインストール</a><ul>
+<li><a class="reference internal" href="#vmware-player">3.3.1. VMware Playerのインストール</a></li>
+<li><a class="reference internal" href="#ubuntu-12-4">3.3.2. Ubuntu 12.4のインストール</a></li>
+<li><a class="reference internal" href="#auest-additions">3.3.3. Auest Additionsのインストール</a></li>
 </ul>
 </li>
 </ul>
@@ -422,8 +127,8 @@
   <p class="topless"><a href="overview.html"
                         title="前の章へ">1. 概要</a></p>
   <h4>次のトピックへ</h4>
-  <p class="topless"><a href="iteration_one.html"
-                        title="次の章へ">5. 一人でまわすイテレーション</a></p>
+  <p class="topless"><a href="git.html"
+                        title="次の章へ">4. GitとGitHub</a></p>
   <h3>このページ</h3>
   <ul class="this-page-menu">
     <li><a href="_sources/workstation.txt"
@@ -453,7 +158,7 @@
           <a href="genindex.html" title="総合索引"
              >索引</a></li>
         <li class="right" >
-          <a href="iteration_one.html" title="5. 一人でまわすイテレーション"
+          <a href="git.html" title="4. GitとGitHub"
              >次へ</a> |</li>
         <li class="right" >
           <a href="overview.html" title="1. 概要"
@@ -463,7 +168,7 @@
     </div>
     <div class="footer">
         &copy; Copyright 2011, Yoshihide Chubachi.
-      このドキュメントは <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.2 で生成しました。
+      このドキュメントは <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3 で生成しました。
     </div>
   </body>
 </html>

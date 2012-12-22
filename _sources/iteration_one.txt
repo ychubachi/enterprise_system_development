@@ -74,6 +74,9 @@ Create a scaffold project
 
 **!!!ここでAddressアプリケーションがうまく動かない場合，先に進んではいけません!!!**
 
+レポジトリを作成する
+--------------------
+
 ローカルレポジトリを作成する
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 * gitでローカルレポジトリを作成し，Scaffoldをコミットする
@@ -102,6 +105,25 @@ Create a scaffold project
   ↑1行目のusernameは，各自のGitHubアカウント名に置き換えること．
 
 * GitHubのページで，ソースコードが登録されたことを確認する
+
+デプロイの準備をする
+--------------------
+
+公開鍵でlocalhostにSSH接続できるようにする
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- 公開鍵をauthorized_keysに登録する
+
+  .. code-block:: bash
+
+    $ cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+    $ chmod 600 ~/.ssh/authorized_keys
+
+- 公開鍵で（＝パスワード無しで）ログインできるか確かめる
+
+  .. code-block:: bash
+
+    $ ssh localhost    # <- you don't need to type your password
+    $ exit
 
 デプロイ用の設定を行う
 ~~~~~~~~~~~~~~~~~~~~~~
