@@ -43,6 +43,11 @@ Ubuntu 12.4のインストール
 
 .. _`仮想ハードディスクイメージのダウンロード`: http://www.ubuntulinux.jp/download/ja-remix-vhd
 
+Auest Additionsのインストール
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- Virtual BoxのメニューからInstall -> Guest Additions... と選ぶ．
+
 .. Local Variables:
 .. compile-command: "(cd .. && make html)"
 .. End:

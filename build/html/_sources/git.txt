@@ -6,13 +6,7 @@ SSHのための公開鍵の作成
 
 GitHubとgitはSSHでデータのやり取りをします．そこで，SSH接続で使う公開鍵/非公開鍵のペアを作成します．
 
-- ユーザアカウントでログインする
-- 非公開鍵と公開鍵を作成する（演習用なので，パスフレーズは入れなくてもかまわない）
-
-  .. code-block:: bash
-
-    $ ssh-keygen
-    $ ls ~/.ssh    # <- check
+- VirtualBoxを起動し，ユーザアカウントでログインする
 
 Git
 ---
@@ -26,12 +20,57 @@ gitのインストール
 
 gitの設定方法
 ~~~~~~~~~~~~~
-  次のコマンドで，gitの設定をしてください．
+  次のコマンドで，gitに名前とメールアドレスを登録してください．
 
   .. code-block:: bash
 
     $ git config --global user.name "Your Name"
     $ git config --global user.email "username@domain.example"
+
+GitHub
+------
+
+準備
+~~~~
+
+* `GitHub <https://github.com/>`_ にアカウントを作成する
+
+  - アカウント名とメールアドレスは大学のものと同じにしてください
+
+* 非公開鍵と公開鍵を作成して，公開鍵をGitHubのProfileに登録する
+
+  - https://help.github.com/articles/generating-ssh-keys 参照
+
+GitHubへのリポジトリ作成と最初のcommit
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* GitHubにレポジトリを作成してみよう
+
+  - https://help.github.com/articles/create-a-repo 参照
+
+GitHubのIssueとの連携
+~~~~~~~~~~~~~~~~~~~~~
+
+メッセージに'Close #番号'を入れることができる．
+
+  .. code-block:: bash
+
+    $ git commit -a -m 'Close #?'
+
+gitの基本的な操作
+~~~~~~~~~~~~~~~~~
+
+覚えておきたいコマンド
+
+- git clone
+- git status
+- git add .
+- git commit -a -m 'Message'
+- git push
+- git branch
+- git checkout
+- git merge
+- git pull (= git fetch + git merge)
 
 gitの利用で困ったら？
 ~~~~~~~~~~~~~~~~~~~~~
@@ -48,16 +87,6 @@ gitの利用で困ったら？
     $ git log
 
   なお，gitのエラーメッセージは英語ですが，わりと丁寧に記述されているので，しっかりと読むようにしましょう．
-
-GitHub
-------
-
-* `GitHub <https://github.com/>`_ にアカウントを作成する
-
-  - アカウント名とメールアドレスは大学のものと同じにしてください
-  - 登録ができたら，管理画面でSSHの公開鍵を登録してください [#win-set-up-git]_ ．
-
-.. [#win-set-up-git] http://help.github.com/win-set-up-git/ の4節参照
 
 .. Local Variables:
 .. compile-command: "(cd .. && make html)"

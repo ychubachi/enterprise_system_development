@@ -56,15 +56,8 @@
 <div class="section" id="ssh">
 <h2>4.1. SSHのための公開鍵の作成<a class="headerlink" href="#ssh" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>GitHubとgitはSSHでデータのやり取りをします．そこで，SSH接続で使う公開鍵/非公開鍵のペアを作成します．</p>
-<ul>
-<li><p class="first">ユーザアカウントでログインする</p>
-</li>
-<li><p class="first">非公開鍵と公開鍵を作成する（演習用なので，パスフレーズは入れなくてもかまわない）</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>ssh-keygen
-<span class="nv">$ </span>ls ~/.ssh    <span class="c"># &lt;- check</span>
-</pre></div>
-</div>
-</li>
+<ul class="simple">
+<li>VirtualBoxを起動し，ユーザアカウントでログインする</li>
 </ul>
 </div>
 <div class="section" id="git">
@@ -80,15 +73,64 @@
 <div class="section" id="id2">
 <h3>4.2.2. gitの設定方法<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <blockquote>
-<div><p>次のコマンドで，gitの設定をしてください．</p>
+<div><p>次のコマンドで，gitに名前とメールアドレスを登録してください．</p>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git config --global user.name <span class="s2">&quot;Your Name&quot;</span>
 <span class="nv">$ </span>git config --global user.email <span class="s2">&quot;username@domain.example&quot;</span>
 </pre></div>
 </div>
 </div></blockquote>
 </div>
+</div>
+<div class="section" id="github">
+<h2>4.3. GitHub<a class="headerlink" href="#github" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="id3">
-<h3>4.2.3. gitの利用で困ったら？<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>4.3.1. 準備<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/">GitHub</a> にアカウントを作成する<ul>
+<li>アカウント名とメールアドレスは大学のものと同じにしてください</li>
+</ul>
+</li>
+<li>非公開鍵と公開鍵を作成して，公開鍵をGitHubのProfileに登録する<ul>
+<li><a class="reference external" href="https://help.github.com/articles/generating-ssh-keys">https://help.github.com/articles/generating-ssh-keys</a> 参照</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="githubcommit">
+<h3>4.3.2. GitHubへのリポジトリ作成と最初のcommit<a class="headerlink" href="#githubcommit" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ul class="simple">
+<li>GitHubにレポジトリを作成してみよう<ul>
+<li><a class="reference external" href="https://help.github.com/articles/create-a-repo">https://help.github.com/articles/create-a-repo</a> 参照</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="githubissue">
+<h3>4.3.3. GitHubのIssueとの連携<a class="headerlink" href="#githubissue" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>メッセージに&#8217;Close #番号&#8217;を入れることができる．</p>
+<blockquote>
+<div><div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git commit -a -m <span class="s1">&#39;Close #?&#39;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="id5">
+<h3>4.3.4. gitの基本的な操作<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>覚えておきたいコマンド</p>
+<ul class="simple">
+<li>git clone</li>
+<li>git status</li>
+<li>git add .</li>
+<li>git commit -a -m &#8216;Message&#8217;</li>
+<li>git push</li>
+<li>git branch</li>
+<li>git checkout</li>
+<li>git merge</li>
+<li>git pull (= git fetch + git merge)</li>
+</ul>
+</div>
+<div class="section" id="id6">
+<h3>4.3.5. gitの利用で困ったら？<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <blockquote>
 <div><p>次のコマンドで，状況が確認できます．</p>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git status
@@ -101,22 +143,6 @@
 <p>なお，gitのエラーメッセージは英語ですが，わりと丁寧に記述されているので，しっかりと読むようにしましょう．</p>
 </div></blockquote>
 </div>
-</div>
-<div class="section" id="github">
-<h2>4.3. GitHub<a class="headerlink" href="#github" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><a class="reference external" href="https://github.com/">GitHub</a> にアカウントを作成する<ul>
-<li>アカウント名とメールアドレスは大学のものと同じにしてください</li>
-<li>登録ができたら，管理画面でSSHの公開鍵を登録してください <a class="footnote-reference" href="#win-set-up-git" id="id5">[1]</a> ．</li>
-</ul>
-</li>
-</ul>
-<table class="docutils footnote" frame="void" id="win-set-up-git" rules="none">
-<colgroup><col class="label" /><col /></colgroup>
-<tbody valign="top">
-<tr><td class="label"><a class="fn-backref" href="#id5">[1]</a></td><td><a class="reference external" href="http://help.github.com/win-set-up-git/">http://help.github.com/win-set-up-git/</a> の4節参照</td></tr>
-</tbody>
-</table>
 </div>
 </div>
 
@@ -133,10 +159,16 @@
 <li><a class="reference internal" href="#git">4.2. Git</a><ul>
 <li><a class="reference internal" href="#id1">4.2.1. gitのインストール</a></li>
 <li><a class="reference internal" href="#id2">4.2.2. gitの設定方法</a></li>
-<li><a class="reference internal" href="#id3">4.2.3. gitの利用で困ったら？</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#github">4.3. GitHub</a></li>
+<li><a class="reference internal" href="#github">4.3. GitHub</a><ul>
+<li><a class="reference internal" href="#id3">4.3.1. 準備</a></li>
+<li><a class="reference internal" href="#githubcommit">4.3.2. GitHubへのリポジトリ作成と最初のcommit</a></li>
+<li><a class="reference internal" href="#githubissue">4.3.3. GitHubのIssueとの連携</a></li>
+<li><a class="reference internal" href="#id5">4.3.4. gitの基本的な操作</a></li>
+<li><a class="reference internal" href="#id6">4.3.5. gitの利用で困ったら？</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
