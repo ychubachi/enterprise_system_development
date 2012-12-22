@@ -24,10 +24,12 @@
 
    overview
    workstation
-   .. iteration_one
-   .. iteration_team
-   .. enterprise
-   .. memo
+   git
+   ruby
+   iteration_one
+   iteration_team
+   enterprise
+   memo
 
 
 ToDo

@@ -24,6 +24,8 @@
 
    overview
    workstation
+   git
+   ruby
    iteration_one
    iteration_team
    enterprise

@@ -7,7 +7,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>5. 一人でまわすイテレーション &mdash; 基幹システム開発特論</title>
+    <title>6. 一人でまわすイテレーション &mdash; 基幹システム開発特論</title>
     
     <link rel="stylesheet" href="_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -26,8 +26,8 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/translations.js"></script>
     <link rel="top" title="基幹システム開発特論" href="index.html" />
-    <link rel="next" title="6. チームでまわすイテレーション" href="iteration_team.html" />
-    <link rel="prev" title="4. ワークステーションを準備する" href="workstation.html" /> 
+    <link rel="next" title="7. チームでまわすイテレーション" href="iteration_team.html" />
+    <link rel="prev" title="5. RubyとRails" href="ruby.html" /> 
   </head>
   <body>
     <div class="related">
@@ -37,10 +37,10 @@
           <a href="genindex.html" title="総合索引"
              accesskey="I">索引</a></li>
         <li class="right" >
-          <a href="iteration_team.html" title="6. チームでまわすイテレーション"
+          <a href="iteration_team.html" title="7. チームでまわすイテレーション"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
-          <a href="workstation.html" title="4. ワークステーションを準備する"
+          <a href="ruby.html" title="5. RubyとRails"
              accesskey="P">前へ</a> |</li>
         <li><a href="index.html">基幹システム開発特論</a> &raquo;</li> 
       </ul>
@@ -52,15 +52,15 @@
           <div class="body">
             
   <div class="section" id="id1">
-<h1>5. 一人でまわすイテレーション<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h1>6. 一人でまわすイテレーション<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="section" id="id2">
-<h2>5.1. イテレーションサイクルの全体像<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>6.1. イテレーションサイクルの全体像<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <img alt="_images/IterationCycle.png" src="_images/IterationCycle.png" style="width: 100%;" />
 </div>
 <div class="section" id="create-a-scaffold-project">
-<h2>5.2. Create a scaffold project<a class="headerlink" href="#create-a-scaffold-project" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>6.2. Create a scaffold project<a class="headerlink" href="#create-a-scaffold-project" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="scaffold">
-<h3>5.2.1. ローカルレポジトリにScaffoldを作成する<a class="headerlink" href="#scaffold" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>6.2.1. ローカルレポジトリにScaffoldを作成する<a class="headerlink" href="#scaffold" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul>
 <li><p class="first">Railsでアプリケーションを生成する</p>
 <div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
@@ -109,7 +109,7 @@
 </ul>
 </div>
 <div class="section" id="id3">
-<h3>5.2.2. テストサーバで実行する<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>6.2.2. テストサーバで実行する<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul>
 <li><p class="first">テストサーバを起動する</p>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>rails server
@@ -126,8 +126,11 @@
 </ul>
 <p><strong>!!!ここでAddressアプリケーションがうまく動かない場合，先に進んではいけません!!!</strong></p>
 </div>
+</div>
 <div class="section" id="id4">
-<h3>5.2.3. ローカルレポジトリを作成する<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h2>6.3. レポジトリを作成する<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id5">
+<h3>6.3.1. ローカルレポジトリを作成する<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul>
 <li><p class="first">gitでローカルレポジトリを作成し，Scaffoldをコミットする</p>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git init
@@ -138,8 +141,8 @@
 </li>
 </ul>
 </div>
-<div class="section" id="id5">
-<h3>5.2.4. リモートレポジトリを作成する<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="id6">
+<h3>6.3.2. リモートレポジトリを作成する<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul>
 <li><p class="first">GitHubにリモートレポジトリを作成する</p>
 <ul class="simple">
@@ -158,8 +161,28 @@
 </li>
 </ul>
 </div>
-<div class="section" id="id6">
-<h3>5.2.5. デプロイ用の設定を行う<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h3>
+</div>
+<div class="section" id="id7">
+<h2>6.4. デプロイの準備をする<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="localhostssh">
+<h3>6.4.1. 公開鍵でlocalhostにSSH接続できるようにする<a class="headerlink" href="#localhostssh" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ul>
+<li><p class="first">公開鍵をauthorized_keysに登録する</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>cat ~/.ssh/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys
+<span class="nv">$ </span>chmod 600 ~/.ssh/authorized_keys
+</pre></div>
+</div>
+</li>
+<li><p class="first">公開鍵で（＝パスワード無しで）ログインできるか確かめる</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>ssh localhost    <span class="c"># &lt;- you don&#39;t need to type your password</span>
+<span class="nv">$ </span><span class="nb">exit</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="id8">
+<h3>6.4.2. デプロイ用の設定を行う<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul>
 <li><p class="first">capifyコマンドでデプロイのための設定を生成し，修正を行う</p>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>capify .
@@ -221,8 +244,8 @@
 </li>
 </ul>
 </div>
-<div class="section" id="id7">
-<h3>5.2.6. デプロイ先のセットアップ<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="id9">
+<h3>6.4.3. デプロイ先のセットアップ<a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul>
 <li><p class="first">capコマンドでデプロイ先をsetupする</p>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>cap deploy:setup
@@ -234,7 +257,7 @@
 </div>
 </div>
 <div class="section" id="deploy-products">
-<h2>5.3. Deploy products<a class="headerlink" href="#deploy-products" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>6.5. Deploy products<a class="headerlink" href="#deploy-products" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul>
 <li><p class="first">ローカルレポジトリにcommitする</p>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git add .
@@ -261,16 +284,16 @@
 </ul>
 </div>
 <div class="section" id="write-test-codes">
-<h2>5.4. Write/Test codes<a class="headerlink" href="#write-test-codes" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<div class="section" id="id8">
-<h3>5.4.1. テストコードを作成する<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h2>6.6. Write/Test codes<a class="headerlink" href="#write-test-codes" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id10">
+<h3>6.6.1. テストコードを作成する<a class="headerlink" href="#id10" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul class="simple">
 <li>テストコードを作成する</li>
 <li>テストを実行する</li>
 </ul>
 </div>
-<div class="section" id="id9">
-<h3>5.4.2. コードを作成する<a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="id11">
+<h3>6.6.2. コードを作成する<a class="headerlink" href="#id11" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul class="simple">
 <li>コードを作成する</li>
 <li>テストを実行する</li>
@@ -287,21 +310,28 @@
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">目次</a></h3>
   <ul>
-<li><a class="reference internal" href="#">5. 一人でまわすイテレーション</a><ul>
-<li><a class="reference internal" href="#id2">5.1. イテレーションサイクルの全体像</a></li>
-<li><a class="reference internal" href="#create-a-scaffold-project">5.2. Create a scaffold project</a><ul>
-<li><a class="reference internal" href="#scaffold">5.2.1. ローカルレポジトリにScaffoldを作成する</a></li>
-<li><a class="reference internal" href="#id3">5.2.2. テストサーバで実行する</a></li>
-<li><a class="reference internal" href="#id4">5.2.3. ローカルレポジトリを作成する</a></li>
-<li><a class="reference internal" href="#id5">5.2.4. リモートレポジトリを作成する</a></li>
-<li><a class="reference internal" href="#id6">5.2.5. デプロイ用の設定を行う</a></li>
-<li><a class="reference internal" href="#id7">5.2.6. デプロイ先のセットアップ</a></li>
+<li><a class="reference internal" href="#">6. 一人でまわすイテレーション</a><ul>
+<li><a class="reference internal" href="#id2">6.1. イテレーションサイクルの全体像</a></li>
+<li><a class="reference internal" href="#create-a-scaffold-project">6.2. Create a scaffold project</a><ul>
+<li><a class="reference internal" href="#scaffold">6.2.1. ローカルレポジトリにScaffoldを作成する</a></li>
+<li><a class="reference internal" href="#id3">6.2.2. テストサーバで実行する</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#deploy-products">5.3. Deploy products</a></li>
-<li><a class="reference internal" href="#write-test-codes">5.4. Write/Test codes</a><ul>
-<li><a class="reference internal" href="#id8">5.4.1. テストコードを作成する</a></li>
-<li><a class="reference internal" href="#id9">5.4.2. コードを作成する</a></li>
+<li><a class="reference internal" href="#id4">6.3. レポジトリを作成する</a><ul>
+<li><a class="reference internal" href="#id5">6.3.1. ローカルレポジトリを作成する</a></li>
+<li><a class="reference internal" href="#id6">6.3.2. リモートレポジトリを作成する</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id7">6.4. デプロイの準備をする</a><ul>
+<li><a class="reference internal" href="#localhostssh">6.4.1. 公開鍵でlocalhostにSSH接続できるようにする</a></li>
+<li><a class="reference internal" href="#id8">6.4.2. デプロイ用の設定を行う</a></li>
+<li><a class="reference internal" href="#id9">6.4.3. デプロイ先のセットアップ</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#deploy-products">6.5. Deploy products</a></li>
+<li><a class="reference internal" href="#write-test-codes">6.6. Write/Test codes</a><ul>
+<li><a class="reference internal" href="#id10">6.6.1. テストコードを作成する</a></li>
+<li><a class="reference internal" href="#id11">6.6.2. コードを作成する</a></li>
 </ul>
 </li>
 </ul>
@@ -309,11 +339,11 @@
 </ul>
 
   <h4>前のトピックへ</h4>
-  <p class="topless"><a href="workstation.html"
-                        title="前の章へ">4. ワークステーションを準備する</a></p>
+  <p class="topless"><a href="ruby.html"
+                        title="前の章へ">5. RubyとRails</a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="iteration_team.html"
-                        title="次の章へ">6. チームでまわすイテレーション</a></p>
+                        title="次の章へ">7. チームでまわすイテレーション</a></p>
   <h3>このページ</h3>
   <ul class="this-page-menu">
     <li><a href="_sources/iteration_one.txt"
@@ -343,17 +373,17 @@
           <a href="genindex.html" title="総合索引"
              >索引</a></li>
         <li class="right" >
-          <a href="iteration_team.html" title="6. チームでまわすイテレーション"
+          <a href="iteration_team.html" title="7. チームでまわすイテレーション"
              >次へ</a> |</li>
         <li class="right" >
-          <a href="workstation.html" title="4. ワークステーションを準備する"
+          <a href="ruby.html" title="5. RubyとRails"
              >前へ</a> |</li>
         <li><a href="index.html">基幹システム開発特論</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
         &copy; Copyright 2011, Yoshihide Chubachi.
-      このドキュメントは <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.2 で生成しました。
+      このドキュメントは <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3 で生成しました。
     </div>
   </body>
 </html>

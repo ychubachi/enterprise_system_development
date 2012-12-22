@@ -1,0 +1,192 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>4. GitとGitHub &mdash; 基幹システム開発特論</title>
+    
+    <link rel="stylesheet" href="_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <link rel="top" title="基幹システム開発特論" href="index.html" />
+    <link rel="next" title="5. RubyとRails" href="ruby.html" />
+    <link rel="prev" title="3. ワークステーションを準備する" href="workstation.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>ナビゲーション</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="総合索引"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="ruby.html" title="5. RubyとRails"
+             accesskey="N">次へ</a> |</li>
+        <li class="right" >
+          <a href="workstation.html" title="3. ワークステーションを準備する"
+             accesskey="P">前へ</a> |</li>
+        <li><a href="index.html">基幹システム開発特論</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="gitgithub">
+<h1>4. GitとGitHub<a class="headerlink" href="#gitgithub" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="ssh">
+<h2>4.1. SSHのための公開鍵の作成<a class="headerlink" href="#ssh" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>GitHubとgitはSSHでデータのやり取りをします．そこで，SSH接続で使う公開鍵/非公開鍵のペアを作成します．</p>
+<ul>
+<li><p class="first">ユーザアカウントでログインする</p>
+</li>
+<li><p class="first">非公開鍵と公開鍵を作成する（演習用なので，パスフレーズは入れなくてもかまわない）</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>ssh-keygen
+<span class="nv">$ </span>ls ~/.ssh    <span class="c"># &lt;- check</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="git">
+<h2>4.2. Git<a class="headerlink" href="#git" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id1">
+<h3>4.2.1. gitのインストール<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<blockquote>
+<div><div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo apt-get install git
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="id2">
+<h3>4.2.2. gitの設定方法<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<blockquote>
+<div><p>次のコマンドで，gitの設定をしてください．</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git config --global user.name <span class="s2">&quot;Your Name&quot;</span>
+<span class="nv">$ </span>git config --global user.email <span class="s2">&quot;username@domain.example&quot;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="id3">
+<h3>4.2.3. gitの利用で困ったら？<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<blockquote>
+<div><p>次のコマンドで，状況が確認できます．</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git status
+</pre></div>
+</div>
+<p>次のコマンドで，ログが確認できます．</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git log
+</pre></div>
+</div>
+<p>なお，gitのエラーメッセージは英語ですが，わりと丁寧に記述されているので，しっかりと読むようにしましょう．</p>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="github">
+<h2>4.3. GitHub<a class="headerlink" href="#github" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/">GitHub</a> にアカウントを作成する<ul>
+<li>アカウント名とメールアドレスは大学のものと同じにしてください</li>
+<li>登録ができたら，管理画面でSSHの公開鍵を登録してください <a class="footnote-reference" href="#win-set-up-git" id="id5">[1]</a> ．</li>
+</ul>
+</li>
+</ul>
+<table class="docutils footnote" frame="void" id="win-set-up-git" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id5">[1]</a></td><td><a class="reference external" href="http://help.github.com/win-set-up-git/">http://help.github.com/win-set-up-git/</a> の4節参照</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">目次</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">4. GitとGitHub</a><ul>
+<li><a class="reference internal" href="#ssh">4.1. SSHのための公開鍵の作成</a></li>
+<li><a class="reference internal" href="#git">4.2. Git</a><ul>
+<li><a class="reference internal" href="#id1">4.2.1. gitのインストール</a></li>
+<li><a class="reference internal" href="#id2">4.2.2. gitの設定方法</a></li>
+<li><a class="reference internal" href="#id3">4.2.3. gitの利用で困ったら？</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#github">4.3. GitHub</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>前のトピックへ</h4>
+  <p class="topless"><a href="workstation.html"
+                        title="前の章へ">3. ワークステーションを準備する</a></p>
+  <h4>次のトピックへ</h4>
+  <p class="topless"><a href="ruby.html"
+                        title="次の章へ">5. RubyとRails</a></p>
+  <h3>このページ</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/git.txt"
+           rel="nofollow">ソースコードを表示</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>クイック検索</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="検索" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    モジュール、クラス、または関数名を入力してください
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>ナビゲーション</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="総合索引"
+             >索引</a></li>
+        <li class="right" >
+          <a href="ruby.html" title="5. RubyとRails"
+             >次へ</a> |</li>
+        <li class="right" >
+          <a href="workstation.html" title="3. ワークステーションを準備する"
+             >前へ</a> |</li>
+        <li><a href="index.html">基幹システム開発特論</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Yoshihide Chubachi.
+      このドキュメントは <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3 で生成しました。
+    </div>
+  </body>
+</html>
