@@ -26,7 +26,7 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/translations.js"></script>
     <link rel="top" title="基幹システム開発特論" href="index.html" />
-    <link rel="next" title="3. ワークステーションを準備する" href="workstation.html" />
+    <link rel="next" title="2. ワークステーションを準備する" href="workstation.html" />
     <link rel="prev" title="基幹システム開発特論" href="index.html" /> 
   </head>
   <body>
@@ -37,7 +37,7 @@
           <a href="genindex.html" title="総合索引"
              accesskey="I">索引</a></li>
         <li class="right" >
-          <a href="workstation.html" title="3. ワークステーションを準備する"
+          <a href="workstation.html" title="2. ワークステーションを準備する"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
           <a href="index.html" title="基幹システム開発特論"
@@ -55,22 +55,18 @@
 <h1>1. 概要<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="section" id="id2">
 <h2>1.1. 授業の目標<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>シラバスにある目標に対して，次の内容を追加します．</p>
-<ul class="simple">
-<li>少人数のチームで，イテレーションサイクルを回すことができるようになる．</li>
-</ul>
+<p>少人数のチームで，イテレーションサイクルを回すことができるようになることが目標です．演習では，Ruby on Railsを利用し，全員が同じ環境で作業をします．作成するプログラムは簡単なものですので，Rubyになれているかどうかの違いはあまり気にならないはずです．目標はあくまでもイテレーションサイクルを回してみることです．</p>
 </div>
 <div class="section" id="id3">
 <h2>1.2. 演習の進め方<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="stage-1">
 <h3>1.2.1. Stage 1: イテレーションを一人でまわす<a class="headerlink" href="#stage-1" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>はじめに，自分のマシンに開発環境を構築し，一人でイテレーションを回してみます．イテレーションサイクルは次の図に示す通りです．</p>
-<img alt="_images/IterationCycle.png" src="_images/IterationCycle.png" style="width: 100%;" />
+<img alt="_images/IterationCycle.png" class="align-center" src="_images/IterationCycle.png" style="width: 50%;" />
 </div>
 <div class="section" id="stage-2">
 <h3>1.2.2. Stage 2: イテレーションをチームでまわす<a class="headerlink" href="#stage-2" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>次に，サーバを構築し，チームでイテレーションを回してみます．ここでは，GitHubを使った共同開発をします．その概要を次に示します．</p>
-<img alt="_images/IterationCycleWithGitHub.png" src="_images/IterationCycleWithGitHub.png" style="width: 100%;" />
+<p>次に，サーバを構築し，チームでイテレーションを回してみます．ここでは，GitHubを使った共同開発をします．</p>
 <p>なお，チーム編成は，Stage 1を終わった順にアサインしていきます．</p>
 </div>
 <div class="section" id="stage-3">
@@ -83,47 +79,6 @@
 <li>仮想化</li>
 </ul>
 </div>
-</div>
-<div class="section" id="id4">
-<h2>1.3. 授業の日程<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ol class="arabic simple">
-<li>12/08</li>
-<li>12/15</li>
-<li>12/22</li>
-<li>01/12</li>
-<li>01/19</li>
-<li>01/26</li>
-<li>02/02</li>
-<li>02/09</li>
-</ol>
-</div>
-<div class="section" id="id5">
-<h2>1.4. スケジュール<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>第1回の授業は，個人が作業するためのWorkstation環境を構築し，Stage 1を開始します．Stage 1が終わったら，担当者の確認を受けてください．</p>
-<p>第2回の授業から，Stage 1が終わった人順にチームを編成し，Stage 2に移ります．グループの中でイテレーションサイクルを回してみましょう．作成するアプリケーションについては，担当者が指示をします．</p>
-<p>第3回の授業以降，Stage 3で何をするかをグループで相談し，実際の作業に移ります．なお，Stage 2と3の間で，グループを再編成する可能性があります．</p>
-<p>第4回以降の計画は，各グループで立案してください．</p>
-<p>第8回では，グループで行った作業内容について報告してもらいます．</p>
-</div>
-</div>
-<div class="section" id="id6">
-<h1>2. 利用する技術<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<div class="section" id="id7">
-<h2>2.1. 利用する技術についての方針<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Stage 1,2では，利用する技術を指定します．ここでは，Ruby on Railsを利用します．全員が同じ環境で，作業をすることになります．</p>
-<p>作成するプログラムは簡単なものですので，Rubyになれているかどうかの違いはあまり気にならないはずです．目標はあくまでもイテレーションサイクルを回してみることです．</p>
-<p>Stage 3まで進んだら，チーム内でお好きな技術を使って開発してみてください．</p>
-<p>なお，Stage 2とStage 3との間で，チームを組み替える可能性があります．</p>
-</div>
-<div class="section" id="ruby-on-rails">
-<h2>2.2. Ruby on Railsを用いた開発<a class="headerlink" href="#ruby-on-rails" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<img alt="_images/Rails.png" src="_images/Rails.png" style="width: 100%;" />
-<ul class="simple">
-<li><a class="reference external" href="http://www.modrails.com">Phusion Passenger</a>
-- RailsアプリケーションをApacheに接続して動作させるためのモジュール</li>
-<li><a class="reference external" href="https://github.com/capistrano/capistrano/wiki/Documentation-v2.x">Capistrano</a>
-- SSH/gitを使って，RailsアプリケーションをPassengerに対してデプロイするためのツール</li>
-</ul>
 </div>
 </div>
 
@@ -143,13 +98,6 @@
 <li><a class="reference internal" href="#stage-3">1.2.3. Stage 3: 基幹システムを開発する</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id4">1.3. 授業の日程</a></li>
-<li><a class="reference internal" href="#id5">1.4. スケジュール</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#id6">2. 利用する技術</a><ul>
-<li><a class="reference internal" href="#id7">2.1. 利用する技術についての方針</a></li>
-<li><a class="reference internal" href="#ruby-on-rails">2.2. Ruby on Railsを用いた開発</a></li>
 </ul>
 </li>
 </ul>
@@ -159,7 +107,7 @@
                         title="前の章へ">基幹システム開発特論</a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="workstation.html"
-                        title="次の章へ">3. ワークステーションを準備する</a></p>
+                        title="次の章へ">2. ワークステーションを準備する</a></p>
   <h3>このページ</h3>
   <ul class="this-page-menu">
     <li><a href="_sources/overview.txt"
@@ -189,7 +137,7 @@
           <a href="genindex.html" title="総合索引"
              >索引</a></li>
         <li class="right" >
-          <a href="workstation.html" title="3. ワークステーションを準備する"
+          <a href="workstation.html" title="2. ワークステーションを準備する"
              >次へ</a> |</li>
         <li class="right" >
           <a href="index.html" title="基幹システム開発特論"

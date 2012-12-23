@@ -1,64 +1,35 @@
 GitとGitHub
 ===========
 
-SSHのための公開鍵の作成
------------------------
+GitHubとgitの準備
+----------------------------------------
 
-GitHubとgitはSSHでデータのやり取りをします．そこで，SSH接続で使う公開鍵/非公開鍵のペアを作成します．
-
-- VirtualBoxを起動し，ユーザアカウントでログインする
-
-Git
----
-
-gitのインストール
-~~~~~~~~~~~~~~~~~
+* gitのインストール
 
   .. code-block:: bash
 
     $ sudo apt-get install git
 
-gitの設定方法
-~~~~~~~~~~~~~
-  次のコマンドで，gitに名前とメールアドレスを登録してください．
+* `GitHub <https://github.com/>`_ にアクセスしアカウントを作成する
 
-  .. code-block:: bash
+* 次の手順を参考に，gitの設定に名前とメールアドレスを登録してください（SSHを用いるのでパスワードの設定はしなくても構いません．）
 
-    $ git config --global user.name "Your Name"
-    $ git config --global user.email "username@domain.example"
+  .. note::
 
-GitHub
-------
-
-準備
-~~~~
-
-* `GitHub <https://github.com/>`_ にアカウントを作成する
-
-  - アカウント名とメールアドレスは大学のものと同じにしてください
+    手順は https://help.github.com/articles/set-up-git#platform-linux 参照
 
 * 非公開鍵と公開鍵を作成して，公開鍵をGitHubのProfileに登録する
 
-  - https://help.github.com/articles/generating-ssh-keys 参照
+  .. note::
+     手順は https://help.github.com/articles/generating-ssh-keys#platform-linux 参照
 
-GitHubへのリポジトリ作成と最初のcommit
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+* GitHubにレポジトリを作成し，最初のcommitをしてみよう
 
-* GitHubにレポジトリを作成してみよう
-
-  - https://help.github.com/articles/create-a-repo 参照
-
-GitHubのIssueとの連携
-~~~~~~~~~~~~~~~~~~~~~
-
-メッセージに'Close #番号'を入れることができる．
-
-  .. code-block:: bash
-
-    $ git commit -a -m 'Close #?'
+  .. note::
+     手順は https://help.github.com/articles/create-a-repo 参照
 
 gitの基本的な操作
-~~~~~~~~~~~~~~~~~
+----------------------------------------
 
 覚えておきたいコマンド
 
@@ -73,20 +44,32 @@ gitの基本的な操作
 - git pull (= git fetch + git merge)
 
 gitの利用で困ったら？
-~~~~~~~~~~~~~~~~~~~~~
-  次のコマンドで，状況が確認できます．
+----------------------------------------
+* 次のコマンドで，状況が確認できます．
 
   .. code-block:: bash
 
     $ git status
 
-  次のコマンドで，ログが確認できます．
+* 次のコマンドで，ログが確認できます．
 
   .. code-block:: bash
 
     $ git log
 
   なお，gitのエラーメッセージは英語ですが，わりと丁寧に記述されているので，しっかりと読むようにしましょう．
+
+GitHubのIssueとの連携
+----------------------------------------
+
+* GitHubのIssueを登録してみよう
+
+* commitメッセージに'Close #番号'を入れるとIssueをCloseできる．
+
+  .. code-block:: bash
+
+    $ git commit -a -m 'Close #?'
+    $ git push
 
 .. Local Variables:
 .. compile-command: "(cd .. && make html)"

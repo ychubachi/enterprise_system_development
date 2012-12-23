@@ -1,86 +1,170 @@
 RubyとRails
 ===========
 
-railsユーザアカウントを作成する
--------------------------------
+RubyとRailsのインストール
+-------------------------
 
-Railsのアプリケーションをデプロイする場所として，railsアカウントを作成してそのhomeを利用する．このhomeは，6770の設定をし，railsグループに所属するユーザからの参照・更新を許可する．
-
-- railsユーザアカウントの設定
+- Ruby 1.9.3のインストール
 
   .. code-block:: bash
 
-    $ sudo /usr/sbin/useradd rails
-    $ sudo chmod 6770 /home/rails/
-
-- railsグループに，自分のユーザアカウントとapacheアカウントを追加する
-
-  .. code-block:: bash
-
-    $ sudo /usr/sbin/vigr
-
-Ruby on Rails
--------------
-
-- Ruby 1.8.7のインストール（開発用パッケージも含む）
-
-  .. code-block:: bash
-
-    $ sudo yum -y install ruby ruby-devel
-    $ ruby -v   # <- check
+    $ sudo apt-get install ruby1.9.3
   
-- Gem 1.8.7のインストール
-
-  .. code-block:: bash
-
-    $ sudo yum -y install rubygems
-    $ gem -v   # <- check
-  
-- `Rails 3.1 <http://rubyonrails.org/download>`_ のインストール
+- `Rails 3.2 <http://rubyonrails.org/download>`_ のインストール
 
   .. code-block:: bash
 
     $ sudo gem installl rails
-    $ rails -v    # <- check
 
-- `Capistrano <https://github.com/capistrano/capistrano#readme>`_ のインストール
+バージョンの確認
+----------------
 
-  .. code-block:: bash
-
-    $ sudo gem install capistrano
-
-- `Phusion Passenger <http://www.modrails.com/install.html>`_ のインストール
+  次のコマンドのバージョンを確認してください．2012-12-23現在は次の通りになります．下記に示すバージョンよりも大きければOKです．
 
   .. code-block:: bash
 
-    $ sudo gem install passenger
+    $ ruby -v     # <- check: 1.9.3p0
+    $ gem -v      # <- check: 1.8.11
+    $ rails -v    # <- check: 3.2.9
+    $ bundle -v   # <- check: 1.2.3
 
-- Passengerをapacheと接続するためのモジュールをコンパイルする
+関連するパッケージのインストール
+--------------------------------
 
-  .. code-block:: bash
-
-    $ sudo yum -y install gcc-c++ curl-devel openssl-devel zlib-devel httpd-devel apr-devel apr-util-devel
-    $ sudo passenger-install-apache2-module
-
-  以下の内容を/etc/httpd/conf.d/rails.confに記述する
-
-  .. code-block:: apacheconf
-  
-    LoadModule passenger_module /usr/lib/ruby/gems/1.8/gems/passenger-3.0.11/ext/apache2/mod_passenger.so
-    PassengerRoot /usr/lib/ruby/gems/1.8/gems/passenger-3.0.11
-    PassengerRuby /usr/bin/ruby
-
-    <VirtualHost *:80>
-      ServerName localhost
-      DocumentRoot /home/rails/myapp/current/public
-      <Directory /home/rails/myapp/current/public>
-         AllowOverride all
-         Options -MultiViews
-      </Directory>
-    </VirtualHost>
-
-- httpdを再起動する
+* RailsのデフォルトのRDBMSであるSqlite3の開発ライブラリとJavaRuntime（Node.js）をインストールします．
 
   .. code-block:: bash
 
-    $ sudo service httpd restart
+    $ sudo apt-get install libsqlite3-dev nodejs
+
+.. $ sudo apt-get install libv8-3.7.12.22
+.. therubyracerを使うにはlibv8の3.11.8以上が必要
+.. 「gem 'libv8', '~>3.11.8'」を追加すると，コンパイルしてくれるが，だいぶ時間がかかるようだ
+
+最初のRailsアプリケーション
+---------------------------
+
+リモートリポジトリの作成とclone
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* GitHubに新しいリモートリポジトリを作成します．
+
+  - ここでは「myapp」という名前で作成します．
+  - 「Initialize this repository with a README」にチェックを入れてください
+  - 「Add .gitignore」はNoneのままにしてください
+
+* gitコマンドを使い，ローカルリポジトリに複製します
+
+  .. code-block:: bash
+
+    $ git clone git@github.com:username/myapp.git
+
+* 以下の手順で，このmyappディレクトリの中に，Railsアプリケーションを構築していきます．
+
+Railsアプリケーションの作成
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* railsコマンドで新しいアプリケーションを作成する
+
+  - bundle install中にパスワードを求められるので，入力する．
+
+  .. code-block:: bash
+    :linenos:
+
+    $ rails new myapp
+    $ cd myapp
+
+* RailsでScaffoldを生成する
+
+  .. code-block:: bash
+    :linenos:
+
+    $ rails generate scaffold address name:string email:string
+    $ rake db:migrate
+    $ rm public/index.html
+
+* 説明
+
+  - 1行目：myappという名前で新しいRailsアプリケーションを生成します
+  - 3行目：名前(name)とアドレス(address)をもつModelであるAddressクラスと，それに関連するControllerクラス，及びViewを生成します．
+
+    - app/models/以下に，Modelクラスができます．
+    - app/controllers/以下に，Controllerクラスができます．
+    - app/views/以下に，Viewができます(erbファイル）．
+    - test/以下にテストのためのコードの雛形ができます．
+
+  - 4行目：データベースにAddressクラスに対応するaddressesテーブルが作成されます．
+  - 5行目：デフォルトで表示されるトップページを削除します．
+
+
+テストサーバで実行する
+~~~~~~~~~~~~~~~~~~~~~~
+
+* テストサーバを起動する
+
+  .. code-block:: bash
+
+    $ rails server
+
+* Webブラウザで次のURLにアクセスする
+
+  - http://localhost:3000/addresses/
+
+* Ctrl-Cでサーバを停止する
+
+.. warning::
+   ここでAddressアプリケーションがうまく動かない場合，先に進んではいけません．必ずヘルプを求めること．
+
+アプリケーションの編集とリポジトリの操作
+----------------------------------------
+
+作成したmyappをリポジトリに登録する
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* ローカルリポジトリに変更をcommitします
+
+  .. code-block:: bash
+    :linenos:
+
+    $ git add .
+    $ git commit -a -m 'generated myapp.'
+
+* リモートリポジトリに変更をpushします
+
+  .. code-block:: bash
+    :linenos:
+
+    $ git push
+
+* GitHubのページで，ソースコードが登録されたことを確認してください
+
+アプリケーションの変更
+~~~~~~~~~~~~~~~~~~~~~~
+
+* railsが生成したコードを眺め，簡単にコードを編集してみましょう．
+
+  - 例） app/views/layouts/application.html.erb のタイトルを変える，など
+
+* テストサーバで実行し，変更を確認してみてください
+
+リモートリポジトリへの登録
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* うまく動いたら，リモートリポジトリにpushしてみてください．
+
+  .. code-block:: bash
+    :linenos:
+
+    $ git add .
+    $ git commit -a -m '＜作業内容＞'
+    $ git push
+
+【作業の完了報告】
+------------------
+
+* LMSの課題に，GitHubのリポジトリ閲覧ページのURLを提出してください（https://から始まるURL）
+
+
+.. Local Variables:
+.. compile-command: "(cd .. && make html)"
+.. End:
