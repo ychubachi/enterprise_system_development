@@ -1,78 +1,132 @@
-アプリケーションのデプロイ
+アプリケーションのデプロイ（配備）
 ========================================
 
-Ruby on Railsを用いた開発
--------------------------
-.. image:: _static/Rails.png
-   :width: 50%
-
+RubyアプリケーションのDeploy
+----------------------------------------
 * Phusion Passenger
+
   - RailsアプリケーションをApacheに接続して動作させるためのモジュール
+
 * Capistrano
+
   - SSH/gitを使って，RailsアプリケーションをPassengerに対してデプロイするためのツール
 
-Railsアプリケーションのデプロイのためのツール
----------------------------------------------
+.. image:: _static/Deploy.png
+   :width: 70%
+   :align: center
 
-- `Capistrano <https://github.com/capistrano/capistrano#readme>`_ のインストール
+* これらを連携させることで，開発環境から運用環境へのアプリケーションの配備を行うことができる．
+
+ApacheとPassengerの導入
+----------------------------------------
+
+ApacheとPassengerモジュールのためのパッケージの導入
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* ApaccheとPassengerに対応したApacheのモジュールをビルドするために必要なパッケージをインストールします．
 
   .. code-block:: bash
 
-    $ sudo gem install capistrano
+    $ sudo apt-get install build-essential libcurl4-openssl-dev libssl-dev zlib1g-dev apache2-mpm-prefork apache2-prefork-dev libapr1-dev libaprutil1-dev
 
-- `Phusion Passenger <http://www.modrails.com/install.html>`_ のインストール
+* VirtualBox内のUbuntuからWebブラウザを起動して，http://localhost/にアクセスし，apacheが起動していて，ページが表示されるのを確認してください．
+
+* ドキュメントルートは/var/wwwになります．
+
+  .. code-block:: bash
+
+    $ less /var/www/index.html
+
+ユーザアカウントの権限を設定する
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* Railsのアプリケーションをデプロイする場所として，passengerという名前のアカウントを作成してそのhomeを利用する．このhomeは，6770の設定をし，passengerグループに所属するユーザからの参照・更新を許可する．
+
+* railsユーザアカウントの設定
+
+  .. code-block:: bash
+
+    $ sudo useradd -m passenger
+    $ sudo chmod 6770 /home/passenger/
+
+* passengerグループに，自分のユーザアカウントとwww-dataアカウント（Apache用）を追加する．
+
+  - 「passenger:x:1002:」となっている行（1002は他の番号の可能性あり）を「passenger:x:1002:username,www-data」とする（usernameは置き換える）．
+
+  .. code-block:: bash
+
+    $ sudo vigr
+
+* 一旦ログアウトしてから再度ログインする．
+
+* 自分とwww-dataがpassengerグループに入ったかを確かめる
+
+  .. code-block:: bash
+
+    $ groups
+    $ groups www-data
+
+* 結果にpassengerグループが含まれていればOK
+
+* /home/passengerにファイルが書き込めるか確かめる
+
+  .. code-block:: bash
+
+    $ touch /home/passenger/TEST
+    $ ls /home/passenger
+    $ rm /home/passenger/TEST
+    $ ls /home/passenger
+
+Passenger
+----------------------------------------
+
+* Passengerをインストールします
 
   .. code-block:: bash
 
     $ sudo gem install passenger
-
-- Passengerをapacheと接続するためのモジュールをコンパイルする
-
-  .. code-block:: bash
-
-    $ sudo yum -y install gcc-c++ curl-devel openssl-devel zlib-devel httpd-devel apr-devel apr-util-devel
     $ sudo passenger-install-apache2-module
 
-  以下の内容を/etc/httpd/conf.d/rails.confに記述する
+- /etc/apache2/conf.d/passenger.confを作成して以下の内容を記述する
 
   .. code-block:: apacheconf
   
-    LoadModule passenger_module /usr/lib/ruby/gems/1.8/gems/passenger-3.0.11/ext/apache2/mod_passenger.so
-    PassengerRoot /usr/lib/ruby/gems/1.8/gems/passenger-3.0.11
-    PassengerRuby /usr/bin/ruby
+    LoadModule passenger_module /var/lib/gems/1.9.1/gems/passenger-3.0.18/ext/apache2/mod_passenger.so
+    PassengerRoot /var/lib/gems/1.9.1/gems/passenger-3.0.18
+    PassengerRuby /usr/bin/ruby1.9.1
 
     <VirtualHost *:80>
       ServerName localhost
-      DocumentRoot /home/rails/myapp/current/public
-      <Directory /home/rails/myapp/current/public>
+      DocumentRoot /home/passenger/myapp/current/public
+      <Directory /home/passenger/myapp/current/public>
          AllowOverride all
          Options -MultiViews
       </Directory>
     </VirtualHost>
 
+- テスト用のHTMLを作成しておく
+
+  .. code-block:: bash
+
+    $ mkdir -p /home/passenger/myapp/current/public
+    $ echo TEST > /home/passenger/myapp/current/public/index.html
+
 - httpdを再起動する
 
   .. code-block:: bash
 
-    $ sudo service httpd restart
+    $ sudo service apache2 restart
 
-railsユーザアカウントを作成する
--------------------------------
+- Webブラウザでlocalhostにアクセスし「TEST」と表示されるか確認する
 
-Railsのアプリケーションをデプロイする場所として，railsアカウントを作成してそのhomeを利用する．このhomeは，6770の設定をし，railsグループに所属するユーザからの参照・更新を許可する．
-
-- railsユーザアカウントの設定
+- テスト用のHTMLをフォルダごと削除する
 
   .. code-block:: bash
 
-    $ sudo /usr/sbin/useradd rails
-    $ sudo chmod 6770 /home/rails/
+    $ rm -r /home/passenger/myapp
 
-- railsグループに，自分のユーザアカウントとapacheアカウントを追加する
-
-  .. code-block:: bash
-
-    $ sudo /usr/sbin/vigr
+Railsアプリケーションのデプロイのためのツール
+---------------------------------------------
 
 公開鍵でlocalhostにSSH接続できるようにする
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -90,8 +144,15 @@ Railsのアプリケーションをデプロイする場所として，railsア�
     $ ssh localhost    # <- you don't need to type your password
     $ exit
 
+
 デプロイ用の設定を行う
 ~~~~~~~~~~~~~~~~~~~~~~
+* `Capistrano <https://github.com/capistrano/capistrano#readme>`_ のインストール
+
+  .. code-block:: bash
+
+    $ sudo gem install capistrano
+
 * capifyコマンドでデプロイのための設定を生成し，修正を行う
 
   .. code-block:: bash
