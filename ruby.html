@@ -7,7 +7,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>5. RubyとRails &mdash; 基幹システム開発特論</title>
+    <title>4. RubyとRails &mdash; 基幹システム開発特論</title>
     
     <link rel="stylesheet" href="_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -26,8 +26,8 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/translations.js"></script>
     <link rel="top" title="基幹システム開発特論" href="index.html" />
-    <link rel="next" title="6. 一人でまわすイテレーション" href="iteration_one.html" />
-    <link rel="prev" title="4. GitとGitHub" href="git.html" /> 
+    <link rel="next" title="5. アプリケーションのデプロイ" href="deploy.html" />
+    <link rel="prev" title="3. GitとGitHub" href="git.html" /> 
   </head>
   <body>
     <div class="related">
@@ -37,10 +37,10 @@
           <a href="genindex.html" title="総合索引"
              accesskey="I">索引</a></li>
         <li class="right" >
-          <a href="iteration_one.html" title="6. 一人でまわすイテレーション"
+          <a href="deploy.html" title="5. アプリケーションのデプロイ"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
-          <a href="git.html" title="4. GitとGitHub"
+          <a href="git.html" title="3. GitとGitHub"
              accesskey="P">前へ</a> |</li>
         <li><a href="index.html">基幹システム開発特論</a> &raquo;</li> 
       </ul>
@@ -52,81 +52,175 @@
           <div class="body">
             
   <div class="section" id="rubyrails">
-<h1>5. RubyとRails<a class="headerlink" href="#rubyrails" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<div class="section" id="rails">
-<h2>5.1. railsユーザアカウントを作成する<a class="headerlink" href="#rails" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Railsのアプリケーションをデプロイする場所として，railsアカウントを作成してそのhomeを利用する．このhomeは，6770の設定をし，railsグループに所属するユーザからの参照・更新を許可する．</p>
+<h1>4. RubyとRails<a class="headerlink" href="#rubyrails" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="id1">
+<h2>4.1. RubyとRailsのインストール<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul>
-<li><p class="first">railsユーザアカウントの設定</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo /usr/sbin/useradd rails
-<span class="nv">$ </span>sudo chmod 6770 /home/rails/
+<li><p class="first">Ruby 1.9.3のインストール</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo apt-get install ruby1.9.3
 </pre></div>
 </div>
 </li>
-<li><p class="first">railsグループに，自分のユーザアカウントとapacheアカウントを追加する</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo /usr/sbin/vigr
+<li><p class="first"><a class="reference external" href="http://rubyonrails.org/download">Rails 3.2</a> のインストール</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo gem installl rails
 </pre></div>
 </div>
 </li>
 </ul>
 </div>
-<div class="section" id="ruby-on-rails">
-<h2>5.2. Ruby on Rails<a class="headerlink" href="#ruby-on-rails" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id2">
+<h2>4.2. バージョンの確認<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<blockquote>
+<div><p>次のコマンドのバージョンを確認してください．2012-12-23現在は次の通りになります．下記に示すバージョンよりも大きければOKです．</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>ruby -v     <span class="c"># &lt;- check: 1.9.3p0</span>
+<span class="nv">$ </span>gem -v      <span class="c"># &lt;- check: 1.8.11</span>
+<span class="nv">$ </span>rails -v    <span class="c"># &lt;- check: 3.2.9</span>
+<span class="nv">$ </span>bundle -v   <span class="c"># &lt;- check: 1.2.3</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="id3">
+<h2>4.3. 関連するパッケージのインストール<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul>
-<li><p class="first">Ruby 1.8.7のインストール（開発用パッケージも含む）</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo yum -y install ruby ruby-devel
-<span class="nv">$ </span>ruby -v   <span class="c"># &lt;- check</span>
+<li><p class="first">RailsのデフォルトのRDBMSであるSqlite3の開発ライブラリとJavaRuntime（Node.js）をインストールします．</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo apt-get install libsqlite3-dev nodejs
 </pre></div>
 </div>
 </li>
-<li><p class="first">Gem 1.8.7のインストール</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo yum -y install rubygems
-<span class="nv">$ </span>gem -v   <span class="c"># &lt;- check</span>
+</ul>
+</div>
+<div class="section" id="rails">
+<h2>4.4. 最初のRailsアプリケーション<a class="headerlink" href="#rails" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="clone">
+<h3>4.4.1. リモートリポジトリの作成とclone<a class="headerlink" href="#clone" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ul>
+<li><p class="first">GitHubに新しいリモートリポジトリを作成します．</p>
+<ul class="simple">
+<li>ここでは「myapp」という名前で作成します．</li>
+<li>「Initialize this repository with a README」にチェックを入れてください</li>
+<li>「Add .gitignore」はNoneのままにしてください</li>
+</ul>
+</li>
+<li><p class="first">gitコマンドを使い，ローカルリポジトリに複製します</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git clone git@github.com:username/myapp.git
 </pre></div>
 </div>
 </li>
-<li><p class="first"><a class="reference external" href="http://rubyonrails.org/download">Rails 3.1</a> のインストール</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo gem installl rails
-<span class="nv">$ </span>rails -v    <span class="c"># &lt;- check</span>
+<li><p class="first">以下の手順で，このmyappディレクトリの中に，Railsアプリケーションを構築していきます．</p>
+</li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h3>4.4.2. Railsアプリケーションの作成<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ul>
+<li><p class="first">railsコマンドで新しいアプリケーションを作成する</p>
+<ul class="simple">
+<li>bundle install中にパスワードを求められるので，入力する．</li>
+</ul>
+<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span class="nv">$ </span>rails new myapp
+<span class="nv">$ </span><span class="nb">cd </span>myapp
+</pre></div>
+</td></tr></table></div>
+</li>
+<li><p class="first">RailsでScaffoldを生成する</p>
+<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span class="nv">$ </span>rails generate scaffold address name:string email:string
+<span class="nv">$ </span>rake db:migrate
+<span class="nv">$ </span>rm public/index.html
+</pre></div>
+</td></tr></table></div>
+</li>
+<li><p class="first">説明</p>
+<ul class="simple">
+<li>1行目：myappという名前で新しいRailsアプリケーションを生成します</li>
+<li>3行目：名前(name)とアドレス(address)をもつModelであるAddressクラスと，それに関連するControllerクラス，及びViewを生成します．<ul>
+<li>app/models/以下に，Modelクラスができます．</li>
+<li>app/controllers/以下に，Controllerクラスができます．</li>
+<li>app/views/以下に，Viewができます(erbファイル）．</li>
+<li>test/以下にテストのためのコードの雛形ができます．</li>
+</ul>
+</li>
+<li>4行目：データベースにAddressクラスに対応するaddressesテーブルが作成されます．</li>
+<li>5行目：デフォルトで表示されるトップページを削除します．</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="id5">
+<h3>4.4.3. テストサーバで実行する<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ul>
+<li><p class="first">テストサーバを起動する</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>rails server
 </pre></div>
 </div>
 </li>
-<li><p class="first"><a class="reference external" href="https://github.com/capistrano/capistrano#readme">Capistrano</a> のインストール</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo gem install capistrano
-</pre></div>
-</div>
+<li><p class="first">Webブラウザで次のURLにアクセスする</p>
+<ul class="simple">
+<li><a class="reference external" href="http://localhost:3000/addresses/">http://localhost:3000/addresses/</a></li>
+</ul>
 </li>
-<li><p class="first"><a class="reference external" href="http://www.modrails.com/install.html">Phusion Passenger</a> のインストール</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo gem install passenger
-</pre></div>
-</div>
+<li><p class="first">Ctrl-Cでサーバを停止する</p>
 </li>
-<li><p class="first">Passengerをapacheと接続するためのモジュールをコンパイルする</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo yum -y install gcc-c++ curl-devel openssl-devel zlib-devel httpd-devel apr-devel apr-util-devel
-<span class="nv">$ </span>sudo passenger-install-apache2-module
-</pre></div>
+</ul>
+<div class="admonition warning">
+<p class="first admonition-title">警告</p>
+<p class="last">ここでAddressアプリケーションがうまく動かない場合，先に進んではいけません．必ずヘルプを求めること．</p>
 </div>
-<p>以下の内容を/etc/httpd/conf.d/rails.confに記述する</p>
-<div class="highlight-apacheconf"><div class="highlight"><pre><span class="nb">LoadModule</span> passenger_module <span class="sx">/usr/lib/ruby/gems/1.8/gems/passenger-3.0.11/ext/apache2/mod_passenger.so</span>
-<span class="nb">PassengerRoot</span> <span class="sx">/usr/lib/ruby/gems/1.8/gems/passenger-3.0.11</span>
-<span class="nb">PassengerRuby</span> <span class="sx">/usr/bin/ruby</span>
-
-<span class="nt">&lt;VirtualHost</span> <span class="s">*:80</span><span class="nt">&gt;</span>
-  <span class="nb">ServerName</span> localhost
-  <span class="nb">DocumentRoot</span> <span class="sx">/home/rails/myapp/current/public</span>
-  <span class="nt">&lt;Directory</span> <span class="s">/home/rails/myapp/current/public</span><span class="nt">&gt;</span>
-     <span class="nb">AllowOverride</span> <span class="k">all</span>
-     <span class="nb">Options</span> -MultiViews
-  <span class="nt">&lt;/Directory&gt;</span>
-<span class="nt">&lt;/VirtualHost&gt;</span>
-</pre></div>
 </div>
+</div>
+<div class="section" id="id6">
+<h2>4.5. アプリケーションの編集とリポジトリの操作<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="myapp">
+<h3>4.5.1. 作成したmyappをリポジトリに登録する<a class="headerlink" href="#myapp" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ul>
+<li><p class="first">ローカルリポジトリに変更をcommitします</p>
+<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span class="nv">$ </span>git add .
+<span class="nv">$ </span>git commit -a -m <span class="s1">&#39;generated myapp.&#39;</span>
+</pre></div>
+</td></tr></table></div>
 </li>
-<li><p class="first">httpdを再起動する</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo service httpd restart
+<li><p class="first">リモートリポジトリに変更をpushします</p>
+<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span class="nv">$ </span>git push
 </pre></div>
-</div>
+</td></tr></table></div>
 </li>
+<li><p class="first">GitHubのページで，ソースコードが登録されたことを確認してください</p>
+</li>
+</ul>
+</div>
+<div class="section" id="id7">
+<h3>4.5.2. アプリケーションの変更<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ul class="simple">
+<li>railsが生成したコードを眺め，簡単にコードを編集してみましょう．<ul>
+<li>例） app/views/layouts/application.html.erb のタイトルを変える，など</li>
+</ul>
+</li>
+<li>テストサーバで実行し，変更を確認してみてください</li>
+</ul>
+</div>
+<div class="section" id="id8">
+<h3>4.5.3. リモートリポジトリへの登録<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ul>
+<li><p class="first">うまく動いたら，リモートリポジトリにpushしてみてください．</p>
+<div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span class="nv">$ </span>git add .
+<span class="nv">$ </span>git commit -a -m <span class="s1">&#39;＜作業内容＞&#39;</span>
+<span class="nv">$ </span>git push
+</pre></div>
+</td></tr></table></div>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="id9">
+<h2>4.6. 【作業の完了報告】<a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>LMSの課題に，GitHubのリポジトリ閲覧ページのURLを提出してください（<a class="reference external" href="https:/">https:/</a>/から始まるURL）</li>
 </ul>
 </div>
 </div>
@@ -139,19 +233,33 @@
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">目次</a></h3>
   <ul>
-<li><a class="reference internal" href="#">5. RubyとRails</a><ul>
-<li><a class="reference internal" href="#rails">5.1. railsユーザアカウントを作成する</a></li>
-<li><a class="reference internal" href="#ruby-on-rails">5.2. Ruby on Rails</a></li>
+<li><a class="reference internal" href="#">4. RubyとRails</a><ul>
+<li><a class="reference internal" href="#id1">4.1. RubyとRailsのインストール</a></li>
+<li><a class="reference internal" href="#id2">4.2. バージョンの確認</a></li>
+<li><a class="reference internal" href="#id3">4.3. 関連するパッケージのインストール</a></li>
+<li><a class="reference internal" href="#rails">4.4. 最初のRailsアプリケーション</a><ul>
+<li><a class="reference internal" href="#clone">4.4.1. リモートリポジトリの作成とclone</a></li>
+<li><a class="reference internal" href="#id4">4.4.2. Railsアプリケーションの作成</a></li>
+<li><a class="reference internal" href="#id5">4.4.3. テストサーバで実行する</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id6">4.5. アプリケーションの編集とリポジトリの操作</a><ul>
+<li><a class="reference internal" href="#myapp">4.5.1. 作成したmyappをリポジトリに登録する</a></li>
+<li><a class="reference internal" href="#id7">4.5.2. アプリケーションの変更</a></li>
+<li><a class="reference internal" href="#id8">4.5.3. リモートリポジトリへの登録</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id9">4.6. 【作業の完了報告】</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="git.html"
-                        title="前の章へ">4. GitとGitHub</a></p>
+                        title="前の章へ">3. GitとGitHub</a></p>
   <h4>次のトピックへ</h4>
-  <p class="topless"><a href="iteration_one.html"
-                        title="次の章へ">6. 一人でまわすイテレーション</a></p>
+  <p class="topless"><a href="deploy.html"
+                        title="次の章へ">5. アプリケーションのデプロイ</a></p>
   <h3>このページ</h3>
   <ul class="this-page-menu">
     <li><a href="_sources/ruby.txt"
@@ -181,10 +289,10 @@
           <a href="genindex.html" title="総合索引"
              >索引</a></li>
         <li class="right" >
-          <a href="iteration_one.html" title="6. 一人でまわすイテレーション"
+          <a href="deploy.html" title="5. アプリケーションのデプロイ"
              >次へ</a> |</li>
         <li class="right" >
-          <a href="git.html" title="4. GitとGitHub"
+          <a href="git.html" title="3. GitとGitHub"
              >前へ</a> |</li>
         <li><a href="index.html">基幹システム開発特論</a> &raquo;</li> 
       </ul>
