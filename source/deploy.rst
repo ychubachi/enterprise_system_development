@@ -1,7 +1,7 @@
 アプリケーションのデプロイ（配備）
 ========================================
 
-RubyアプリケーションのDeploy
+RubyアプリケーションのDeploy用ツール
 ----------------------------------------
 * Phusion Passenger
 
@@ -78,7 +78,7 @@ ApacheとPassengerモジュールのためのパッケージの導入
     $ ls /home/passenger
 
 Passenger
-----------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 * Passengerをインストールします
 
@@ -128,6 +128,26 @@ Passenger
 Railsアプリケーションのデプロイのためのツール
 ---------------------------------------------
 
+SSHサーバをインストール
+~~~~~~~~~~~~~~~~~~~~~~~
+
+- sshサーバのインストール
+
+  .. code-block:: bash
+
+    $ sudo apt-get install ssh
+
+- パスワードでログインできるか確かめる
+
+  .. code-block:: bash
+
+    $ ssh localhost
+    $ exit
+
+  .. note::
+
+    Are you sure ..?と聞かれたら yes と入力する
+
 公開鍵でlocalhostにSSH接続できるようにする
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 - 公開鍵をauthorized_keysに登録する
@@ -137,7 +157,7 @@ Railsアプリケーションのデプロイのためのツール
     $ cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
     $ chmod 600 ~/.ssh/authorized_keys
 
-- 公開鍵で（＝パスワード無しで）ログインできるか確かめる
+* 公開鍵で（＝パスワード無しで）ログインできるか確かめる
 
   .. code-block:: bash
 
@@ -153,43 +173,55 @@ Railsアプリケーションのデプロイのためのツール
 
     $ sudo gem install capistrano
 
-* capifyコマンドでデプロイのための設定を生成し，修正を行う
+* capifyコマンドでデプロイのための設定を生成する
 
   .. code-block:: bash
 
+    $ cd ~/myapp # <- cd to your myapp directory.
     $ capify .
-    $ emacs Capfile &
-    $ emacs config/deploy.rb &
+
+* rails用にCapfileを編集する
+
+  .. code-block:: bash
+
+    $ vi Capfile &
+
+  - 3行目のコメントアウトを外す
 
   .. literalinclude:: Capfile
     :language: ruby
+    :emphasize-lines: 3
     :linenos:
+
+  .. code-block:: bash
+
+    $ vi config/deploy.rb &
+
+  - 1-2行目，変更．3-4行目，追加．9-11行目，変更．12行目，コメントアウト．
+  - 2行目は各自のGitHubレポジトリに置き換えること．
 
   .. literalinclude:: deploy.rb
     :language: ruby
-    :emphasize-lines: 5
+    :emphasize-lines: 1-4,9-12,21-27
     :linenos:
 
-  ↑5行目のusernameは，各自のGitHubアカウント名に置き換えること．
 
-デプロイ先のセットアップ
-~~~~~~~~~~~~~~~~~~~~~~~~
-* capコマンドでデプロイ先をsetupする
+* capコマンドでデプロイ先をsetup（フォルダの作成）をする
 
   .. code-block:: bash
 
     $ cap deploy:setup
     $ find /home/rails    # <- check
 
-Deploy products
----------------
+GitHubを経由したDeploy
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 * ローカルレポジトリにcommitする
 
   .. code-block:: bash
 
     $ git add .
-    $ git commit -a -m 'Deploy'
+    $ git commit -a -m '＜作業内容＞'
 
 * リモートレポジトリにpushする
 

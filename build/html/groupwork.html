@@ -7,7 +7,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>8. 基幹システム開発 &mdash; 基幹システム開発特論</title>
+    <title>8. グループワーク演習 &mdash; 基幹システム開発特論</title>
     
     <link rel="stylesheet" href="_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -26,8 +26,8 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/translations.js"></script>
     <link rel="top" title="基幹システム開発特論" href="index.html" />
-    <link rel="next" title="9. メモ" href="memo.html" />
-    <link rel="prev" title="7. チームでまわすイテレーション" href="iteration_team.html" /> 
+    <link rel="next" title="9. GitHubを利用したPull型のモデル" href="pull.html" />
+    <link rel="prev" title="7. チームでまわすイテレーション" href="team.html" /> 
   </head>
   <body>
     <div class="related">
@@ -37,10 +37,10 @@
           <a href="genindex.html" title="総合索引"
              accesskey="I">索引</a></li>
         <li class="right" >
-          <a href="memo.html" title="9. メモ"
+          <a href="pull.html" title="9. GitHubを利用したPull型のモデル"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
-          <a href="iteration_team.html" title="7. チームでまわすイテレーション"
+          <a href="team.html" title="7. チームでまわすイテレーション"
              accesskey="P">前へ</a> |</li>
         <li><a href="index.html">基幹システム開発特論</a> &raquo;</li> 
       </ul>
@@ -52,7 +52,7 @@
           <div class="body">
             
   <div class="section" id="id1">
-<h1>8. 基幹システム開発<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<h1>8. グループワーク演習<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="section" id="id2">
 <h2>8.1. 概要<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>ここまでに習得した，チームによるイテレーションサイクルの方法を活かして，本格的な基幹システムを開発します．</p>
@@ -86,46 +86,6 @@
 <p>ただし，全員が公開鍵でアクセスできるようにした後，パスワードによるアクセスを禁止してください．グローバルIPはこの作業が終わってから設定してください．</p>
 </div>
 </div>
-<div class="section" id="id7">
-<h2>8.3. フレームワークについて<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>ここまでのトレーニングでは，Ruby on Railsを利用しましたが，ここから先はお好きなフレームワークを利用して構いません．チームで合意を形成してください．</p>
-<div class="section" id="ruby-on-rails">
-<h3>8.3.1. Ruby on Rails<a class="headerlink" href="#ruby-on-rails" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<ul class="simple">
-<li>View<ul>
-<li>Haml</li>
-</ul>
-</li>
-<li>Test<ul>
-<li>Rspec</li>
-</ul>
-</li>
-</ul>
-</div>
-<div class="section" id="java">
-<h3>8.3.2. Java<a class="headerlink" href="#java" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<ul class="simple">
-<li>Scaffolding<ul>
-<li><a class="reference external" href="http://www.springsource.org/spring-roo">Spring Roo</a></li>
-<li><a class="reference external" href="http://grails.org/">Grails</a></li>
-<li>など</li>
-</ul>
-</li>
-</ul>
-</div>
-<div class="section" id="php">
-<h3>8.3.3. PHP，その他<a class="headerlink" href="#php" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>興味関心・実力にあわせてご自由に．</p>
-<p>ただし，初心者には推奨しません（授業担当者に開発経験がない場合，的確なアドバイスはできません）．</p>
-</div>
-</div>
-<div class="section" id="misc">
-<h2>8.4. Misc<a class="headerlink" href="#misc" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li><a class="reference external" href="http://nginx.org/">http://nginx.org/</a></li>
-<li><a class="reference external" href="http://wiki.nginx.org/Main">http://wiki.nginx.org/Main</a></li>
-</ul>
-</div>
 </div>
 
 
@@ -136,7 +96,7 @@
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">目次</a></h3>
   <ul>
-<li><a class="reference internal" href="#">8. 基幹システム開発</a><ul>
+<li><a class="reference internal" href="#">8. グループワーク演習</a><ul>
 <li><a class="reference internal" href="#id2">8.1. 概要</a></li>
 <li><a class="reference internal" href="#id3">8.2. サーバ環境</a><ul>
 <li><a class="reference internal" href="#id4">8.2.1. サーバの構築</a></li>
@@ -144,26 +104,19 @@
 <li><a class="reference internal" href="#id6">8.2.3. 最初の準備</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id7">8.3. フレームワークについて</a><ul>
-<li><a class="reference internal" href="#ruby-on-rails">8.3.1. Ruby on Rails</a></li>
-<li><a class="reference internal" href="#java">8.3.2. Java</a></li>
-<li><a class="reference internal" href="#php">8.3.3. PHP，その他</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#misc">8.4. Misc</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>前のトピックへ</h4>
-  <p class="topless"><a href="iteration_team.html"
+  <p class="topless"><a href="team.html"
                         title="前の章へ">7. チームでまわすイテレーション</a></p>
   <h4>次のトピックへ</h4>
-  <p class="topless"><a href="memo.html"
-                        title="次の章へ">9. メモ</a></p>
+  <p class="topless"><a href="pull.html"
+                        title="次の章へ">9. GitHubを利用したPull型のモデル</a></p>
   <h3>このページ</h3>
   <ul class="this-page-menu">
-    <li><a href="_sources/enterprise.txt"
+    <li><a href="_sources/groupwork.txt"
            rel="nofollow">ソースコードを表示</a></li>
   </ul>
 <div id="searchbox" style="display: none">
@@ -190,10 +143,10 @@
           <a href="genindex.html" title="総合索引"
              >索引</a></li>
         <li class="right" >
-          <a href="memo.html" title="9. メモ"
+          <a href="pull.html" title="9. GitHubを利用したPull型のモデル"
              >次へ</a> |</li>
         <li class="right" >
-          <a href="iteration_team.html" title="7. チームでまわすイテレーション"
+          <a href="team.html" title="7. チームでまわすイテレーション"
              >前へ</a> |</li>
         <li><a href="index.html">基幹システム開発特論</a> &raquo;</li> 
       </ul>

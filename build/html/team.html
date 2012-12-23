@@ -1,0 +1,170 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>7. チームでまわすイテレーション &mdash; 基幹システム開発特論</title>
+    
+    <link rel="stylesheet" href="_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <link rel="top" title="基幹システム開発特論" href="index.html" />
+    <link rel="next" title="8. グループワーク演習" href="groupwork.html" />
+    <link rel="prev" title="6. 一人でまわすイテレーション" href="iteration.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>ナビゲーション</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="総合索引"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="groupwork.html" title="8. グループワーク演習"
+             accesskey="N">次へ</a> |</li>
+        <li class="right" >
+          <a href="iteration.html" title="6. 一人でまわすイテレーション"
+             accesskey="P">前へ</a> |</li>
+        <li><a href="index.html">基幹システム開発特論</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="id1">
+<h1>7. チームでまわすイテレーション<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="tidd">
+<h2>7.1. チケット駆動型開発（TiDD）<a class="headerlink" href="#tidd" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>チケットとは，仕事に取りかかるために必要な切符のようなものです．TiDDでは，仕事をする前に，必ずチケットを発行しなくてはなりません．このことを「No ticket! No commit」と言います．</p>
+<p>チケットは誰が読んでも仕事の内容が分かるものでなくてはなりません．このチケットをグループ内で有効に共有して，プロジェクトを進めるのがTiDDです．チケットの「書き方」に関する大原則は次の通りです <a class="footnote-reference" href="#ticket" id="id2">[1]</a> ．</p>
+<ul class="simple">
+<li>やらなければいけないことを網羅する</li>
+<li>誰が見ても分かるようにかく</li>
+<li>タスクの終了条件をはっきりさせる</li>
+<li>大きなタスクは処理しやすい大きさに分ける</li>
+<li>進捗がわかるようにする（誰がやってるか？もう終わったか？）</li>
+<li>リストは定期的に見直す</li>
+</ul>
+<p>これらに加えて，次のことを追加します．</p>
+<ul class="simple">
+<li>チケットは，メンバーが自ら発行する</li>
+<li>チケットは，メンバーが自らとりにいく</li>
+</ul>
+<p>チームメンバー全員が，チケットを介して主体的に仕事の分担をするのが理想です．</p>
+<p>※チケットの状況（進捗）は成績評価に反映させますので，必ずチケットを発行した上で仕事を始め，進捗があったらチケットの状態を変化させてください．</p>
+</div>
+<div class="section" id="scrum">
+<h2>7.2. Scrum会議<a class="headerlink" href="#scrum" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>すべてのメンバーで次の事柄を共有します<ul>
+<li>前回のScrum会議以降にやったこと</li>
+<li>これから次のScrum会議までにやること</li>
+<li>現在困っていることを</li>
+</ul>
+</li>
+<li>議事録を作成しておいてください</li>
+</ul>
+<p><a class="reference external" href="http://www.atmarkit.co.jp/fjava/index/index_scrum.html">http://www.atmarkit.co.jp/fjava/index/index_scrum.html</a></p>
+</div>
+<div class="section" id="github">
+<h2>7.3. GitHubの利用<a class="headerlink" href="#github" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>GitHubのリポジトリにコラボレータを追加することで複数人での共同開発ができるようになります．</li>
+<li>GitHubのissueを使って，チケットを管理できます．</li>
+<li>Scrum会議の議事録などのドキュメントはGitHubのWikiで共有するとよいでしょう．</li>
+</ul>
+<p class="rubric">参考文献</p>
+<table class="docutils footnote" frame="void" id="ticket" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id2">[1]</a></td><td><a class="reference external" href="http://www.slideshare.net/Ryuzee/ss-9800501">http://www.slideshare.net/Ryuzee/ss-9800501</a></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">目次</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">7. チームでまわすイテレーション</a><ul>
+<li><a class="reference internal" href="#tidd">7.1. チケット駆動型開発（TiDD）</a></li>
+<li><a class="reference internal" href="#scrum">7.2. Scrum会議</a></li>
+<li><a class="reference internal" href="#github">7.3. GitHubの利用</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>前のトピックへ</h4>
+  <p class="topless"><a href="iteration.html"
+                        title="前の章へ">6. 一人でまわすイテレーション</a></p>
+  <h4>次のトピックへ</h4>
+  <p class="topless"><a href="groupwork.html"
+                        title="次の章へ">8. グループワーク演習</a></p>
+  <h3>このページ</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/team.txt"
+           rel="nofollow">ソースコードを表示</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>クイック検索</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="検索" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    モジュール、クラス、または関数名を入力してください
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>ナビゲーション</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="総合索引"
+             >索引</a></li>
+        <li class="right" >
+          <a href="groupwork.html" title="8. グループワーク演習"
+             >次へ</a> |</li>
+        <li class="right" >
+          <a href="iteration.html" title="6. 一人でまわすイテレーション"
+             >前へ</a> |</li>
+        <li><a href="index.html">基幹システム開発特論</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011, Yoshihide Chubachi.
+      このドキュメントは <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3 で生成しました。
+    </div>
+  </body>
+</html>

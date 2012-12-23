@@ -55,13 +55,23 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="overview.html">1. 概要</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="overview.html#id2">1.1. 授業の目標</a></li>
-<li class="toctree-l2"><a class="reference internal" href="overview.html#id3">1.2. 演習の進め方</a></li>
+<li class="toctree-l2"><a class="reference internal" href="overview.html#id3">1.2. 演習の進め方</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="overview.html#stage-1">1.2.1. Stage 1: イテレーションを一人でまわす</a></li>
+<li class="toctree-l3"><a class="reference internal" href="overview.html#stage-2">1.2.2. Stage 2: イテレーションをチームでまわす</a></li>
+<li class="toctree-l3"><a class="reference internal" href="overview.html#stage-3">1.2.3. Stage 3: 基幹システムを開発する</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="workstation.html">2. ワークステーションを準備する</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="workstation.html#id2">2.1. ワークステーションとは</a></li>
 <li class="toctree-l2"><a class="reference internal" href="workstation.html#id3">2.2. 開発に用いる環境</a></li>
-<li class="toctree-l2"><a class="reference internal" href="workstation.html#os">2.3. 仮想OSのインストール</a></li>
+<li class="toctree-l2"><a class="reference internal" href="workstation.html#os">2.3. 仮想OSのインストール</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="workstation.html#vmware-player">2.3.1. VMware Playerのインストール</a></li>
+<li class="toctree-l3"><a class="reference internal" href="workstation.html#ubuntu-12-4">2.3.2. Ubuntu 12.4のインストール</a></li>
+<li class="toctree-l3"><a class="reference internal" href="workstation.html#auest-additions">2.3.3. Auest Additionsのインストール</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="git.html">3. GitとGitHub</a><ul>
@@ -72,53 +82,107 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="ruby.html">4. RubyとRails</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="ruby.html#id1">4.1. RubyとRailsのインストール</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ruby.html#id2">4.2. バージョンの確認</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ruby.html#id3">4.3. 関連するパッケージのインストール</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ruby.html#rails">4.4. 最初のRailsアプリケーション</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ruby.html#id6">4.5. アプリケーションの編集とリポジトリの操作</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ruby.html#id9">4.6. 【作業の完了報告】</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ruby.html#ruby-on-rails">4.1. Ruby on Rails開発環境の構築</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ruby.html#id1">4.1.1. RubyとRailsのインストール</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ruby.html#id2">4.1.2. バージョンの確認</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ruby.html#id3">4.1.3. 関連するパッケージのインストール</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ruby.html#scaffold">4.2. Scaffoldの作成</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ruby.html#clone">4.2.1. リモートリポジトリの作成とclone</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ruby.html#id4">4.2.2. Scaffoldの作成</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ruby.html#id5">4.2.3. テストサーバで実行する</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ruby.html#id6">4.3. アプリケーションの編集とリポジトリの操作</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="ruby.html#myapp">4.3.1. 作成したmyappをリポジトリに登録する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ruby.html#id7">4.3.2. アプリケーションの変更</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ruby.html#id8">4.3.3. リモートリポジトリへの登録</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="ruby.html#id9">4.4. 【作業の完了報告】</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="deploy.html">5. アプリケーションのデプロイ（配備）</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="deploy.html#rubydeploy">5.1. RubyアプリケーションのDeploy</a></li>
-<li class="toctree-l2"><a class="reference internal" href="deploy.html#apachepassenger">5.2. ApacheとPassengerの導入</a></li>
-<li class="toctree-l2"><a class="reference internal" href="deploy.html#passenger">5.3. Passenger</a></li>
-<li class="toctree-l2"><a class="reference internal" href="deploy.html#rails">5.4. Railsアプリケーションのデプロイのためのツール</a></li>
-<li class="toctree-l2"><a class="reference internal" href="deploy.html#deploy-products">5.5. Deploy products</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deploy.html#rubydeploy">5.1. RubyアプリケーションのDeploy用ツール</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deploy.html#apachepassenger">5.2. ApacheとPassengerの導入</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="deploy.html#id2">5.2.1. ApacheとPassengerモジュールのためのパッケージの導入</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deploy.html#id3">5.2.2. ユーザアカウントの権限を設定する</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deploy.html#passenger">5.2.3. Passenger</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="iteration_one.html">6. 一人でまわすイテレーション</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="iteration_one.html#id2">6.1. イテレーションサイクルの全体像</a></li>
-<li class="toctree-l2"><a class="reference internal" href="iteration_one.html#write-test-codes">6.2. Write/Test codes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deploy.html#rails">5.3. Railsアプリケーションのデプロイのためのツール</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="deploy.html#ssh">5.3.1. SSHサーバをインストール</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deploy.html#localhostssh">5.3.2. 公開鍵でlocalhostにSSH接続できるようにする</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deploy.html#id4">5.3.3. デプロイ用の設定を行う</a></li>
+<li class="toctree-l3"><a class="reference internal" href="deploy.html#githubdeploy">5.3.4. GitHubを経由したDeploy</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="iteration_team.html">7. チームでまわすイテレーション</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="iteration_team.html#id2">7.1. イテレーションサイクルの概要</a></li>
-<li class="toctree-l2"><a class="reference internal" href="iteration_team.html#tkdd">7.2. チケット駆動型開発（TkDD）</a></li>
-<li class="toctree-l2"><a class="reference internal" href="iteration_team.html#id4">7.3. チケットの共有</a></li>
-<li class="toctree-l2"><a class="reference internal" href="iteration_team.html#id5">7.4. ドキュメントの共有</a></li>
-<li class="toctree-l2"><a class="reference internal" href="iteration_team.html#id6">7.5. イテレーションサイクルのシナリオ</a></li>
-<li class="toctree-l2"><a class="reference internal" href="iteration_team.html#id7">7.6. シナリオの説明</a></li>
-<li class="toctree-l2"><a class="reference internal" href="iteration_team.html#git">7.7. Git型開発のフロー</a></li>
-<li class="toctree-l2"><a class="reference internal" href="iteration_team.html#id8">7.8. 作成するアプリケーション</a></li>
-<li class="toctree-l2"><a class="reference internal" href="iteration_team.html#merger">7.9. レポジトリの準備（Mergerが行う作業）</a></li>
-<li class="toctree-l2"><a class="reference internal" href="iteration_team.html#developer">7.10. レポジトリの準備（Developerが行う作業）</a></li>
-<li class="toctree-l2"><a class="reference internal" href="iteration_team.html#id9">7.11. イテレーション(Developer)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="iteration_team.html#id11">7.12. イテレーションサイクル(Merger)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="iteration_team.html#id13">7.13. 進捗報告</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="enterprise.html">8. 基幹システム開発</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="enterprise.html#id2">8.1. 概要</a></li>
-<li class="toctree-l2"><a class="reference internal" href="enterprise.html#id3">8.2. サーバ環境</a></li>
-<li class="toctree-l2"><a class="reference internal" href="enterprise.html#id7">8.3. フレームワークについて</a></li>
-<li class="toctree-l2"><a class="reference internal" href="enterprise.html#misc">8.4. Misc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iteration.html">6. 一人でまわすイテレーション</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="iteration.html#id2">6.1. イテレーション・サイクルの全体像</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="iteration.html#create-a-scaffold-product">6.1.1. Create a scaffold product</a></li>
+<li class="toctree-l3"><a class="reference internal" href="iteration.html#deploy-the-product">6.1.2. Deploy the product</a></li>
+<li class="toctree-l3"><a class="reference internal" href="iteration.html#write-test-codes">6.1.3. Write/Test codes</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="memo.html">9. メモ</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="memo.html#flicker">9.1. Flicker</a></li>
-<li class="toctree-l2"><a class="reference internal" href="memo.html#misc">9.2. Misc</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="team.html">7. チームでまわすイテレーション</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="team.html#tidd">7.1. チケット駆動型開発（TiDD）</a></li>
+<li class="toctree-l2"><a class="reference internal" href="team.html#scrum">7.2. Scrum会議</a></li>
+<li class="toctree-l2"><a class="reference internal" href="team.html#github">7.3. GitHubの利用</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="groupwork.html">8. グループワーク演習</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="groupwork.html#id2">8.1. 概要</a></li>
+<li class="toctree-l2"><a class="reference internal" href="groupwork.html#id3">8.2. サーバ環境</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="groupwork.html#id4">8.2.1. サーバの構築</a></li>
+<li class="toctree-l3"><a class="reference internal" href="groupwork.html#id5">8.2.2. アカウントの設定</a></li>
+<li class="toctree-l3"><a class="reference internal" href="groupwork.html#id6">8.2.3. 最初の準備</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pull.html">9. GitHubを利用したPull型のモデル</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="pull.html#id1">9.1. イテレーションサイクルの概要</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pull.html#id2">9.2. イテレーションサイクルのシナリオ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pull.html#id3">9.3. シナリオの説明</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pull.html#git">9.4. Git型開発のフロー</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pull.html#id4">9.5. 作成するアプリケーション</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pull.html#merger">9.6. レポジトリの準備（Mergerが行う作業）</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pull.html#create-a-scaffold-product">9.6.1. Create a scaffold product</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pull.html#create-a-local-repo">9.6.2. Create a local repo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pull.html#push-the-repo">9.6.3. Push the repo</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pull.html#developer">9.7. レポジトリの準備（Developerが行う作業）</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pull.html#fork-the-merger-repo">9.7.1. Fork the merger repo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pull.html#clone-the-remote-repo-into-local-repo">9.7.2. clone the remote repo into local repo</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pull.html#id5">9.8. イテレーション(Developer)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pull.html#pull-the-merger-repo">9.8.1. Pull the merger repo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pull.html#write-test-codes">9.8.2. Write/Test codes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pull.html#commit-to-the-local-repo">9.8.3. Commit to the local repo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pull.html#push-to-the-remote-repo">9.8.4. Push to the remote repo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pull.html#send-a-pull-request">9.8.5. Send a pull request</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pull.html#id7">9.9. イテレーションサイクル(Merger)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pull.html#id8">9.9.1. Pull the merger repo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pull.html#deploy-the-product">9.9.2. Deploy the product</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pull.html#merge-pull-requests">9.9.3. Merge pull requests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="pull.html#solve-conflicts">9.9.4. Solve conflicts</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pull.html#id9">9.10. 進捗報告</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="memo.html">10. メモ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="memo.html#flicker">10.1. Flicker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="memo.html#misc">10.2. Misc</a></li>
 </ul>
 </li>
 </ul>
@@ -143,12 +207,12 @@
 <p class="first admonition-title">課題</p>
 <p class="last">コラボレーティブソフトウェアデベロップメント (CSD)</p>
 </div>
-<p class="todo-source">(<a class="reference internal" href="#index-0"><em>元のエントリ</em></a> は、 /home/yc/git/enterprise_system_development/source/index.rst の 38 行目です)</p>
+<p class="todo-source">(<a class="reference internal" href="#index-0"><em>元のエントリ</em></a> は、 /home/yc/git/enterprise_system_development/source/index.rst の 39 行目です)</p>
 <div class="admonition- admonition" id="index-0">
 <p class="first admonition-title">課題</p>
 <p class="last">図の修正：deployはDeveloper Aが行う</p>
 </div>
-<p class="todo-source">(<a class="reference internal" href="iteration_team.html#index-0"><em>元のエントリ</em></a> は、 /home/yc/git/enterprise_system_development/source/iteration_team.rst の 51 行目です)</p>
+<p class="todo-source">(<a class="reference internal" href="pull.html#index-0"><em>元のエントリ</em></a> は、 /home/yc/git/enterprise_system_development/source/pull.rst の 18 行目です)</p>
 </div>
 </div>
 

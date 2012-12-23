@@ -26,7 +26,7 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/translations.js"></script>
     <link rel="top" title="基幹システム開発特論" href="index.html" />
-    <link rel="next" title="5. アプリケーションのデプロイ" href="deploy.html" />
+    <link rel="next" title="5. アプリケーションのデプロイ（配備）" href="deploy.html" />
     <link rel="prev" title="3. GitとGitHub" href="git.html" /> 
   </head>
   <body>
@@ -37,7 +37,7 @@
           <a href="genindex.html" title="総合索引"
              accesskey="I">索引</a></li>
         <li class="right" >
-          <a href="deploy.html" title="5. アプリケーションのデプロイ"
+          <a href="deploy.html" title="5. アプリケーションのデプロイ（配備）"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
           <a href="git.html" title="3. GitとGitHub"
@@ -53,8 +53,10 @@
             
   <div class="section" id="rubyrails">
 <h1>4. RubyとRails<a class="headerlink" href="#rubyrails" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="ruby-on-rails">
+<h2>4.1. Ruby on Rails開発環境の構築<a class="headerlink" href="#ruby-on-rails" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="id1">
-<h2>4.1. RubyとRailsのインストール<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h3>4.1.1. RubyとRailsのインストール<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul>
 <li><p class="first">Ruby 1.9.3のインストール</p>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo apt-get install ruby1.9.3
@@ -69,7 +71,7 @@
 </ul>
 </div>
 <div class="section" id="id2">
-<h2>4.2. バージョンの確認<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h3>4.1.2. バージョンの確認<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <blockquote>
 <div><p>次のコマンドのバージョンを確認してください．2012-12-23現在は次の通りになります．下記に示すバージョンよりも大きければOKです．</p>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>ruby -v     <span class="c"># &lt;- check: 1.9.3p0</span>
@@ -81,7 +83,7 @@
 </div></blockquote>
 </div>
 <div class="section" id="id3">
-<h2>4.3. 関連するパッケージのインストール<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h3>4.1.3. 関連するパッケージのインストール<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul>
 <li><p class="first">RailsのデフォルトのRDBMSであるSqlite3の開発ライブラリとJavaRuntime（Node.js）をインストールします．</p>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo apt-get install libsqlite3-dev nodejs
@@ -90,10 +92,11 @@
 </li>
 </ul>
 </div>
-<div class="section" id="rails">
-<h2>4.4. 最初のRailsアプリケーション<a class="headerlink" href="#rails" title="このヘッドラインへのパーマリンク">¶</a></h2>
+</div>
+<div class="section" id="scaffold">
+<h2>4.2. Scaffoldの作成<a class="headerlink" href="#scaffold" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="clone">
-<h3>4.4.1. リモートリポジトリの作成とclone<a class="headerlink" href="#clone" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>4.2.1. リモートリポジトリの作成とclone<a class="headerlink" href="#clone" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul>
 <li><p class="first">GitHubに新しいリモートリポジトリを作成します．</p>
 <ul class="simple">
@@ -112,7 +115,7 @@
 </ul>
 </div>
 <div class="section" id="id4">
-<h3>4.4.2. Railsアプリケーションの作成<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>4.2.2. Scaffoldの作成<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul>
 <li><p class="first">railsコマンドで新しいアプリケーションを作成する</p>
 <ul class="simple">
@@ -150,7 +153,7 @@
 </ul>
 </div>
 <div class="section" id="id5">
-<h3>4.4.3. テストサーバで実行する<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>4.2.3. テストサーバで実行する<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul>
 <li><p class="first">テストサーバを起動する</p>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>rails server
@@ -172,9 +175,9 @@
 </div>
 </div>
 <div class="section" id="id6">
-<h2>4.5. アプリケーションの編集とリポジトリの操作<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>4.3. アプリケーションの編集とリポジトリの操作<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="myapp">
-<h3>4.5.1. 作成したmyappをリポジトリに登録する<a class="headerlink" href="#myapp" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>4.3.1. 作成したmyappをリポジトリに登録する<a class="headerlink" href="#myapp" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul>
 <li><p class="first">ローカルリポジトリに変更をcommitします</p>
 <div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
@@ -193,7 +196,7 @@
 </ul>
 </div>
 <div class="section" id="id7">
-<h3>4.5.2. アプリケーションの変更<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>4.3.2. アプリケーションの変更<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul class="simple">
 <li>railsが生成したコードを眺め，簡単にコードを編集してみましょう．<ul>
 <li>例） app/views/layouts/application.html.erb のタイトルを変える，など</li>
@@ -203,7 +206,7 @@
 </ul>
 </div>
 <div class="section" id="id8">
-<h3>4.5.3. リモートリポジトリへの登録<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>4.3.3. リモートリポジトリへの登録<a class="headerlink" href="#id8" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul>
 <li><p class="first">うまく動いたら，リモートリポジトリにpushしてみてください．</p>
 <div class="highlight-bash"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
@@ -218,7 +221,7 @@
 </div>
 </div>
 <div class="section" id="id9">
-<h2>4.6. 【作業の完了報告】<a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>4.4. 【作業の完了報告】<a class="headerlink" href="#id9" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
 <li>LMSの課題に，GitHubのリポジトリ閲覧ページのURLを提出してください（<a class="reference external" href="https:/">https:/</a>/から始まるURL）</li>
 </ul>
@@ -234,22 +237,25 @@
   <h3><a href="index.html">目次</a></h3>
   <ul>
 <li><a class="reference internal" href="#">4. RubyとRails</a><ul>
-<li><a class="reference internal" href="#id1">4.1. RubyとRailsのインストール</a></li>
-<li><a class="reference internal" href="#id2">4.2. バージョンの確認</a></li>
-<li><a class="reference internal" href="#id3">4.3. 関連するパッケージのインストール</a></li>
-<li><a class="reference internal" href="#rails">4.4. 最初のRailsアプリケーション</a><ul>
-<li><a class="reference internal" href="#clone">4.4.1. リモートリポジトリの作成とclone</a></li>
-<li><a class="reference internal" href="#id4">4.4.2. Railsアプリケーションの作成</a></li>
-<li><a class="reference internal" href="#id5">4.4.3. テストサーバで実行する</a></li>
+<li><a class="reference internal" href="#ruby-on-rails">4.1. Ruby on Rails開発環境の構築</a><ul>
+<li><a class="reference internal" href="#id1">4.1.1. RubyとRailsのインストール</a></li>
+<li><a class="reference internal" href="#id2">4.1.2. バージョンの確認</a></li>
+<li><a class="reference internal" href="#id3">4.1.3. 関連するパッケージのインストール</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id6">4.5. アプリケーションの編集とリポジトリの操作</a><ul>
-<li><a class="reference internal" href="#myapp">4.5.1. 作成したmyappをリポジトリに登録する</a></li>
-<li><a class="reference internal" href="#id7">4.5.2. アプリケーションの変更</a></li>
-<li><a class="reference internal" href="#id8">4.5.3. リモートリポジトリへの登録</a></li>
+<li><a class="reference internal" href="#scaffold">4.2. Scaffoldの作成</a><ul>
+<li><a class="reference internal" href="#clone">4.2.1. リモートリポジトリの作成とclone</a></li>
+<li><a class="reference internal" href="#id4">4.2.2. Scaffoldの作成</a></li>
+<li><a class="reference internal" href="#id5">4.2.3. テストサーバで実行する</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#id9">4.6. 【作業の完了報告】</a></li>
+<li><a class="reference internal" href="#id6">4.3. アプリケーションの編集とリポジトリの操作</a><ul>
+<li><a class="reference internal" href="#myapp">4.3.1. 作成したmyappをリポジトリに登録する</a></li>
+<li><a class="reference internal" href="#id7">4.3.2. アプリケーションの変更</a></li>
+<li><a class="reference internal" href="#id8">4.3.3. リモートリポジトリへの登録</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id9">4.4. 【作業の完了報告】</a></li>
 </ul>
 </li>
 </ul>
@@ -259,7 +265,7 @@
                         title="前の章へ">3. GitとGitHub</a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="deploy.html"
-                        title="次の章へ">5. アプリケーションのデプロイ</a></p>
+                        title="次の章へ">5. アプリケーションのデプロイ（配備）</a></p>
   <h3>このページ</h3>
   <ul class="this-page-menu">
     <li><a href="_sources/ruby.txt"
@@ -289,7 +295,7 @@
           <a href="genindex.html" title="総合索引"
              >索引</a></li>
         <li class="right" >
-          <a href="deploy.html" title="5. アプリケーションのデプロイ"
+          <a href="deploy.html" title="5. アプリケーションのデプロイ（配備）"
              >次へ</a> |</li>
         <li class="right" >
           <a href="git.html" title="3. GitとGitHub"

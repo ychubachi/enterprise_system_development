@@ -26,8 +26,8 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/translations.js"></script>
     <link rel="top" title="基幹システム開発特論" href="index.html" />
-    <link rel="next" title="7. チームでまわすイテレーション" href="iteration_team.html" />
-    <link rel="prev" title="5. アプリケーションのデプロイ" href="deploy.html" /> 
+    <link rel="next" title="7. チームでまわすイテレーション" href="team.html" />
+    <link rel="prev" title="5. アプリケーションのデプロイ（配備）" href="deploy.html" /> 
   </head>
   <body>
     <div class="related">
@@ -37,10 +37,10 @@
           <a href="genindex.html" title="総合索引"
              accesskey="I">索引</a></li>
         <li class="right" >
-          <a href="iteration_team.html" title="7. チームでまわすイテレーション"
+          <a href="team.html" title="7. チームでまわすイテレーション"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
-          <a href="deploy.html" title="5. アプリケーションのデプロイ"
+          <a href="deploy.html" title="5. アプリケーションのデプロイ（配備）"
              accesskey="P">前へ</a> |</li>
         <li><a href="index.html">基幹システム開発特論</a> &raquo;</li> 
       </ul>
@@ -54,24 +54,31 @@
   <div class="section" id="id1">
 <h1>6. 一人でまわすイテレーション<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <div class="section" id="id2">
-<h2>6.1. イテレーションサイクルの全体像<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>6.1. イテレーション・サイクルの全体像<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>ここまでのまとめとして，Railアプリケーションを個人で開発する場合のイテレーション・サイクルを図に示す．</p>
 <img alt="_images/IterationCycle.png" class="align-center" src="_images/IterationCycle.png" style="width: 50%;" />
+<div class="section" id="create-a-scaffold-product">
+<h3>6.1.1. Create a scaffold product<a class="headerlink" href="#create-a-scaffold-product" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>Ruby on Railsの開発は，Scaffoldを作成するところから開始する．</p>
+</div>
+<div class="section" id="deploy-the-product">
+<h3>6.1.2. Deploy the product<a class="headerlink" href="#deploy-the-product" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>大きなポイントは，Scaffoldを最初に運用環境へDeployしてしまうことである．開発が進んでからDeployするよりも，手戻りの可能性が低くなるという特徴がある．</p>
 </div>
 <div class="section" id="write-test-codes">
-<h2>6.2. Write/Test codes<a class="headerlink" href="#write-test-codes" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<div class="section" id="id3">
-<h3>6.2.1. テストコードを作成する<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<ul class="simple">
-<li>テストコードを作成する</li>
-<li>テストを実行する</li>
-</ul>
+<h3>6.1.3. Write/Test codes<a class="headerlink" href="#write-test-codes" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<p>その後，実際の開発の作業を行う．通常，テスト・ファーストの形態で行い，</p>
+<ol class="arabic simple">
+<li>テスト・コードを作成する</li>
+<li>テスト・コードを実行→失敗させる</li>
+<li>本体のコードを作成する</li>
+<li>本体のコードをテストする→成功</li>
+</ol>
+<p>といった流れになる．そして，完成したらcommitしてpushし，即座に運用環境へDeployする．</p>
+<div class="admonition note">
+<p class="first admonition-title">ノート</p>
+<p class="last">必要に応じて，別なScaffoldを追加する作業も行う．</p>
 </div>
-<div class="section" id="id4">
-<h3>6.2.2. コードを作成する<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<ul class="simple">
-<li>コードを作成する</li>
-<li>テストを実行する</li>
-</ul>
 </div>
 </div>
 </div>
@@ -85,10 +92,10 @@
   <h3><a href="index.html">目次</a></h3>
   <ul>
 <li><a class="reference internal" href="#">6. 一人でまわすイテレーション</a><ul>
-<li><a class="reference internal" href="#id2">6.1. イテレーションサイクルの全体像</a></li>
-<li><a class="reference internal" href="#write-test-codes">6.2. Write/Test codes</a><ul>
-<li><a class="reference internal" href="#id3">6.2.1. テストコードを作成する</a></li>
-<li><a class="reference internal" href="#id4">6.2.2. コードを作成する</a></li>
+<li><a class="reference internal" href="#id2">6.1. イテレーション・サイクルの全体像</a><ul>
+<li><a class="reference internal" href="#create-a-scaffold-product">6.1.1. Create a scaffold product</a></li>
+<li><a class="reference internal" href="#deploy-the-product">6.1.2. Deploy the product</a></li>
+<li><a class="reference internal" href="#write-test-codes">6.1.3. Write/Test codes</a></li>
 </ul>
 </li>
 </ul>
@@ -97,13 +104,13 @@
 
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="deploy.html"
-                        title="前の章へ">5. アプリケーションのデプロイ</a></p>
+                        title="前の章へ">5. アプリケーションのデプロイ（配備）</a></p>
   <h4>次のトピックへ</h4>
-  <p class="topless"><a href="iteration_team.html"
+  <p class="topless"><a href="team.html"
                         title="次の章へ">7. チームでまわすイテレーション</a></p>
   <h3>このページ</h3>
   <ul class="this-page-menu">
-    <li><a href="_sources/iteration_one.txt"
+    <li><a href="_sources/iteration.txt"
            rel="nofollow">ソースコードを表示</a></li>
   </ul>
 <div id="searchbox" style="display: none">
@@ -130,10 +137,10 @@
           <a href="genindex.html" title="総合索引"
              >索引</a></li>
         <li class="right" >
-          <a href="iteration_team.html" title="7. チームでまわすイテレーション"
+          <a href="team.html" title="7. チームでまわすイテレーション"
              >次へ</a> |</li>
         <li class="right" >
-          <a href="deploy.html" title="5. アプリケーションのデプロイ"
+          <a href="deploy.html" title="5. アプリケーションのデプロイ（配備）"
              >前へ</a> |</li>
         <li><a href="index.html">基幹システム開発特論</a> &raquo;</li> 
       </ul>
