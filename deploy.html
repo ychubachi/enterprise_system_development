@@ -7,7 +7,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>5. アプリケーションのデプロイ &mdash; 基幹システム開発特論</title>
+    <title>5. アプリケーションのデプロイ（配備） &mdash; 基幹システム開発特論</title>
     
     <link rel="stylesheet" href="_static/nature.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -26,7 +26,7 @@
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="_static/translations.js"></script>
     <link rel="top" title="基幹システム開発特論" href="index.html" />
-    <link rel="next" title="6. 一人でまわすイテレーション" href="iteration_one.html" />
+    <link rel="next" title="6. 一人でまわすイテレーション" href="iteration.html" />
     <link rel="prev" title="4. RubyとRails" href="ruby.html" /> 
   </head>
   <body>
@@ -37,7 +37,7 @@
           <a href="genindex.html" title="総合索引"
              accesskey="I">索引</a></li>
         <li class="right" >
-          <a href="iteration_one.html" title="6. 一人でまわすイテレーション"
+          <a href="iteration.html" title="6. 一人でまわすイテレーション"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
           <a href="ruby.html" title="4. RubyとRails"
@@ -52,44 +52,102 @@
           <div class="body">
             
   <div class="section" id="id1">
-<h1>5. アプリケーションのデプロイ<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<div class="section" id="ruby-on-rails">
-<h2>5.1. Ruby on Railsを用いた開発<a class="headerlink" href="#ruby-on-rails" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<img alt="_images/Rails.png" src="_images/Rails.png" style="width: 50%;" />
+<h1>5. アプリケーションのデプロイ（配備）<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="rubydeploy">
+<h2>5.1. RubyアプリケーションのDeploy用ツール<a class="headerlink" href="#rubydeploy" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
-<li>Phusion Passenger
-- RailsアプリケーションをApacheに接続して動作させるためのモジュール</li>
-<li>Capistrano
-- SSH/gitを使って，RailsアプリケーションをPassengerに対してデプロイするためのツール</li>
+<li>Phusion Passenger<ul>
+<li>RailsアプリケーションをApacheに接続して動作させるためのモジュール</li>
+</ul>
+</li>
+<li>Capistrano<ul>
+<li>SSH/gitを使って，RailsアプリケーションをPassengerに対してデプロイするためのツール</li>
+</ul>
+</li>
+</ul>
+<img alt="_images/Deploy.png" class="align-center" src="_images/Deploy.png" style="width: 70%;" />
+<ul class="simple">
+<li>これらを連携させることで，開発環境から運用環境へのアプリケーションの配備を行うことができる．</li>
 </ul>
 </div>
-<div class="section" id="rails">
-<h2>5.2. Railsアプリケーションのデプロイのためのツール<a class="headerlink" href="#rails" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="apachepassenger">
+<h2>5.2. ApacheとPassengerの導入<a class="headerlink" href="#apachepassenger" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="id2">
+<h3>5.2.1. ApacheとPassengerモジュールのためのパッケージの導入<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul>
-<li><p class="first"><a class="reference external" href="https://github.com/capistrano/capistrano#readme">Capistrano</a> のインストール</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo gem install capistrano
+<li><p class="first">ApaccheとPassengerに対応したApacheのモジュールをビルドするために必要なパッケージをインストールします．</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo apt-get install build-essential libcurl4-openssl-dev libssl-dev zlib1g-dev apache2-mpm-prefork apache2-prefork-dev libapr1-dev libaprutil1-dev
 </pre></div>
 </div>
 </li>
-<li><p class="first"><a class="reference external" href="http://www.modrails.com/install.html">Phusion Passenger</a> のインストール</p>
+<li><p class="first">VirtualBox内のUbuntuからWebブラウザを起動して，<a class="reference external" href="http://localhost">http://localhost</a>/にアクセスし，apacheが起動していて，ページが表示されるのを確認してください．</p>
+</li>
+<li><p class="first">ドキュメントルートは/var/wwwになります．</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>less /var/www/index.html
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h3>5.2.2. ユーザアカウントの権限を設定する<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ul>
+<li><p class="first">Railsのアプリケーションをデプロイする場所として，passengerという名前のアカウントを作成してそのhomeを利用する．このhomeは，6770の設定をし，passengerグループに所属するユーザからの参照・更新を許可する．</p>
+</li>
+<li><p class="first">railsユーザアカウントの設定</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo useradd -m passenger
+<span class="nv">$ </span>sudo chmod 6770 /home/passenger/
+</pre></div>
+</div>
+</li>
+<li><p class="first">passengerグループに，自分のユーザアカウントとwww-dataアカウント（Apache用）を追加する．</p>
+<ul class="simple">
+<li>「passenger:x:1002:」となっている行（1002は他の番号の可能性あり）を「passenger:x:1002:username,www-data」とする（usernameは置き換える）．</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo vigr
+</pre></div>
+</div>
+</li>
+<li><p class="first">一旦ログアウトしてから再度ログインする．</p>
+</li>
+<li><p class="first">自分とwww-dataがpassengerグループに入ったかを確かめる</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>groups
+<span class="nv">$ </span>groups www-data
+</pre></div>
+</div>
+</li>
+<li><p class="first">結果にpassengerグループが含まれていればOK</p>
+</li>
+<li><p class="first">/home/passengerにファイルが書き込めるか確かめる</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>touch /home/passenger/TEST
+<span class="nv">$ </span>ls /home/passenger
+<span class="nv">$ </span>rm /home/passenger/TEST
+<span class="nv">$ </span>ls /home/passenger
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="section" id="passenger">
+<h3>5.2.3. Passenger<a class="headerlink" href="#passenger" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<ul>
+<li><p class="first">Passengerをインストールします</p>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo gem install passenger
-</pre></div>
-</div>
-</li>
-<li><p class="first">Passengerをapacheと接続するためのモジュールをコンパイルする</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo yum -y install gcc-c++ curl-devel openssl-devel zlib-devel httpd-devel apr-devel apr-util-devel
 <span class="nv">$ </span>sudo passenger-install-apache2-module
 </pre></div>
 </div>
-<p>以下の内容を/etc/httpd/conf.d/rails.confに記述する</p>
-<div class="highlight-apacheconf"><div class="highlight"><pre><span class="nb">LoadModule</span> passenger_module <span class="sx">/usr/lib/ruby/gems/1.8/gems/passenger-3.0.11/ext/apache2/mod_passenger.so</span>
-<span class="nb">PassengerRoot</span> <span class="sx">/usr/lib/ruby/gems/1.8/gems/passenger-3.0.11</span>
-<span class="nb">PassengerRuby</span> <span class="sx">/usr/bin/ruby</span>
+</li>
+</ul>
+<ul>
+<li><p class="first">/etc/apache2/conf.d/passenger.confを作成して以下の内容を記述する</p>
+<div class="highlight-apacheconf"><div class="highlight"><pre><span class="nb">LoadModule</span> passenger_module <span class="sx">/var/lib/gems/1.9.1/gems/passenger-3.0.18/ext/apache2/mod_passenger.so</span>
+<span class="nb">PassengerRoot</span> <span class="sx">/var/lib/gems/1.9.1/gems/passenger-3.0.18</span>
+<span class="nb">PassengerRuby</span> <span class="sx">/usr/bin/ruby1.9.1</span>
 
 <span class="nt">&lt;VirtualHost</span> <span class="s">*:80</span><span class="nt">&gt;</span>
   <span class="nb">ServerName</span> localhost
-  <span class="nb">DocumentRoot</span> <span class="sx">/home/rails/myapp/current/public</span>
-  <span class="nt">&lt;Directory</span> <span class="s">/home/rails/myapp/current/public</span><span class="nt">&gt;</span>
+  <span class="nb">DocumentRoot</span> <span class="sx">/home/passenger/myapp/current/public</span>
+  <span class="nt">&lt;Directory</span> <span class="s">/home/passenger/myapp/current/public</span><span class="nt">&gt;</span>
      <span class="nb">AllowOverride</span> <span class="k">all</span>
      <span class="nb">Options</span> -MultiViews
   <span class="nt">&lt;/Directory&gt;</span>
@@ -97,31 +155,51 @@
 </pre></div>
 </div>
 </li>
+<li><p class="first">テスト用のHTMLを作成しておく</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>mkdir -p /home/passenger/myapp/current/public
+<span class="nv">$ </span><span class="nb">echo </span>TEST &gt; /home/passenger/myapp/current/public/index.html
+</pre></div>
+</div>
+</li>
 <li><p class="first">httpdを再起動する</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo service httpd restart
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo service apache2 restart
+</pre></div>
+</div>
+</li>
+<li><p class="first">Webブラウザでlocalhostにアクセスし「TEST」と表示されるか確認する</p>
+</li>
+<li><p class="first">テスト用のHTMLをフォルダごと削除する</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>rm -r /home/passenger/myapp
 </pre></div>
 </div>
 </li>
 </ul>
 </div>
-<div class="section" id="id2">
-<h2>5.3. railsユーザアカウントを作成する<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Railsのアプリケーションをデプロイする場所として，railsアカウントを作成してそのhomeを利用する．このhomeは，6770の設定をし，railsグループに所属するユーザからの参照・更新を許可する．</p>
+</div>
+<div class="section" id="rails">
+<h2>5.3. Railsアプリケーションのデプロイのためのツール<a class="headerlink" href="#rails" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="ssh">
+<h3>5.3.1. SSHサーバをインストール<a class="headerlink" href="#ssh" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul>
-<li><p class="first">railsユーザアカウントの設定</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo /usr/sbin/useradd rails
-<span class="nv">$ </span>sudo chmod 6770 /home/rails/
+<li><p class="first">sshサーバのインストール</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo apt-get install ssh
 </pre></div>
 </div>
 </li>
-<li><p class="first">railsグループに，自分のユーザアカウントとapacheアカウントを追加する</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo /usr/sbin/vigr
+<li><p class="first">パスワードでログインできるか確かめる</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>ssh localhost
+<span class="nv">$ </span><span class="nb">exit</span>
 </pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">ノート</p>
+<p class="last">Are you sure ..?と聞かれたら yes と入力する</p>
 </div>
 </li>
 </ul>
+</div>
 <div class="section" id="localhostssh">
-<h3>5.3.1. 公開鍵でlocalhostにSSH接続できるようにする<a class="headerlink" href="#localhostssh" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<h3>5.3.2. 公開鍵でlocalhostにSSH接続できるようにする<a class="headerlink" href="#localhostssh" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul>
 <li><p class="first">公開鍵をauthorized_keysに登録する</p>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>cat ~/.ssh/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys
@@ -129,6 +207,8 @@
 </pre></div>
 </div>
 </li>
+</ul>
+<ul>
 <li><p class="first">公開鍵で（＝パスワード無しで）ログインできるか確かめる</p>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>ssh localhost    <span class="c"># &lt;- you don&#39;t need to type your password</span>
 <span class="nv">$ </span><span class="nb">exit</span>
@@ -137,24 +217,43 @@
 </li>
 </ul>
 </div>
-<div class="section" id="id3">
-<h3>5.3.2. デプロイ用の設定を行う<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h3>
+<div class="section" id="id4">
+<h3>5.3.3. デプロイ用の設定を行う<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul>
-<li><p class="first">capifyコマンドでデプロイのための設定を生成し，修正を行う</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>capify .
-<span class="nv">$ </span>emacs Capfile &amp;
-<span class="nv">$ </span>emacs config/deploy.rb &amp;
+<li><p class="first"><a class="reference external" href="https://github.com/capistrano/capistrano#readme">Capistrano</a> のインストール</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo gem install capistrano
 </pre></div>
 </div>
+</li>
+<li><p class="first">capifyコマンドでデプロイのための設定を生成する</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span><span class="nb">cd</span> ~/myapp <span class="c"># &lt;- cd to your myapp directory.</span>
+<span class="nv">$ </span>capify .
+</pre></div>
+</div>
+</li>
+<li><p class="first">rails用にCapfileを編集する</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>vi Capfile &amp;
+</pre></div>
+</div>
+<ul class="simple">
+<li>3行目のコメントアウトを外す</li>
+</ul>
 <div class="highlight-ruby"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
-4</pre></div></td><td class="code"><div class="highlight"><pre><span class="c1"># Capfile</span>
-<span class="nb">load</span> <span class="s1">&#39;deploy&#39;</span> <span class="k">if</span> <span class="nb">respond_to?</span><span class="p">(</span><span class="ss">:namespace</span><span class="p">)</span>
-<span class="nb">load</span> <span class="s1">&#39;deploy/assets&#39;</span>
-<span class="nb">load</span> <span class="s1">&#39;config/deploy&#39;</span>
+4</pre></div></td><td class="code"><div class="highlight"><pre><span class="nb">load</span> <span class="s1">&#39;deploy&#39;</span>
+<span class="c1"># Uncomment if you are using Rails&#39; asset pipeline</span>
+<span class="hll"><span class="nb">load</span> <span class="s1">&#39;deploy/assets&#39;</span>
+</span><span class="nb">load</span> <span class="s1">&#39;config/deploy&#39;</span> <span class="c1"># remove this line to skip loading any of the default tasks</span>
 </pre></div>
 </td></tr></table></div>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>vi config/deploy.rb &amp;
+</pre></div>
+</div>
+<ul class="simple">
+<li>1-2行目，変更．3-4行目，追加．9-11行目，変更．12行目，コメントアウト．</li>
+<li>2行目は各自のGitHubレポジトリに置き換えること．</li>
+</ul>
 <div class="highlight-ruby"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -174,36 +273,44 @@
 17
 18
 19
-20</pre></div></td><td class="code"><div class="highlight"><pre><span class="c1"># config/deploy.rb</span>
-<span class="n">set</span> <span class="ss">:application</span><span class="p">,</span> <span class="s2">&quot;myapp&quot;</span>
-<span class="n">set</span> <span class="ss">:deploy_to</span><span class="p">,</span> <span class="s2">&quot;/home/rails/myapp&quot;</span>
+20
+21
+22
+23
+24
+25
+26
+27</pre></div></td><td class="code"><div class="highlight"><pre><span class="hll"><span class="n">set</span> <span class="ss">:application</span><span class="p">,</span> <span class="s2">&quot;myapp&quot;</span>
+</span><span class="hll"><span class="n">set</span> <span class="ss">:repository</span><span class="p">,</span>  <span class="s2">&quot;git@github.com:username/myapp.git&quot;</span>
+</span><span class="hll"><span class="n">set</span> <span class="ss">:deploy_to</span><span class="p">,</span> <span class="s2">&quot;/home/passenger/myapp&quot;</span>
+</span><span class="hll"><span class="n">set</span> <span class="ss">:use_sudo</span><span class="p">,</span> <span class="kp">false</span>
+</span>
+<span class="c1"># set :scm, :git # You can set :scm explicitly or Capistrano will make an intelligent guess based on known version control directory names</span>
+<span class="c1"># Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`</span>
 
-<span class="hll"><span class="n">set</span> <span class="ss">:repository</span><span class="p">,</span>  <span class="s2">&quot;git@github.com:username/myapp&quot;</span>
-</span><span class="n">set</span> <span class="ss">:scm</span><span class="p">,</span> <span class="ss">:git</span>
+<span class="hll"><span class="n">role</span> <span class="ss">:web</span><span class="p">,</span> <span class="s2">&quot;localhost&quot;</span>                          <span class="c1"># Your HTTP server, Apache/etc</span>
+</span><span class="hll"><span class="n">role</span> <span class="ss">:app</span><span class="p">,</span> <span class="s2">&quot;localhost&quot;</span>                          <span class="c1"># This may be the same as your `Web` server</span>
+</span><span class="hll"><span class="n">role</span> <span class="ss">:db</span><span class="p">,</span>  <span class="s2">&quot;localhost&quot;</span><span class="p">,</span> <span class="ss">:primary</span> <span class="o">=&gt;</span> <span class="kp">true</span> <span class="c1"># This is where Rails migrations will run</span>
+</span><span class="hll"><span class="c1">#role :db,  &quot;your slave db-server here&quot;</span>
+</span>
+<span class="c1"># if you want to clean up old releases on each deploy uncomment this:</span>
+<span class="c1"># after &quot;deploy:restart&quot;, &quot;deploy:cleanup&quot;</span>
 
-<span class="n">set</span> <span class="ss">:use_sudo</span><span class="p">,</span> <span class="kp">false</span>
+<span class="c1"># if you&#39;re still using the script/reaper helper you will need</span>
+<span class="c1"># these http://github.com/rails/irs_process_scripts</span>
 
-<span class="n">role</span> <span class="ss">:web</span><span class="p">,</span> <span class="s2">&quot;localhost&quot;</span>
-<span class="n">role</span> <span class="ss">:app</span><span class="p">,</span> <span class="s2">&quot;localhost&quot;</span>
-<span class="n">role</span> <span class="ss">:db</span><span class="p">,</span>  <span class="s2">&quot;localhost&quot;</span><span class="p">,</span> <span class="ss">:primary</span> <span class="o">=&gt;</span> <span class="kp">true</span>
-
-<span class="n">namespace</span> <span class="ss">:deploy</span> <span class="k">do</span>
-  <span class="n">task</span> <span class="ss">:start</span> <span class="k">do</span> <span class="p">;</span> <span class="k">end</span>
-  <span class="n">task</span> <span class="ss">:stop</span> <span class="k">do</span> <span class="p">;</span> <span class="k">end</span>
-  <span class="n">task</span> <span class="ss">:restart</span><span class="p">,</span> <span class="ss">:roles</span> <span class="o">=&gt;</span> <span class="ss">:app</span><span class="p">,</span> <span class="ss">:except</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="ss">:no_release</span> <span class="o">=&gt;</span> <span class="kp">true</span> <span class="p">}</span> <span class="k">do</span>
-    <span class="n">run</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">try_sudo</span><span class="si">}</span><span class="s2"> touch </span><span class="si">#{</span><span class="no">File</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">current_path</span><span class="p">,</span><span class="s1">&#39;tmp&#39;</span><span class="p">,</span><span class="s1">&#39;restart.txt&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
-  <span class="k">end</span>
-<span class="k">end</span>
-</pre></div>
+<span class="c1"># If you are using Passenger mod_rails uncomment this:</span>
+<span class="hll"><span class="n">namespace</span> <span class="ss">:deploy</span> <span class="k">do</span>
+</span><span class="hll">  <span class="n">task</span> <span class="ss">:start</span> <span class="k">do</span> <span class="p">;</span> <span class="k">end</span>
+</span><span class="hll">  <span class="n">task</span> <span class="ss">:stop</span> <span class="k">do</span> <span class="p">;</span> <span class="k">end</span>
+</span><span class="hll">  <span class="n">task</span> <span class="ss">:restart</span><span class="p">,</span> <span class="ss">:roles</span> <span class="o">=&gt;</span> <span class="ss">:app</span><span class="p">,</span> <span class="ss">:except</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="ss">:no_release</span> <span class="o">=&gt;</span> <span class="kp">true</span> <span class="p">}</span> <span class="k">do</span>
+</span><span class="hll">    <span class="n">run</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">try_sudo</span><span class="si">}</span><span class="s2"> touch </span><span class="si">#{</span><span class="no">File</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">current_path</span><span class="p">,</span><span class="s1">&#39;tmp&#39;</span><span class="p">,</span><span class="s1">&#39;restart.txt&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+</span><span class="hll">  <span class="k">end</span>
+</span><span class="hll"><span class="k">end</span>
+</span></pre></div>
 </td></tr></table></div>
-<p>↑5行目のusernameは，各自のGitHubアカウント名に置き換えること．</p>
 </li>
-</ul>
-</div>
-<div class="section" id="id4">
-<h3>5.3.3. デプロイ先のセットアップ<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<ul>
-<li><p class="first">capコマンドでデプロイ先をsetupする</p>
+<li><p class="first">capコマンドでデプロイ先をsetup（フォルダの作成）をする</p>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>cap deploy:setup
 <span class="nv">$ </span>find /home/rails    <span class="c"># &lt;- check</span>
 </pre></div>
@@ -211,13 +318,12 @@
 </li>
 </ul>
 </div>
-</div>
-<div class="section" id="deploy-products">
-<h2>5.4. Deploy products<a class="headerlink" href="#deploy-products" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<div class="section" id="githubdeploy">
+<h3>5.3.4. GitHubを経由したDeploy<a class="headerlink" href="#githubdeploy" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <ul>
 <li><p class="first">ローカルレポジトリにcommitする</p>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git add .
-<span class="nv">$ </span>git commit -a -m <span class="s1">&#39;Deploy&#39;</span>
+<span class="nv">$ </span>git commit -a -m <span class="s1">&#39;＜作業内容＞&#39;</span>
 </pre></div>
 </div>
 </li>
@@ -240,6 +346,7 @@
 </ul>
 </div>
 </div>
+</div>
 
 
           </div>
@@ -249,16 +356,21 @@
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">目次</a></h3>
   <ul>
-<li><a class="reference internal" href="#">5. アプリケーションのデプロイ</a><ul>
-<li><a class="reference internal" href="#ruby-on-rails">5.1. Ruby on Railsを用いた開発</a></li>
-<li><a class="reference internal" href="#rails">5.2. Railsアプリケーションのデプロイのためのツール</a></li>
-<li><a class="reference internal" href="#id2">5.3. railsユーザアカウントを作成する</a><ul>
-<li><a class="reference internal" href="#localhostssh">5.3.1. 公開鍵でlocalhostにSSH接続できるようにする</a></li>
-<li><a class="reference internal" href="#id3">5.3.2. デプロイ用の設定を行う</a></li>
-<li><a class="reference internal" href="#id4">5.3.3. デプロイ先のセットアップ</a></li>
+<li><a class="reference internal" href="#">5. アプリケーションのデプロイ（配備）</a><ul>
+<li><a class="reference internal" href="#rubydeploy">5.1. RubyアプリケーションのDeploy用ツール</a></li>
+<li><a class="reference internal" href="#apachepassenger">5.2. ApacheとPassengerの導入</a><ul>
+<li><a class="reference internal" href="#id2">5.2.1. ApacheとPassengerモジュールのためのパッケージの導入</a></li>
+<li><a class="reference internal" href="#id3">5.2.2. ユーザアカウントの権限を設定する</a></li>
+<li><a class="reference internal" href="#passenger">5.2.3. Passenger</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#deploy-products">5.4. Deploy products</a></li>
+<li><a class="reference internal" href="#rails">5.3. Railsアプリケーションのデプロイのためのツール</a><ul>
+<li><a class="reference internal" href="#ssh">5.3.1. SSHサーバをインストール</a></li>
+<li><a class="reference internal" href="#localhostssh">5.3.2. 公開鍵でlocalhostにSSH接続できるようにする</a></li>
+<li><a class="reference internal" href="#id4">5.3.3. デプロイ用の設定を行う</a></li>
+<li><a class="reference internal" href="#githubdeploy">5.3.4. GitHubを経由したDeploy</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -267,7 +379,7 @@
   <p class="topless"><a href="ruby.html"
                         title="前の章へ">4. RubyとRails</a></p>
   <h4>次のトピックへ</h4>
-  <p class="topless"><a href="iteration_one.html"
+  <p class="topless"><a href="iteration.html"
                         title="次の章へ">6. 一人でまわすイテレーション</a></p>
   <h3>このページ</h3>
   <ul class="this-page-menu">
@@ -298,7 +410,7 @@
           <a href="genindex.html" title="総合索引"
              >索引</a></li>
         <li class="right" >
-          <a href="iteration_one.html" title="6. 一人でまわすイテレーション"
+          <a href="iteration.html" title="6. 一人でまわすイテレーション"
              >次へ</a> |</li>
         <li class="right" >
           <a href="ruby.html" title="4. RubyとRails"

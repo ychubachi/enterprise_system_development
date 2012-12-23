@@ -10,16 +10,17 @@
 ----
 .. toctree::
    :numbered:
-   :maxdepth: 2
+   :maxdepth: 3
 
    overview
    workstation
    git
    ruby
    deploy
-   iteration_one
-   iteration_team
-   enterprise
+   iteration
+   team
+   groupwork
+   pull
    memo
 
 この資料について
