@@ -38,6 +38,10 @@
 
     $ sudo gem install rails passenger capistrano
 
+  .. note::
+
+    アプリケーションの実行には bundle install によるgemのインストールも必要．
+
 .. * エッジにこだわる
 .. * HTMLの画面をみんなで手分けして修正してみよう
 .. * テストの方法
