@@ -87,9 +87,15 @@ Passenger
     $ sudo gem install passenger
     $ sudo passenger-install-apache2-module
 
+  .. note::
+
+    Please edit your Apache configration file, ... のメッセージがでるので，設定の内容を控えておいてください．
+
 - /etc/apache2/conf.d/passenger.confを作成して以下の内容を記述する
 
   .. code-block:: apacheconf
+    :linenos:
+    :emphasize-lines: 1-3
   
     LoadModule passenger_module /var/lib/gems/1.9.1/gems/passenger-3.0.18/ext/apache2/mod_passenger.so
     PassengerRoot /var/lib/gems/1.9.1/gems/passenger-3.0.18
@@ -104,6 +110,10 @@ Passenger
       </Directory>
     </VirtualHost>
 
+  .. note::
+
+    1-3行目の内容は，必要であれば一つ前の手順で控えた設定で置き換えてください．
+
 - テスト用のHTMLを作成しておく
 
   .. code-block:: bash
@@ -116,6 +126,10 @@ Passenger
   .. code-block:: bash
 
     $ sudo service apache2 restart
+
+  .. note::
+
+    apache2: Could not ... という警告がでますがここでは無視して構いません．
 
 - Webブラウザでlocalhostにアクセスし「TEST」と表示されるか確認する
 
@@ -211,7 +225,7 @@ SSHサーバをインストール
   .. code-block:: bash
 
     $ cap deploy:setup
-    $ find /home/rails    # <- check
+    $ find /home/passenger    # <- check
 
 GitHubを経由したDeploy
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
