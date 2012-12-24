@@ -49,31 +49,42 @@
             
   <div class="section" id="id1">
 <h1>10. メモ<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<ul>
+<li><p class="first">技術情報を検索するときのコツ</p>
 <ul class="simple">
-<li>技術情報を検索するときのコツ<ul>
 <li>Googleで最初に出たページが正しいとは限らない．特に，日付の古い記事は参考にならない，と思ってよいでしょう．また，内容の正確さという面で原典にまさるものはありません．英語の場合が多いですが頑張って読みましょう．</li>
 </ul>
 </li>
-<li>コマンドがエラーを出したら<ul>
+<li><p class="first">コマンドがエラーを出したら</p>
+<ul class="simple">
 <li>エラーメッセージや，ログをよく読みましょう．英語であっても，頑張って読みます．</li>
 </ul>
 </li>
-<li>EmacsでGitをつかうには？<ul>
+<li><p class="first">EmacsでGitをつかうには？</p>
+<ul class="simple">
 <li>Magitがよいです． <a class="reference external" href="http://philjackson.github.com/magit/">http://philjackson.github.com/magit/</a></li>
 </ul>
 </li>
-<li>インストール時のパスワードは絶対に忘れないこと<ul>
+<li><p class="first">インストール時のパスワードは絶対に忘れないこと</p>
+<ul class="simple">
 <li>とりあえず，間違えなく入力できる文字でパスワードを指定しておき，インストール後にログインできることが確認できてから，より難解なものに修正する，というやり方もあります</li>
 </ul>
 </li>
-<li>仮想の開発環境を手軽に作成するには<ul>
+<li><p class="first">仮想の開発環境を手軽に作成するには</p>
+<ul class="simple">
 <li>LXCを試してみては． <a class="reference external" href="http://gihyo.jp/admin/serial/01/ubuntu-recipe/0226">http://gihyo.jp/admin/serial/01/ubuntu-recipe/0226</a></li>
 </ul>
 </li>
-<li>PCのリソースが足りずVirtualBoxでUbuntuが動かない/重い<ul>
+<li><p class="first">PCのリソースが足りずVirtualBoxでUbuntuが動かない/重い</p>
+<ul class="simple">
 <li>Lubuntuを試しては． <a class="reference external" href="http://lubuntu.net/">http://lubuntu.net/</a></li>
-<li>VirtualBoxを使わず，HDDにインストールしてデュアルブートにする方法もあります．</li>
+<li>VirtualBoxを使わず，HDDに新しいパーティションを切って，直接インストールしてデュアルブートにする方法もあります．</li>
 </ul>
+</li>
+<li><p class="first">この演習に使うパッケージをまとめてインストールしたい</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo apt-get install build-essential libcurl4-openssl-dev libssl-dev zlib1g-dev apache2-mpm-prefork apache2-prefork-dev libapr1-dev libaprutil1-dev ssh git ruby1.9.3 libsqlite3-dev nodejs
+</pre></div>
+</div>
 </li>
 </ul>
 </div>

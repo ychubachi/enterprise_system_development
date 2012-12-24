@@ -24,7 +24,14 @@
 * PCのリソースが足りずVirtualBoxでUbuntuが動かない/重い
 
   - Lubuntuを試しては． http://lubuntu.net/
-  - VirtualBoxを使わず，HDDにインストールしてデュアルブートにする方法もあります．
+  - VirtualBoxを使わず，HDDに新しいパーティションを切って，直接インストールしてデュアルブートにする方法もあります．
+
+* この演習に使うパッケージをまとめてインストールしたい
+
+  .. code-block:: bash
+
+    $ sudo apt-get install build-essential libcurl4-openssl-dev libssl-dev zlib1g-dev apache2-mpm-prefork apache2-prefork-dev libapr1-dev libaprutil1-dev ssh git ruby1.9.3 libsqlite3-dev nodejs
+
 
 .. * エッジにこだわる
 .. * HTMLの画面をみんなで手分けして修正してみよう
