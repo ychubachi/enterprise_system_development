@@ -32,6 +32,11 @@
 
     $ sudo apt-get install build-essential libcurl4-openssl-dev libssl-dev zlib1g-dev apache2-mpm-prefork apache2-prefork-dev libapr1-dev libaprutil1-dev ssh git ruby1.9.3 libsqlite3-dev nodejs
 
+* この演習に使うrubyのgemパッケージをまとめてインストールしたい
+
+  .. code-block:: bash
+
+    $ sudo gem install rails passenger capistrano
 
 .. * エッジにこだわる
 .. * HTMLの画面をみんなで手分けして修正してみよう
