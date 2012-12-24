@@ -41,7 +41,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'基幹システム開発特論'
-copyright = u'2011, Yoshihide Chubachi'
+copyright = u'2011-2012, Yoshihide Chubachi'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
