@@ -136,14 +136,29 @@
 <span class="nv">$ </span>sudo passenger-install-apache2-module
 </pre></div>
 </div>
+<div class="admonition note">
+<p class="first admonition-title">ノート</p>
+<p class="last">Please edit your Apache configration file, ... のメッセージがでるので，設定の内容を控えておいてください．</p>
+</div>
 </li>
 </ul>
 <ul>
 <li><p class="first">/etc/apache2/conf.d/passenger.confを作成して以下の内容を記述する</p>
-<div class="highlight-apacheconf"><div class="highlight"><pre><span class="nb">LoadModule</span> passenger_module <span class="sx">/var/lib/gems/1.9.1/gems/passenger-3.0.18/ext/apache2/mod_passenger.so</span>
-<span class="nb">PassengerRoot</span> <span class="sx">/var/lib/gems/1.9.1/gems/passenger-3.0.18</span>
-<span class="nb">PassengerRuby</span> <span class="sx">/usr/bin/ruby1.9.1</span>
-
+<div class="highlight-apacheconf"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span class="hll"><span class="nb">LoadModule</span> passenger_module <span class="sx">/var/lib/gems/1.9.1/gems/passenger-3.0.18/ext/apache2/mod_passenger.so</span>
+</span><span class="hll"><span class="nb">PassengerRoot</span> <span class="sx">/var/lib/gems/1.9.1/gems/passenger-3.0.18</span>
+</span><span class="hll"><span class="nb">PassengerRuby</span> <span class="sx">/usr/bin/ruby1.9.1</span>
+</span>
 <span class="nt">&lt;VirtualHost</span> <span class="s">*:80</span><span class="nt">&gt;</span>
   <span class="nb">ServerName</span> localhost
   <span class="nb">DocumentRoot</span> <span class="sx">/home/passenger/myapp/current/public</span>
@@ -153,6 +168,10 @@
   <span class="nt">&lt;/Directory&gt;</span>
 <span class="nt">&lt;/VirtualHost&gt;</span>
 </pre></div>
+</td></tr></table></div>
+<div class="admonition note">
+<p class="first admonition-title">ノート</p>
+<p class="last">1-3行目の内容は，必要であれば一つ前の手順で控えた設定で置き換えてください．</p>
 </div>
 </li>
 <li><p class="first">テスト用のHTMLを作成しておく</p>
@@ -164,6 +183,10 @@
 <li><p class="first">httpdを再起動する</p>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo service apache2 restart
 </pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">ノート</p>
+<p class="last">apache2: Could not ... という警告がでますがここでは無視して構いません．</p>
 </div>
 </li>
 <li><p class="first">Webブラウザでlocalhostにアクセスし「TEST」と表示されるか確認する</p>
@@ -312,7 +335,7 @@
 </li>
 <li><p class="first">capコマンドでデプロイ先をsetup（フォルダの作成）をする</p>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>cap deploy:setup
-<span class="nv">$ </span>find /home/rails    <span class="c"># &lt;- check</span>
+<span class="nv">$ </span>find /home/passenger    <span class="c"># &lt;- check</span>
 </pre></div>
 </div>
 </li>
@@ -419,7 +442,7 @@
       </ul>
     </div>
     <div class="footer">
-        &copy; Copyright 2011, Yoshihide Chubachi.
+        &copy; Copyright 2011-2012, Yoshihide Chubachi.
       このドキュメントは <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3 で生成しました。
     </div>
   </body>

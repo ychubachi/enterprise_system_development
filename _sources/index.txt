@@ -6,6 +6,12 @@
 基幹システム開発特論（2012年度版）
 ========================================
 
+概要
+----
+
+* この文書は，AIIT（産業技術大学院大学）で開講している「基幹システム開発特論」の教材です．
+* この教材に関する質問や意見，改善提案などは `[GitHub Issues] <https://github.com/ychubachi/enterprise_system_development/issues/new>`_ にご記入ください．
+
 目次
 ----
 .. toctree::
@@ -28,10 +34,6 @@
 ※この資料は
 `[GitHub Page] <http://ychubachi.github.com/enterprise_system_development/index.html>`_ 
 にあります．
-
-※この資料に関する質問や意見，改善提案などは
-`[GitHub Issues] <https://github.com/ychubachi/enterprise_system_development/issues/new>`_
-にご記入ください．
 
 
 ToDo
