@@ -248,7 +248,7 @@ GitHubを経由したDeploy
   .. code-block:: bash
 
     $ cap deploy:migrations
-    $ find /home/rails    # <- check
+    $ find /home/passenger/    # <- check
 
 * ローカルApacheサーバを確認する
 
