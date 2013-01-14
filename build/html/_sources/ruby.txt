@@ -74,8 +74,8 @@ Scaffoldの作成
   .. code-block:: bash
     :linenos:
 
-    $ rails new myapp
     $ cd myapp
+    $ rails new .
 
 * RailsでScaffoldを生成する
 
