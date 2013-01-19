@@ -1,0 +1,160 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>8. サーバの構築演習 &mdash; 基幹システム開発特論</title>
+    
+    <link rel="stylesheet" href="_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/translations.js"></script>
+    <link rel="top" title="基幹システム開発特論" href="index.html" />
+    <link rel="next" title="9. GitHubを利用したPull型のモデル" href="pull.html" />
+    <link rel="prev" title="7. チームでまわすイテレーション" href="team.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>ナビゲーション</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="総合索引"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="pull.html" title="9. GitHubを利用したPull型のモデル"
+             accesskey="N">次へ</a> |</li>
+        <li class="right" >
+          <a href="team.html" title="7. チームでまわすイテレーション"
+             accesskey="P">前へ</a> |</li>
+        <li><a href="index.html">基幹システム開発特論</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="id1">
+<h1>8. サーバの構築演習<a class="headerlink" href="#id1" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="id2">
+<h2>8.1. 概要<a class="headerlink" href="#id2" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>ここまでに習得した，チームによるイテレーションサイクルの方法を活かして，本格的な基幹システムを開発します．</p>
+<p>今までのトレーニングと異なるのは，グローバルなIPアドレスを持ったサーバに開発したアプリケーションをデプロイすることです．つまり，開発したアプリを実際に「公開」することになります．</p>
+<p>まずは，グローバルIPが降られたサーバを1台構築し，そこにアプリケーションをデプロイできるようにしましょう．サーバを構築する手順は，ワークステーションのときの手順
+と一緒です．</p>
+</div>
+<div class="section" id="id3">
+<h2>8.2. 準備<a class="headerlink" href="#id3" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>OSはUbuntu 12.10 Desktop版を利用<ul>
+<li>Desktop版にしたのは，ブラウザで手順書を確認することなどをしやすくするためです．</li>
+<li>実際の業務ではServer版を使いましょう．</li>
+<li>ドライバのせいか，Desktop環境は割と重たいです．</li>
+</ul>
+</li>
+<li>IPは教員からもらってください</li>
+<li>DVDも借りてください</li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h2>8.3. アカウントの作成と公開鍵の設定<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>デプロイを担当するメンバー全員のアカウントを作成してください</li>
+<li>それぞれのユーザに公開鍵を登録する．</li>
+<li>全員が公開鍵でアクセスできるようにした後，パスワードによるアクセスを禁止してください</li>
+</ul>
+</div>
+<div class="section" id="id5">
+<h2>8.4. 1台のサーバによる本番環境の構築<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>最初はサーバ1台で．</li>
+<li>外部のWANからのケーブルをサーバに直結します．</li>
+<li>DVDからブートし，ライブセッション（試用する機能）を利用して，IPを設定して，ネットワークに接続されたことが確認してからインストールをすると便利</li>
+<li>capstranoでデプロイができるようになったら，確認しますので教えてください</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">目次</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">8. サーバの構築演習</a><ul>
+<li><a class="reference internal" href="#id2">8.1. 概要</a></li>
+<li><a class="reference internal" href="#id3">8.2. 準備</a></li>
+<li><a class="reference internal" href="#id4">8.3. アカウントの作成と公開鍵の設定</a></li>
+<li><a class="reference internal" href="#id5">8.4. 1台のサーバによる本番環境の構築</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>前のトピックへ</h4>
+  <p class="topless"><a href="team.html"
+                        title="前の章へ">7. チームでまわすイテレーション</a></p>
+  <h4>次のトピックへ</h4>
+  <p class="topless"><a href="pull.html"
+                        title="次の章へ">9. GitHubを利用したPull型のモデル</a></p>
+  <h3>このページ</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/server.txt"
+           rel="nofollow">ソースコードを表示</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>クイック検索</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="検索" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    モジュール、クラス、または関数名を入力してください
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>ナビゲーション</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="総合索引"
+             >索引</a></li>
+        <li class="right" >
+          <a href="pull.html" title="9. GitHubを利用したPull型のモデル"
+             >次へ</a> |</li>
+        <li class="right" >
+          <a href="team.html" title="7. チームでまわすイテレーション"
+             >前へ</a> |</li>
+        <li><a href="index.html">基幹システム開発特論</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2011-2012, Yoshihide Chubachi.
+      このドキュメントは <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3 で生成しました。
+    </div>
+  </body>
+</html>

@@ -25,7 +25,7 @@
    deploy
    iteration
    team
-   groupwork
+   server
    pull
    memo
 
