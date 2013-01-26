@@ -1,5 +1,5 @@
 set :application, "myapp"
-set :repository,  "git@github.com:username/myapp.git"
+set :repository,  "git@github.com:<username>/myapp.git"
 set :deploy_to, "/home/passenger/myapp"
 set :use_sudo, false
 

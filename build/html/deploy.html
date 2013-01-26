@@ -100,11 +100,9 @@
 </pre></div>
 </div>
 </li>
-<li><p class="first">passengerグループに，自分のユーザアカウントとwww-dataアカウント（Apache用）を追加する．</p>
-<ul class="simple">
-<li>「passenger:x:1002:」となっている行（1002は他の番号の可能性あり）を「passenger:x:1002:username,www-data」とする（usernameは置き換える）．</li>
-</ul>
-<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo vigr
+<li><p class="first">passengerグループに，自分のユーザアカウントとwww-dataアカウント（Apache用）を追加する（&lt;username&gt;のところは自分のアカウント名に置き換える）．</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>sudo gpasswd -a &lt;username&gt; passenger
+<span class="nv">$ </span>sudo gpasswd -a www-data passenger
 </pre></div>
 </div>
 </li>
@@ -304,7 +302,7 @@
 25
 26
 27</pre></div></td><td class="code"><div class="highlight"><pre><span class="hll"><span class="n">set</span> <span class="ss">:application</span><span class="p">,</span> <span class="s2">&quot;myapp&quot;</span>
-</span><span class="hll"><span class="n">set</span> <span class="ss">:repository</span><span class="p">,</span>  <span class="s2">&quot;git@github.com:username/myapp.git&quot;</span>
+</span><span class="hll"><span class="n">set</span> <span class="ss">:repository</span><span class="p">,</span>  <span class="s2">&quot;git@github.com:&lt;username&gt;/myapp.git&quot;</span>
 </span><span class="hll"><span class="n">set</span> <span class="ss">:deploy_to</span><span class="p">,</span> <span class="s2">&quot;/home/passenger/myapp&quot;</span>
 </span><span class="hll"><span class="n">set</span> <span class="ss">:use_sudo</span><span class="p">,</span> <span class="kp">false</span>
 </span>

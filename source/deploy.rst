@@ -49,13 +49,12 @@ ApacheとPassengerモジュールのためのパッケージの導入
     $ sudo useradd -m passenger
     $ sudo chmod 6770 /home/passenger/
 
-* passengerグループに，自分のユーザアカウントとwww-dataアカウント（Apache用）を追加する．
-
-  - 「passenger:x:1002:」となっている行（1002は他の番号の可能性あり）を「passenger:x:1002:username,www-data」とする（usernameは置き換える）．
+* passengerグループに，自分のユーザアカウントとwww-dataアカウント（Apache用）を追加する（<username>のところは自分のアカウント名に置き換える）．
 
   .. code-block:: bash
 
-    $ sudo vigr
+    $ sudo gpasswd -a <username> passenger
+    $ sudo gpasswd -a www-data passenger
 
 * 一旦ログアウトしてから再度ログインする．
 
