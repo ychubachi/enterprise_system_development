@@ -74,20 +74,33 @@
 </ul>
 </div>
 <div class="section" id="id4">
-<h2>8.3. アカウントの作成と公開鍵の設定<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<ul class="simple">
-<li>デプロイを担当するメンバー全員のアカウントを作成してください</li>
-<li>それぞれのユーザに公開鍵を登録する．</li>
-<li>全員が公開鍵でアクセスできるようにした後，パスワードによるアクセスを禁止してください</li>
-</ul>
-</div>
-<div class="section" id="id5">
-<h2>8.4. 1台のサーバによる本番環境の構築<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<h2>8.3. 1台のサーバによる本番環境の構築<a class="headerlink" href="#id4" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul class="simple">
 <li>最初はサーバ1台で．</li>
 <li>外部のWANからのケーブルをサーバに直結します．</li>
-<li>DVDからブートし，ライブセッション（試用する機能）を利用して，IPを設定して，ネットワークに接続されたことが確認してからインストールをすると便利</li>
+<li>DVDからブートし，ライブセッション（試用する機能）を利用して，IPを設定したうえで，ネットワークに接続されたことが確認してからインストールをすると捗ります．</li>
+</ul>
+<p>アカウントの作成と公開鍵の設定</p>
+</div>
+<div class="section" id="id5">
+<h2>8.4. インストール後にすること<a class="headerlink" href="#id5" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>サーバにメンバー全員のアカウントを作成してください</li>
+<li>全員がsudoできるように，sudoグループに全員のアカウントを追加します．</li>
+</ul>
+</div>
+<div class="section" id="id6">
+<h2>8.5. メンバー全員がやること<a class="headerlink" href="#id6" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>それぞれのユーザがローカルからアクセスできるように，.ssh/authorized_keysに公開鍵を登録する．</li>
+<li>サーバ上であらためて公開鍵・非公開鍵を生成します．公開鍵の方をgithubの自分のアカウントに追加してください．</li>
 <li>capstranoでデプロイができるようになったら，確認しますので教えてください</li>
+</ul>
+</div>
+<div class="section" id="id7">
+<h2>8.6. セキュリティ<a class="headerlink" href="#id7" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<ul class="simple">
+<li>全員が公開鍵でアクセスできるようにした後，パスワードによるSSH接続を禁止してください</li>
 </ul>
 </div>
 </div>
@@ -103,8 +116,10 @@
 <li><a class="reference internal" href="#">8. サーバの構築演習</a><ul>
 <li><a class="reference internal" href="#id2">8.1. 概要</a></li>
 <li><a class="reference internal" href="#id3">8.2. 準備</a></li>
-<li><a class="reference internal" href="#id4">8.3. アカウントの作成と公開鍵の設定</a></li>
-<li><a class="reference internal" href="#id5">8.4. 1台のサーバによる本番環境の構築</a></li>
+<li><a class="reference internal" href="#id4">8.3. 1台のサーバによる本番環境の構築</a></li>
+<li><a class="reference internal" href="#id5">8.4. インストール後にすること</a></li>
+<li><a class="reference internal" href="#id6">8.5. メンバー全員がやること</a></li>
+<li><a class="reference internal" href="#id7">8.6. セキュリティ</a></li>
 </ul>
 </li>
 </ul>
