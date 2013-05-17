@@ -31,8 +31,8 @@
 仮想OSのインストール
 --------------------
 
-VMware Playerのインストール
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+VirtualBoxのインストール
+~~~~~~~~~~~~~~~~~~~~~~~~
 - `VirtualBoxのDownloadページ`_ に行き，ダウンロードしてインストールする
 
 .. _`VirtualBoxのDownloadページ`: https://www.virtualbox.org/wiki/Downloads
